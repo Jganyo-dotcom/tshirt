@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customize Your Round Neck</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Round Neck Designer</h1>
+  </header>
+
+  <main>
+    <div id="dressing">
+      <img id="t-shirt" src="gray.jpg" alt="T-shirt" />
+      <img class="design" src="4.png" alt="Design Overlay" />
+    </div>
+
+    <button id="modal-button">☰</button>
+
+    <div id="modal">
+      <div id="modal-content">
+        <span id="close-modal">&times;</span>
+        <p>Choose a design</p>
+        <div class="design-gallery">
+          <img src="34.png" class="change" data-src="34.png" alt="Design Image" />
+          <img src="4.png" class="change" data-src="4.png" alt="Design Image" />
+          <img src="5.png" class="change" data-src="5.png" alt="Design Image" />
+          <img src="10.png" class="change" data-src="10.png" alt="Design Image" />
+          <img src="47.png" class="change" data-src="47.png" alt="Design Image" />
+        </div>
+      </div>
+    </div>
+
+    <div id="design-div">
+      <button id="show-designs">Designs</button>
+      <button id="show-order">Order</button>
+    </div>
+
+    <section id="my-colours">
+      <h2>Choose Colour</h2>
+      <div class="color-options">
+        <button id="red" data-colour="red" class="choose"></button>
+        <button id="yellow" data-colour="yellow" class="choose"></button>
+        <button id="ash" data-colour="gray.jpg" class="choose"></button>
+        <button id="black" data-colour="black.jpg" class="choose"></button>
+        <button id="green" data-colour="green" class="choose"></button>
+        <button id="brown" data-colour="brown" class="choose"></button>
+        <button id="pink" data-colour="pink" class="choose"></button>
+        <button id="white" data-colour="white" class="choose"></button>
+        <button id="seablue" data-colour="#ADD8E6" class="choose"></button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 RoundNeck Custom. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>
