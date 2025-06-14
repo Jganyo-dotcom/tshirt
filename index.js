@@ -1,13 +1,17 @@
 document.addEventListener('DOMContentLoaded',function(){
     console.log('loaded')
+    let target = document.querySelector('#t-shirt')
     document.querySelectorAll('.choose').forEach(button=>{
+        target.onerror = null
+        target.onerror = function(){
+            alert('not available')
+            target.src = 'gray.jpg'
+        }
         button.addEventListener('click', function(){
             let colour = button.dataset.colour
             console.log(colour)
-        let target = document.querySelector('#t-shirt')
-        if (colour){
-            target.src = colour
-        }
+        target.src = colour
+        
         })
         
     })
@@ -33,3 +37,4 @@ document.querySelector('#show-designs').addEventListener('click', function(){
 document.querySelector('#close-modal').addEventListener('click',function(){
     document.querySelector('#modal').style.display = 'none'
 })
+
