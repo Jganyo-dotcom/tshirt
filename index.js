@@ -15,9 +15,8 @@ document.addEventListener('DOMContentLoaded',function(){
         })
         
     })
-})
 
-document.querySelectorAll('.change').forEach(function(image){
+    document.querySelectorAll('.change').forEach(function(image){
     image.addEventListener('click', function(){
          let design_type = image.dataset.src
          image.style.width = '150px'
@@ -36,5 +35,25 @@ document.querySelector('#show-designs').addEventListener('click', function(){
 })
 document.querySelector('#close-modal').addEventListener('click',function(){
     document.querySelector('#modal').style.display = 'none'
+})
+
+document.querySelector('#resize-height').addEventListener('input', ()=>{
+    document.querySelector('.design').style.height = document.querySelector('#resize-height').value + 'px'
+});
+
+document.querySelector('#resize-width').addEventListener('input', ()=>{
+    document.querySelector('.design').style.width = document.querySelector('#resize-width').value + 'px'
+
+})
+
+document.querySelector('#upward').addEventListener('input', ()=>{
+    document.querySelector('.design').style.top = document.querySelector('#upward').value + '%'
+});
+
+document.querySelector('#move-left').addEventListener('input', ()=>{
+    document.querySelector('.design').style.left = document.querySelector('#move-left').value + '%'
+
+})
+
 })
 
