@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded',function(){
     document.querySelectorAll('.choose').forEach(button=>{
         target.onerror = null
         target.onerror = function(){
-            alert('not available')
+            alert('not available at the moment')
             target.src = 'gray.jpg'
         }
         button.addEventListener('click', function(){
@@ -116,6 +116,8 @@ document.querySelector("#lock-range").addEventListener('click', function(){
     })
     }
 })
+
+
 
 })
 
