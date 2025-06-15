@@ -1,6 +1,10 @@
 /* === Import Google Font === */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+body {
+  cursor: url('https://cur.cursors-4u.net/nature/nat-11/nat1074.cur'), auto;
+}
+
 :root {
   --primary-color: #0077cc;
   --background: #f4f6f8;
@@ -17,14 +21,24 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--background);
+  background: linear-gradient(-45deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
+  background-size: 400% 400%;
+  animation: animatedGradient 12s ease infinite;
   color: var(--text);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px 100px; /* bottom padding for footer */
+  padding: 40px 20px 100px;
   min-height: 100vh;
 }
+
+/* Keyframes for the background gradient animation */
+@keyframes animatedGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 
 /* === Dressing Container === */
 #dressing {
@@ -42,7 +56,9 @@ body {
 #t-shirt {
   width: 100%;
   height: auto;
+  transition: background-color 0.6s ease, filter 0.6s ease, transform 0.3s ease;
 }
+
 
 .design {
   position: absolute;
@@ -357,5 +373,35 @@ header h1 {
 .design {
   animation: pulse 2s infinite ease-in-out;
 }
+
+.tshirt-animate {
+  animation: pulse 0.6s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.03);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.design {
+  animation: pulse 2.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
 
 
