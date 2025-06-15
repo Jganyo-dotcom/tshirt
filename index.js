@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded',function(){
     console.log('loaded')
+    let lock_range = true;
+    document.querySelector('#lock-range').textContent = 'unlock';
+    document.querySelectorAll('input[type="range"]').forEach(function(range){
+        range.disabled = true
+    })
+
+    
     let target = document.querySelector('#t-shirt')
     document.querySelectorAll('.choose').forEach(button=>{
         target.onerror = null
@@ -93,6 +100,22 @@ function handleerror(img){
     img.alt= 'error';
     img,style.display='none'
 }
+
+document.querySelector("#lock-range").addEventListener('click', function(){
+    lock_range = !lock_range;
+    if (lock_range){
+        document.querySelector('#lock-range').textContent = 'unlock';
+    document.querySelectorAll('input[type="range"]').forEach(function(range){
+        range.disabled = true
+    })
+
+    }else{
+       document.querySelector('#lock-range').textContent = 'lock';
+    document.querySelectorAll('input[type="range"]').forEach(function(range){
+        range.disabled = false;
+    })
+    }
+})
 
 })
 
