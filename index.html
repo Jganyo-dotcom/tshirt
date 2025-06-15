@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>Round Neck Designer</h1>
+    <h1>Customize Your T-shirts</h1>
   </header>
 
   <main>
@@ -20,23 +20,24 @@
     <button id="modal-button">☰</button>
 
     <div id="modal">
-      <div id="modal-content">
-        <span id="close-modal">&times;</span>
-        <p>Choose a design</p>
-        <div class="design-gallery">
-          <img src="34.png" class="change" data-src="34.png" alt="Design Image" onerror="handleerror(this)" />
-          <img src="4.png" class="change" data-src="4.png" alt="Design Image" onerror="handleerror(this)" />
-          
-          <img src="10.png" class="change" data-src="10.png" alt="Design Image" onerror="handleerror(this)"  />
-          <img src="47.png" class="change" data-src="47.png" alt="Design Image" onerror="handleerror(this)" />
-          <img src="34.png" class="change" data-src="34.png" alt="Design Image" onerror="handleerror(this)" />
-          <img src="4.png" class="change" data-src="4.png" alt="Design Image" onerror="handleerror(this)" />
-          
-          <img src="10.png" class="change" data-src="10.png" alt="Design Image" onerror="handleerror(this)" />
-          <img src="47.png" class="change" data-src="47.png" alt="Design Image" onerror="handleerror(this)" />
-        </div>
-      </div>
+  <div id="modal-content">
+    <span id="close-modal">&times;</span>
+    <p>Choose a design</p>
+    <div class="design-gallery">
+      <img src="34.png" loading="lazy" class="change" data-src="34.png" alt="Design Image" onerror="handleerror(this)" />
+      <img src="4.png" loading="lazy" class="change" data-src="4.png" alt="Design Image" onerror="handleerror(this)" />
+      <img src="10.png" loading="lazy" class="change" data-src="10.png" alt="Design Image" onerror="handleerror(this)" />
+      <img src="47.png" loading="lazy" class="change" data-src="47.png" alt="Design Image" onerror="handleerror(this)" />
+      <img src="34.png" loading="lazy" class="change" data-src="34.png" alt="Design Image" onerror="handleerror(this)" />
+      <img src="4.png" loading="lazy" class="change" data-src="4.png" alt="Design Image" onerror="handleerror(this)" />
+      <img src="10.png" loading="lazy" class="change" data-src="10.png" alt="Design Image" onerror="handleerror(this)" />
+      <img src="47.png" loading="lazy" class="change" data-src="47.png" alt="Design Image" onerror="handleerror(this)" />
     </div>
+  </div>
+</div>
+
+
+
 
     <div id="design-div">
       <button id="show-designs">Designs</button>
@@ -45,7 +46,7 @@
     </div><br>
     
     <div id="controls">
-      <label>RESIZE DESIGN</label><br>
+      <label>🎨 Resize & Position Design</label><br>
       <span>Height</span>
     <input type="range" class="range" min="50" max="200"  value="150" id="resize-height"><br>
     <span>width</span>
@@ -71,6 +72,47 @@
         <button id="seablue" data-colour="#ADD8E6" class="choose"></button>
       </div>
     </section>
+
+    <div id="modaltwo">
+      <div id="modal-contenttwo">
+        <span id="close-modaltwo">&times;</span>
+        <h1>ORDER</h1>
+        <form action="{% url 'submit_order' %}" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <!-- User's Name -->
+  <label for="name">Full Name:</label>
+  <input type="text" name="name" id="name" required><br><br>
+
+  <label for="number">NO. Of t-shirts:</label>
+  <input type="number" name="number" id="number" required><br><br>
+
+  <!-- User's Email -->
+  <label for="email">Your Email:</label>
+  <input type="email" name="email" id="email" required><br><br>
+
+  <!-- Your Email (read-only, cannot be changed by user) -->
+  <label for="to_email">To (Your Email):</label>
+  <input type="email" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly><br><br>
+
+  <!-- Design Upload (Optional) -->
+  <label for="design">Upload Your final Design:</label>
+  <input type="file" name="design" id="design" accept="image/*"><br><br>
+
+  <!-- Hidden field for the customized t-shirt screenshot -->
+  <input type="hidden" name="screenshot_data" id="screenshot_data">
+
+  <!-- Any notes or instructions -->
+  <label for="notes">Notes / Instructions:</label><br>
+  <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special..."></textarea><br><br>
+
+
+  <button type="submit">Place Order</button>
+</form>
+
+      </div>
+    </div>
+
   </main>
 
   <footer>

@@ -94,12 +94,22 @@ document.querySelector('#undo').addEventListener('click',() =>{
     document.querySelector('#upward').value = parseInt(lastsize.top)
 })
 
-function handleerror(img){
-    img.onerror = null
-    alert('poor connection')
-    img.alt= 'error';
-    img,style.display='none'
-}
+function handleerror(img) {
+    // Prevent repeated alerts
+    if (!img.dataset.errorHandled) {
+      alert('⚠️ Image failed to load due to poor connection.');
+      img.dataset.errorHandled = "true";
+    }
+
+    img.onerror = null;
+    img.alt = 'error';
+    img.style.display = 'none';
+
+    
+    // img.src = 'placeholder.png';
+    // img.style.display = 'block';
+    // img.style.opacity = '0.6';
+  }
 
 document.querySelector("#lock-range").addEventListener('click', function(){
     lock_range = !lock_range;
@@ -115,6 +125,13 @@ document.querySelector("#lock-range").addEventListener('click', function(){
         range.disabled = false;
     })
     }
+})
+
+document.querySelector('#show-order').addEventListener('click', function(){
+    document.querySelector('#modaltwo').style.display = 'block';
+})
+document.querySelector('#close-modaltwo').addEventListener('click',function(){
+    document.querySelector('#modaltwo').style.display = 'none'
 })
 
 

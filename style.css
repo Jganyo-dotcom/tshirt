@@ -100,6 +100,18 @@ button:hover {
   align-items: center;
 }
 
+#modaltwog {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 50%; left:15%;
+  width: 100vw;
+  height: 100vh;
+  
+  justify-content: center;
+  align-items: center;
+}
+
 #modal-content {
   background-color: var(--white);
   padding: 20px;
@@ -113,7 +125,31 @@ button:hover {
   overflow: auto;
 }
 
+#modal-contenttwoh {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  text-align: center;
+  overflow: auto;
+}
+
+
+
 #close-modal {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text);
+}
+
+#close-modaltwo {
   position: absolute;
   top: 10px;
   right: 20px;
@@ -235,6 +271,7 @@ footer {
 
 
 
+
 @media (max-width: 600px) {
   #modal-button {
     font-size: 12px;
@@ -284,6 +321,10 @@ footer {
 
 /* Modal open animation */
 #modal-content {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+#modal-contenttwoh {
   animation: fadeIn 0.4s ease-in-out;
 }
 
@@ -402,6 +443,165 @@ header h1 {
   50% { transform: scale(1.05); opacity: 0.9; }
   100% { transform: scale(1); opacity: 1; }
 }
+
+/* === ORDER MODAL STYLES === */
+#modaltwo {
+  display: none; /* Initially hidden */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* dark overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(3px); /* subtle blur effect */
+}
+
+#modal-contenttwo {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: slideIn 0.4s ease;
+  position: relative;
+  overflow-y: auto;
+}
+
+#modal-contenttwo h1 {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#modal-contenttwo label {
+  font-weight: 600;
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+#modal-contenttwo input,
+#modal-contenttwo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  transition: border 0.3s;
+}
+
+#modal-contenttwo input:focus,
+#modal-contenttwo textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+#modal-contenttwo button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#modal-contenttwo button[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+/* Close Button */
+#close-modaltwo {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+#close-modaltwo:hover {
+  color: red;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive for small screens */
+@media (max-width: 480px) {
+  #modal-contenttwo {
+    padding: 20px;
+  }
+
+  #modal-contenttwo h1 {
+    font-size: 20px;
+  }
+}
+
+
+#modaltwo {
+  display: none; /* Initially hidden */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow-y: auto; /* Allow scrolling */
+  padding: 40px 20px; /* Prevent content from touching edges */
+}
+
+#modal-contenttwo {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 500px;
+  margin: auto; /* Center on scroll */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  animation: slideIn 0.4s ease;
+  position: relative;
+}
+
+#close-modaltwo {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+  z-index: 9999;
+  transition: color 0.3s;
+}
+
+#close-modaltwo:hover {
+  color: red;
+}
+
+
 
 
 
