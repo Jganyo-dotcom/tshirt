@@ -236,3 +236,126 @@ footer {
     font-size: 14px;
   }
 }
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Modal open animation */
+#modal-content {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Design image appears with bounce */
+.design {
+  animation: bounceIn 0.5s ease-out;
+  transition: transform 0.3s;
+}
+
+/* Add hover pulse to design-gallery images */
+#modal-content img:hover {
+  animation: pulse 0.6s infinite;
+}
+
+/* Button hover updated */
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s, background 0.3s;
+}
+
+/* Color buttons hover */
+.choose:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s;
+  border: 2px solid var(--primary-color);
+}
+
+/* Responsive entrance for header */
+header h1 {
+  animation: fadeIn 1s ease-out;
+}
+
+
+/* === Animation Keyframes === */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* === Apply the Animations === */
+#dressing {
+  animation: fadeSlideIn 0.8s ease-out;
+}
+
+header h1 {
+  animation: bounceIn 0.8s ease-out;
+}
+
+#controls {
+  animation: fadeSlideIn 1s ease-out 0.4s;
+  animation-fill-mode: both;
+}
+
+/* Optional: pulsing design for fun */
+.design {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+
