@@ -136,6 +136,7 @@ document.querySelector('#close-modaltwo').addEventListener('click',function(){
 
 // Form screenshot logic
 document.querySelector('form').addEventListener('submit', function(event) {
+    alert('wait a while')
   event.preventDefault(); // Prevent the default form submission
 
   const dressing = document.querySelector('#dressing');
