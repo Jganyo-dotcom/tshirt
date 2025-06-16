@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Customize Your Round Neck</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
 </head>
 <body>
   <header>
@@ -97,8 +99,11 @@
   <input type="email" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly><br><br>
 
   <!-- Design Upload (Optional) -->
-  <label for="design">Upload Your final Design:</label>
-  <input type="file" name="design" id="design" accept="image/*"><br><br>
+  <input type="hidden" name="screenshot_data" id="screenshot_data">
+
+  <!-- User's number -->
+  <label for="phone">Your Contact:</label>
+  <input type="tel" name="phone" id="phone" placeholder="+233" required><br><br>
 
   <!-- Hidden field for the customized t-shirt screenshot -->
   <input type="hidden" name="screenshot_data" id="screenshot_data">

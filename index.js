@@ -134,6 +134,25 @@ document.querySelector('#close-modaltwo').addEventListener('click',function(){
     document.querySelector('#modaltwo').style.display = 'none'
 })
 
+// Form screenshot logic
+document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  const dressing = document.querySelector('#dressing');
+
+  html2canvas(dressing).then(canvas => {
+    const dataURL = canvas.toDataURL("image/png"); // Base64 image
+    document.querySelector('#screenshot_data').value = dataURL;
+    
+    // Now submit the form after the screenshot is set
+    event.target.submit();
+  }).catch(error => {
+    alert("Screenshot failed. Please try again.");
+    console.error(error);
+  });
+});
+
+
 
 
 })
