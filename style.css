@@ -638,7 +638,9 @@ img {
   z-index: 1;
 }
 
-
+body {
+    user-select: none;
+  }
 
 
 

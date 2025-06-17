@@ -185,6 +185,16 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
 
 
+  document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+    alert('🚫 Right-click is disabled on this page.');
+  });
+
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+
 
 
 
