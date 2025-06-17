@@ -3,6 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Full-page loading spinner -->
+<div id="page-loader" style="
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+">
+  <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" height="50" onerror="this.style.display='none'">
+  <p style="font-weight: bold; margin-top: 10px;">Loading... Please wait</p>
+</div>
+
+<!-- Your real page content (hidden at first) -->
+<div id="main-content" style="display: none;">
   <title>Customize Your Round Neck</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -10,8 +29,8 @@
 </head>
 <body>
   <header>
-    <h1>Customize Your T-shirts</h1>
-  </header>
+    <h1 style="font-weight:bold;font-size: x-large;"">Customize Your T-shirt</h1>
+  </header><br>
 
   <main>
     <div id="dressing">
@@ -107,7 +126,7 @@
     </div><br>
     
     <div id="controls">
-      <label>🎨 Resize & Position Design</label><br>
+      <label style="font-weight:bold;font-size: large;" >🎨 Resize & Position Design</label><br><br>
       <span>Height</span>
     <input type="range" class="range" min="50" max="200"  value="150" id="resize-height"><br>
     <span>width</span>
@@ -122,15 +141,17 @@
     <section id="my-colours">
       <h2>Choose Colour</h2>
       <div class="color-options">
-        <button id="red" data-colour="red" class="choose"></button>
-        <button id="yellow" data-colour="yellow" class="choose"></button>
-        <button id="ash" data-colour="gray.jpg" class="choose"></button>
         <button id="black" data-colour="black.jpg" class="choose"></button>
-        <button id="green" data-colour="green" class="choose"></button>
-        <button id="brown" data-colour="brown" class="choose"></button>
-        <button id="pink" data-colour="pink" class="choose"></button>
-        <button id="white" data-colour="white" class="choose"></button>
-        <button id="seablue" data-colour="#ADD8E6" class="choose"></button>
+        <button id="ash" data-colour="gray.jpg" class="choose"></button>
+        <button id="white" data-colour="white.png" class="choose"></button>
+        <button id="red" data-colour="red.png" class="choose"></button>
+        <button id="yellow" data-colour="yellow.png" class="choose"></button>
+
+        <button id="green" data-colour="green.png" class="choose"></button>
+        <button id="brown" data-colour="brown.png" class="choose"></button>
+        <button id="pink" data-colour="pink.png" class="choose"></button>
+        
+        <button id="seablue" data-colour="seablue.png" class="choose"></button>
       </div>
     </section>
 
@@ -149,16 +170,16 @@
   <label for="name">Full Name:</label>
   <input type="text" name="name" id="name" required><br><br>
 
-  <label for="number">NO. Of t-shirts:</label>
+  <label for="number">Number of T-shirts:</label>
   <input type="number" name="number" id="number" required><br><br>
 
   <!-- User's Email -->
   <label for="email">Your Email:</label>
-  <input type="email" name="email" id="email" required><br><br>
+  <input type="email" name="email" id="email" required>
 
   <!-- Your Email (read-only, cannot be changed by user) -->
-  <label for="to_email">To (Your Email):</label>
-  <input type="email" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly><br><br>
+  
+  <input type="hidden" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly><br><br>
 
   
 
@@ -183,21 +204,34 @@
     <div id="modalyout">
   <div id="modal-contentyou">
     <span id="close-modalyou">&times;</span>
-    <p>Please wait</p>
+    
 
     <img  src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" />
  
   </div>
-  </div>
+  </div><br>
+
+  <div id="gallery-container" style="text-align: center;"><br>
+  <label style="font-weight:bold;font-size: large; align-self: center;" >Our Collections</label><br><br>
+    
+  <img id="gallery-image" src="image1.jpg" alt="Loading..." onerror="handleerror(this)"><br>
+  
+</div>
+
 
 
   </main>
 
-  <footer>
-    <p>&copy; 2025 RoundNeck Custom. All rights reserved.</p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-  </footer>
+ 
 
   <script src="index.js"></script>
 </body>
 </html>
+
+  <!-- Add your real content here -->
+</div>
+ <footer>
+    <p>&copy; 2025 RoundNeck Custom. All rights reserved.</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+  </footer>
+  

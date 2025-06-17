@@ -148,7 +148,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
   const dressing = document.querySelector('#dressing');
 
   html2canvas(dressing).then(canvas => {
-    const dataURL = canvas.toDataURL("image/png"); // Base64 image
+    const dataURL = canvas.toDataURL("image/jpeg",0.3); // Base64 image
     document.querySelector('#screenshot_data').value = dataURL;
     
     // Now submit the form after the screenshot is set
@@ -201,9 +201,63 @@ document.querySelector('form').addEventListener('submit', function(event) {
 
 
 
+document.querySelectorAll('#my-colours .choose').forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove 'active' from only the buttons in #my-colours
+    document.querySelectorAll('#my-colours .choose').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    // Add 'active' to the clicked one
+    button.classList.add('active');
+  });
+});
+
+const images = [
+  "showcase1.png",
+  "showcase2.png",
+  "showcase3.png",
+  "showcase4.png", // Add more if needed
+  "showcase5.png",
+  "showcase6.png",
+  "showcase7.png",
+  "showcase8.png" ,
+  "showcase9.png",
+  "showcase10.png"
+  
+];
+
+let index = 0;
+const imageElement = document.getElementById("gallery-image");
+
+setInterval(() => {
+  index = (index + 1) % images.length;
+  imageElement.style.opacity = 0;
+
+  setTimeout(() => {
+    imageElement.src = images[index];
+    imageElement.style.opacity = 1;
+  }, 500); // short fade-out before showing new image
+}, 3000); // 3 seconds
 
 
+window.addEventListener('load', function () {
+    try {
+      // Delay showing the content for 5 seconds
+      setTimeout(() => {
+        const loader = document.getElementById('page-loader');
+        const content = document.getElementById('main-content');
 
+        if (loader) loader.style.display = 'none';
+        if (content) content.style.display = 'block';
+      }, 3000); // 5 seconds
+    } catch (error) {
+      console.error("❌ Loader failed:", error);
+      // Always show the content in case of any error
+      document.getElementById('page-loader').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
+    }
+  });
 
 
 })

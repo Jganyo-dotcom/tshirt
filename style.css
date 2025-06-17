@@ -43,7 +43,7 @@ body {
 /* === Dressing Container === */
 #dressing {
   position: relative;
-  width: 300px;
+  width: 320px;
   background-color: var(--white);
   padding: 20px;
   border-radius: 12px;
@@ -186,7 +186,14 @@ button:hover {
   height: 30px;
   border-radius: 50%;
   cursor: pointer;
-  border: 1px solid #ccc;
+   border: 2px solid #ccc;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Highlight active selection */
+.choose.active {
+  border: 3px solid dodgerblue;
+  box-shadow: 0 0 5px dodgerblue;
 }
 
 #red { background: red; }
@@ -647,25 +654,45 @@ body {
 }
 
 
-#modalyout {
-  position: fixed;
-  top: 50%; left:15%;
+
   
-  width: 100%;
-  height: 100%;
-  
-  display: none;
+ 
+
+
+#gallery-container {
+  width: 319px;
+  height: 370px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-#modal-contentyout {
-  background: white;
-  padding: 20px;
-  top: 50%; left:15%;
-  border-radius: 10px;
-  text-align: center;
-  margin: 20% auto;
-  width: 200px;
+#gallery-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: opacity 1s ease-in-out;
+
 }
+
+
+#modalyout {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+   display:none;
+  
+  /* Optional styles */
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+
 
 
 
