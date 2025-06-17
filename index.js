@@ -137,8 +137,13 @@ document.querySelector('#close-modaltwo').addEventListener('click',function(){
 
 // Form screenshot logic
 document.querySelector('form').addEventListener('submit', function(event) {
-    alert('wait a while')
-  event.preventDefault(); // Prevent the default form submission
+
+  
+    document.getElementById('modalyout').style.display = 'block';
+    document.querySelector('#modaltwo').style.display = 'none';
+    
+   // Prevent the default form submission
+   event.preventDefault();
 
   const dressing = document.querySelector('#dressing');
 
