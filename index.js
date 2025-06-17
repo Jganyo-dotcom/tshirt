@@ -102,8 +102,9 @@ function handleerror(img) {
     }
 
     img.onerror = null;
-    img.alt = 'error';
-    img.style.display = 'none';
+    img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJUlEQVR42u3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAPA2DS4AAXokF9UAAAAASUVORK5CYII=';
+  img.alt = 'errorw';
+  img.style.objectFit = "contain";
 
     
     // img.src = 'placeholder.png';
@@ -152,6 +153,40 @@ document.querySelector('form').addEventListener('submit', function(event) {
     console.error(error);
   });
 });
+
+
+
+
+  function handleerror(img) {
+    img.src = "34.png"; // Replace with a fallback image if one fails to load
+    img.style.display = "block";
+    if (img.previousElementSibling) {
+      img.previousElementSibling.style.display = "none";
+    }
+  }
+
+
+  window.addEventListener("load", () => {
+    const [navEntry] = performance.getEntriesByType("navigation");
+    
+    if (navEntry && navEntry.duration > 10000) {
+      // Show warning if total load took over 5 seconds
+      document.getElementById("connection-warning").style.display = "block";
+    }
+  });
+
+  // Fallback in case 'load' doesn't fire within 10 seconds
+  setTimeout(() => {
+    const [navEntry] = performance.getEntriesByType("navigation");
+    if (!navEntry || navEntry.duration === 0) {
+      document.getElementById("connection-warning").style.display = "block";
+    }
+  }, 10000);
+
+
+
+
+
 
 
 
