@@ -253,23 +253,14 @@ setInterval(() => {
 }, 3000); // 3 seconds
 
 
-window.addEventListener('load', function () {
-    try {
-      // Delay showing the content for 5 seconds
-      setTimeout(() => {
-        const loader = document.getElementById('page-loader');
-        const content = document.getElementById('main-content');
+setTimeout(() => {
+      const loader = document.getElementById('page-loader');
+      const content = document.getElementById('main-content');
 
-        if (loader) loader.style.display = 'none';
-        if (content) content.style.display = 'block';
-      }, 3000); // 5 seconds
-    } catch (error) {
-      console.error("❌ Loader failed:", error);
-      // Always show the content in case of any error
-      document.getElementById('page-loader').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    }
-  });
+      if (loader) loader.style.display = 'none';
+      if (content) content.style.display = 'block';
+    }, 5000); // ⏳ Wait 5 seconds
+  
 
 
 
