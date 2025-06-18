@@ -37,12 +37,24 @@ document.addEventListener('DOMContentLoaded',function(){
 })
 
 
-document.querySelector('#show-designs').addEventListener('click', function(){
-    document.querySelector('#modal').style.display = 'block';
-})
-document.querySelector('#close-modal').addEventListener('click',function(){
-    document.querySelector('#modal').style.display = 'none'
-})
+document.querySelector('#show-designs').addEventListener('click', function() {
+  document.querySelector('#modal').style.display = 'block';
+});
+
+document.querySelector('#close-modal').addEventListener('click', function() {
+  document.querySelector('#modal').style.display = 'none';
+});
+
+window.addEventListener("click", function(event) {
+  const modal = document.getElementById("modal");
+  const modalContent = document.getElementById("modal-content");
+
+  // Close the modal only if the user clicks directly on the background
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
 
 document.querySelector('#resize-height').addEventListener('input', ()=>{
     save_current()
@@ -214,16 +226,16 @@ document.querySelectorAll('#my-colours .choose').forEach(button => {
 });
 
 const images = [
-  "showcase1.png",
-  "showcase2.png",
-  "showcase3.png",
-  "showcase4.png", // Add more if needed
-  "showcase5.png",
-  "showcase6.png",
-  "showcase7.png",
-  "showcase8.png" ,
-  "showcase9.png",
-  "showcase10.png"
+  "showcase1.jpg",
+  "showcase2.jpg",
+  "showcase3.jpg",
+  "showcase4.jpg", // Add more if needed
+  "showcase5.jpg",
+  "showcase6.jpg",
+  "showcase7.jpg",
+  "showcase8.jpg" ,
+  "showcase1.jpg",
+  "showcase2.jpg"
   
 ];
 
@@ -258,6 +270,7 @@ window.addEventListener('load', function () {
       document.getElementById('main-content').style.display = 'block';
     }
   });
+
 
 
 })

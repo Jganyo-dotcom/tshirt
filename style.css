@@ -88,7 +88,7 @@ button:hover {
 }
 
 /* Modal */
-#modal,#modalyou {
+#modalyou {
   display: none;
   position: fixed;
   z-index: 999;
@@ -98,6 +98,18 @@ button:hover {
   
   justify-content: center;
   align-items: center;
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0%; left:0%;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
 }
 
 #modaltwog {
@@ -112,7 +124,7 @@ button:hover {
   align-items: center;
 }
 
-#modal-content , #modal-contentyou {
+ #modal-contentyou {
   background-color: var(--white);
   padding: 20px;
   border-radius: 12px;
@@ -123,6 +135,22 @@ button:hover {
   position: relative;
   text-align: center;
   overflow: auto;
+}
+
+#modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;/* Limits height on smaller screens */
+  overflow-y: auto; /* Scrolls if content is long */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: auto;
+  left: 0%;
+   top: 50%;
+    transform: translateY(-50%);
 }
 
 #modal-contenttwoh ,#modal-contentyou {
