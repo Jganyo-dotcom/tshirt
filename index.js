@@ -160,7 +160,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
   const dressing = document.querySelector('#dressing');
 
   html2canvas(dressing).then(canvas => {
-    const dataURL = canvas.toDataURL("image/jpeg",0.7); // Base64 image
+    const dataURL = canvas.toDataURL("image/webp",0.75); // Base64 image
     document.querySelector('#screenshot_data').value = dataURL;
     
     // Now submit the form after the screenshot is set
