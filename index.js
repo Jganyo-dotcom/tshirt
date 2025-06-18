@@ -149,28 +149,31 @@ document.querySelector('#close-modaltwo').addEventListener('click',function(){
 
 // Form screenshot logic
 document.querySelector('form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
 
-  
-    document.getElementById('modalyout').style.display = 'block';
-    document.querySelector('#modaltwo').style.display = 'none';
-    
-   // Prevent the default form submission
-   event.preventDefault();
+  // Show the loading modal
+  document.getElementById('modalyout').style.display = 'block';
+  document.querySelector('#modaltwo').style.display = 'none';
 
   const dressing = document.querySelector('#dressing');
 
-  html2canvas(dressing).then(canvas => {
-    const dataURL = canvas.toDataURL("image/webp",0.75); // Base64 image
+  html2canvas(dressing, {
+    scale: 0.4, // ✅ Resize the image to reduce size
+    useCORS: true // ✅ Allow cross-origin images if any
+  }).then(canvas => {
+    const dataURL = canvas.toDataURL("image/webp", 0.6); // ✅ Smaller file size
     document.querySelector('#screenshot_data').value = dataURL;
-    
-    // Now submit the form after the screenshot is set
+
+    // ✅ Log file size to help debug
+    console.log("Screenshot size (KB):", (dataURL.length * 3 / 4 / 1024).toFixed(2));
+
+    // ✅ Submit the form now that image is ready
     event.target.submit();
   }).catch(error => {
     alert("Screenshot failed. Please try again.");
-    console.error(error);
+    console.error("Screenshot Error:", error);
   });
 });
-
 
 
 
