@@ -221,7 +221,7 @@ document.querySelector("form").addEventListener("submit", function (e) {
     alert("✅ Order submitted successfully!");
     form.reset();
     document.getElementById("preview").style.display = "none";
-    document.getElementById("order-form").style.display = "none";
+    document.getElementById("modaltwo").style.display = "none";
     loader.style.display = "none";
   })
   .catch(error => {
