@@ -148,32 +148,87 @@ document.querySelector('#close-modaltwo').addEventListener('click',function(){
 })
 
 // Form screenshot logic
-document.querySelector('form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent default form submission
 
-  // Show the loading modal
-  document.getElementById('modalyout').style.display = 'block';
-  document.querySelector('#modaltwo').style.display = 'none';
+let compressedFile = null;
 
-  const dressing = document.querySelector('#dressing');
+document.getElementById("show-order").addEventListener("click", function () {
+  if (!confirm("Are you ready to upload your design and place your order?")) return;
 
-  html2canvas(dressing, {
-    scale: 0.4, // ✅ Resize the image to reduce size
-    useCORS: true // ✅ Allow cross-origin images if any
-  }).then(canvas => {
-    const dataURL = canvas.toDataURL("image/webp", 0.6); // ✅ Smaller file size
-    document.querySelector('#screenshot_data').value = dataURL;
+  const dressingDiv = document.getElementById("dressing");
+  const loader = document.getElementById("page-loaderr");
+  loader.style.display = "block";
 
-    // ✅ Log file size to help debug
-    console.log("Screenshot size (KB):", (dataURL.length * 3 / 4 / 1024).toFixed(2));
+  // Take screenshot of #dressing
+  html2canvas(dressingDiv, { useCORS: true }).then(canvas => {
+    canvas.toBlob(function (blob) {
+      if (!blob) {
+        alert("❌ Failed to get design image.");
+        loader.style.display = "none";
+        return;
+      }
 
-    // ✅ Submit the form now that image is ready
-    event.target.submit();
+      // Create compressed file
+      compressedFile = new File([blob], "design.webp", { type: "image/webp" });
+
+      // Show preview
+      const preview = document.getElementById("preview");
+      preview.src = URL.createObjectURL(blob);
+      preview.style.display = "block";
+
+      // Show form
+      document.querySelector("form").style.display = "block";
+      loader.style.display = "none";
+    }, "image/webp", 0.75); // compression level
   }).catch(error => {
-    alert("Screenshot failed. Please try again.");
-    console.error("Screenshot Error:", error);
+    alert("❌ Screenshot failed.");
+    console.error(error);
+    loader.style.display = "none";
   });
 });
+
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const loader = document.getElementById("page-loaderr");
+  loader.style.display = "block";
+
+  if (!compressedFile) {
+    alert("Please click 'Order Now' first to prepare your design.");
+    loader.style.display = "none";
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("screenshot_data", compressedFile);
+  formData.append("name", form.name.value);
+  formData.append("number", form.number.value);
+  formData.append("phone", form.phone.value);
+  formData.append("email", form.email.value);
+  formData.append("to_email", form.to_email.value);
+  formData.append("notes", form.notes.value);
+
+  fetch("https://tshirt-backend-lr0i.onrender.com/orders/submit_order/", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) throw new Error("Server error");
+    return response.text();
+  })
+  .then(data => {
+    alert("✅ Order submitted successfully!");
+    form.reset();
+    document.getElementById("preview").style.display = "none";
+    document.getElementById("order-form").style.display = "none";
+    loader.style.display = "none";
+  })
+  .catch(error => {
+    console.error("❌ Submission failed:", error);
+    alert("❌ Submission failed.");
+    loader.style.display = "none";
+  });
+});
+
 
 
 
