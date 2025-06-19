@@ -191,6 +191,7 @@ document.querySelector("form").addEventListener("submit", function (e) {
   formData.append("phone", form.phone.value);
   formData.append("email", form.email.value);
   formData.append("to_email", form.to_email.value);
+  formData.append("size", form.size.value);
   formData.append("notes", form.notes.value);
 
   fetch("https://tshirt-backend-lr0i.onrender.com/orders/submit_order/", {
