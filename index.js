@@ -141,7 +141,7 @@ document.querySelector("#lock-range").addEventListener('click', function(){
 })
 
 document.querySelector('#show-order').addEventListener('click', function(){
-    document.querySelector('#modaltwo').style.display = 'block';
+    
 })
 document.querySelector('#close-modaltwo').addEventListener('click',function(){
     document.querySelector('#modaltwo').style.display = 'none'
@@ -166,7 +166,7 @@ document.getElementById("show-order").addEventListener("click", function () {
         loader.style.display = "none";
         return;
       }
-
+      
       // Create compressed file
       compressedFile = new File([blob], "design.webp", { type: "image/webp" });
 
@@ -176,7 +176,7 @@ document.getElementById("show-order").addEventListener("click", function () {
       preview.style.display = "block";
 
       // Show form
-      document.querySelector("form").style.display = "block";
+      document.getElementById("modaltwo").style.display = "block";
       loader.style.display = "none";
     }, "image/webp", 0.75); // compression level
   }).catch(error => {
