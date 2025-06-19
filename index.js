@@ -1,20 +1,4 @@
-function handleerror(img) {
-    // Prevent repeated alerts
-    if (!img.dataset.errorHandled) {
-      alert('⚠️ Image failed to load due to poor connection.');
-      img.dataset.errorHandled = "true";
-    }
 
-    img.onerror = null;
-    img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJUlEQVR42u3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAPA2DS4AAXokF9UAAAAASUVORK5CYII=';
-  img.alt = 'errorw';
-  img.style.objectFit = "contain";
-
-    
-    // img.src = 'placeholder.png';
-    // img.style.display = 'block';
-    // img.style.opacity = '0.6';
-  }
 
 
 document.addEventListener('DOMContentLoaded',function(){
@@ -322,7 +306,23 @@ setTimeout(() => {
     }, 5000); // ⏳ Wait 5 seconds
   
 
+function handleerror(img) {
+    // Prevent repeated alerts
+    if (!img.dataset.errorHandled) {
+      alert('⚠️ Image failed to load due to poor connection.');
+      img.dataset.errorHandled = "true";
+    }
 
+    img.onerror = null;
+    img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAJUlEQVR42u3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAPA2DS4AAXokF9UAAAAASUVORK5CYII=';
+  img.alt = 'errorw';
+  img.style.objectFit = "contain";
+
+    
+    // img.src = 'placeholder.png';
+    // img.style.display = 'block';
+    // img.style.opacity = '0.6';
+  }
 
 })
 
