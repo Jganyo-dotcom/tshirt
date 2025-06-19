@@ -256,7 +256,7 @@ document.querySelector("form").addEventListener("submit", function (e) {
     if (!navEntry || navEntry.duration === 0) {
       document.getElementById("connection-warning").style.display = "block";
     }
-  }, 10000);
+  }, 150000);
 
 
 
