@@ -1,443 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico">
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
-  <!-- Full-page loading spinner -->
-<div id="page-loader" style="
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  flex-direction: column;
-">
-  <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" height="50" onerror="this.style.display='none'">
-  <p style="font-weight: bold; margin-top: 10px;">Loading... Please wait</p>
-</div>
-
-<!-- Your real page content (hidden at first) -->
-<div id="main-content" style="display: none;">
+  <link rel="icon" href="favicon.ico" />
   <title>Customize Your Round Neck</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-
+  <link rel="preload"
+        href="white.png"
+        as="image"
+        type="image/png"
+        fetchpriority="high" />
+  <link rel="preload"
+        href="red.png"
+        as="image"
+        type="image/png"
+        fetchpriority="high" />
+  <link rel="preload"
+        href="/images/hero.jpg"
+        as="image"
+        type="image/png"
+        fetchpriority="high" />
+  <link rel="preload"
+        href="yellow.png"
+        as="image"
+        type="image/png"
+        fetchpriority="high" />
+  <link rel="preload"
+        href="green.png"
+        as="image"
+        type="image/png"
+        fetchpriority="high" />
+<link rel="preload"
+        href="/pink.png"
+        as="image"
+        type="image/png"
+        fetchpriority="high" />
+<link rel="preload"
+        href="brown.png"
+        as="image"
+        type="image/png"
+        fetchpriority="high" />
 </head>
+
 <body>
-  <header>
-    <h1 style="font-weight:bold;font-size: x-large;"">Customize Your T-shirt</h1>
-  </header><br>
-
-  <main>
-    <div id="dressing">
-      <img id="t-shirt" src="gray.jpg" alt="error"  />
-      <img class="design" src="1.png"  onerror="handleerror(this)"  />
-    </div>
-
-    <button id="modal-button">☰</button>
-
-<div id="connection-warning" style="display: none; background: #ffcccc; color: #900; padding: 10px; text-align: center;">
-  ⚠️ Your connection seems slow or unstable.
-</div>
-
-<img id="preview" style="display: none; max-width: 200px;" />
-
-<div id="page-loaderr" style="display: none;">
-  <div class="css-spinner"></div>
-</div>
-
-
-    <div id="modal">
-  <div id="modal-content">
-    <span id="close-modal">&times;</span>
-    <p>Choose a design</p>
- <div class="design-gallery">
-  <div class="design-wrapper"   >
-    
-   <img src="1.png" loading="lazy"   alt="error" class="change design-img" data-src="1.png" />
+  <!-- Full-page loading spinner -->
+  <div id="page-loader" style="
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+  ">
+    <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" height="50" onerror="this.style.display='none'">
+    <p style="font-weight: bold; margin-top: 10px;">Loading... Please wait</p>
   </div>
 
-  <div class="design-wrapper">
-    
-    <img src="4.png" loading="lazy"  alt="error" class="change design-img" data-src="4.png" />
-  </div>
+  <div id="main-content" style="display: none;">
+    <header>
+      <h1 style="font-weight:bold; font-size: x-large;">Customize Your T-shirt</h1>
+    </header>
+    <br>
 
-  <div class="design-wrapper">
-    
-    <img src="3.png" loading="lazy"  class="change design-img" data-src="3.png" alt="error"  />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="4.png" loading="lazy" class="change design-img" data-src="4.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="5.png" loading="lazy"  class="change design-img" data-src="5.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="6.png" loading="lazy" class="change design-img" data-src="6.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  
-  <div class="design-wrapper" ;" style="background-color: black;">
-    
-    <img src="7.png" loading="lazy"  class="change design-img" data-src="7.png" alt="error" onerror="handleerror(this)" />
-  </div>
-  <div class="design-wrapper" ;">
-  <img src="8.png" style="background-color: black;" onerror="handleerror(this)" alt="error" class="change design-img" data-src="8.png" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="9.png" loading="lazy" onerror="handleerror(this)" alt="error" class="change design-img" data-src="9.png" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: black;">
-    
-    <img src="10.png" loading="lazy"  class="change design-img" data-src="10.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="11.png" loading="lazy"  class="change design-img" data-src="11.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="12.png" loading="lazy" class="change design-img" data-src="12.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="13.png" loading="lazy" class="change design-img" data-src="13.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="14.png" loading="lazy" class="change design-img" data-src="14.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="15.png"loading="lazy" class="change design-img" data-src="15.png" alt="error" onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-   <img src="16.png" loading="lazy" onerror="handleerror(this)" alt="error" class="change design-img" data-src="16.png" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="17.png" loading="lazy" onerror="handleerror(this)" alt="error" class="change design-img" data-src="17.png" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: black;">
-    
-    <img src="18.png" loading="lazy" class="change design-img" data-src="18.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="19.png" loading="lazy" class="change design-img" data-src="19.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="35.png" loading="lazy" class="change design-img" data-src="35.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: black;">
-    
-    <img src="31.png" loading="lazy" class="change design-img" data-src="31.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="18.png" loading="lazy" class="change design-img" data-src="18.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper" ;">
-    
-    <img src="20.png" loading="lazy"  class="change design-img" data-src="20.png" alt="error" onerror="handleerror(this)" />
-  </div>
-  <div class="design-wrapper" ;">
-  <img src="21.png" loading="lazy" style="background-color: black;" onerror="handleerror(this)" alt="error" class="change design-img" data-src="21.png" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="22.png" loading="lazy" onerror="handleerror(this)" alt="error" class="change design-img" data-src="22.png" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: black;">
-    
-    <img src="23.png"  loading="lazy" class="change design-img" data-src="23.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="24.png" loading="lazy" class="change design-img" data-src="24.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="25.png" loading="lazy" class="change design-img" data-src="25.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  
-
-  <div class="design-wrapper">
-    
-    <img src="27.png" loading="lazy" class="change design-img" data-src="27.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="28.png" loading="lazy" class="change design-img" data-src="28.png" alt="error" onerror="handleerror(this)" />
-  </div>
-  <div class="design-wrapper" style="background-color: yellow;">
-    
-    <img src="29.png" loading="lazy" class="change design-img" data-src="29.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: black;">
-    
-    <img src="30.png" loading="lazy" class="change design-img" data-src="30.png" alt="error" onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-   <img src="32.png" loading="lazy" onerror="handleerror(this)" alt="error" class="change design-img" data-src="32.png" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="34.png" loading="lazy" onerror="handleerror(this)" alt="error" class="change design-img" data-src="35.png" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="36.png" loading="lazy" class="change design-img" data-src="36.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: black;">
-    
-    <img src="37.png" loading="lazy" class="change design-img" data-src="37.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="38.png" loading="lazy" class="change design-img" data-src="38.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="39.png" loading="lazy" class="change design-img" data-src="39.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: yellow;">
-    
-    <img src="33.png" loading="lazy" class="change design-img" data-src="33.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper" ;">
-    
-    <img src="41.png" loading="lazy"  class="change design-img" data-src="41.png" alt="error" onerror="handleerror(this)" />
-  </div>
-  <div class="design-wrapper" ;">
-  <img src="43.png" style="background-color: black;" onerror="handleerror(this)" alt="error" class="change design-img" data-src="43.png" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="44.png" loading="lazy" onerror="handleerror(this)" alt="error" class="change design-img" data-src="44.png" />
-  </div>
-
-  <div class="design-wrapper" style="background-color: black;">
-    
-    <img src="45.png" loading="lazy"  class="change design-img" data-src="45.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="47.png" loading="lazy"  class="change design-img" data-src="47.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper"  style="background-color: black;">
-    
-    <img src="48.png" loading="lazy" class="change design-img" data-src="48.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="50.png" loading="lazy" class="change design-img" data-src="50.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-  <div class="design-wrapper">
-    
-    <img src="51.png" loading="lazy" class="change design-img" data-src="51.png" alt="error"  onerror="handleerror(this)" />
-  </div>
-
-
-    
-    
-  
-
-</div>
-
-  </div>
-</div>
-
-
-
-
-
-  
-
-  <!-- Repeat as needed -->
-
-
-
-
-
-
-
-
-    <div id="design-div">
-      <button id="show-designs">Designs</button>
-      <button id="show-order">Order</button><br>
-      
-    </div><br>
-    
-    <div id="controls">
-      <label style="font-weight:bold;font-size: large;" >🎨 Resize & Position Design</label><br><br>
-      <span>Height</span>
-    <input type="range" class="range" min="50" max="200"  value="150" id="resize-height"><br>
-    <span>width</span>
-    <input type="range" class="range" min="50" max="190" value="150" id="resize-width"><br>
-    <span>up</span><br>
-    <input type="range" class="range" min="20" max="50" value="35" id="upward" ><br>
-    <span>left</span>
-    <input type="range" class="range" min="15" max="42" value="35" id="move-left" ><br>
-    <button id="undo">undo</button>&nbsp;&nbsp;<button id="lock-range">Lock</button>
-    </div>
-
-    <section id="my-colours">
-      <h2>Choose Colour</h2>
-      <div class="color-options">
-        <button id="black" data-colour="black.jpg" class="choose"></button>
-        <button id="ash" data-colour="gray.jpg" class="choose"></button>
-        <button id="white" data-colour="white.png" class="choose"></button>
-        <button id="red" data-colour="red.png" class="choose"></button>
-        <button id="yellow" data-colour="yellow.png" class="choose"></button>
-
-        <button id="green" data-colour="green.png" class="choose"></button>
-        <button id="brown" data-colour="brown.png" class="choose"></button>
-        <button id="pink" data-colour="pink.png" class="choose"></button>
-        
-        <button id="seablue" data-colour="seablue.png" class="choose"></button>
+    <main>
+      <div id="dressing">
+        <img id="t-shirt" src="gray.jpg" alt="error" />
+        <img class="design" src="1.png" onerror="handleerror(this)" alt="design" />
       </div>
-    </section>
 
-    <div id="modaltwo">
-      <div id="modal-contenttwo">
-        <span id="close-modaltwo">&times;</span>
-        <h1>ORDER</h1>
+      <button id="modal-button">☰</button>
 
-        
-<form action="https://tshirt-backend-lr0i.onrender.com/orders/submit_order/" method="POST" enctype="multipart/form-data">
-
-  
-  
-
-  <!-- User's Name -->
-  <label for="name">Full Name:</label>
-  <input type="text" name="name" id="name" required><br><br>
-
-  <label for="number">Number of T-shirts:</label>
-  <input type="number" name="number" id="number" required><br><br>
-
-  <!-- User's Email -->
-  <label for="email">Your Email:</label>
-  <input type="email" name="email" id="email" required>
-
-  <!-- Your Email (read-only, cannot be changed by user) -->
-  
-  <input type="hidden" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly><br><br>
-
-  
-
-  <!-- User's number -->
-  <label for="phone">Your Contact:</label>
-  <input type="tel" name="phone" id="phone" placeholder="+233" required><br><br>
-
-   <label for="size">Your Size:</label>
-<select name="size" id="size" required>
-  <option value="">Select Size</option>
-  <option value="Large">Large</option>
-  <option value="Small">Small</option>
-  <option value="Medium">Medium</option>
-  <option value="Very Small">Very Small</option>
-  <option value="X Large">X Large</option>
-  <option value="XX Large">XX Large</option>
-</select><br><br>
-
-  
-
-  <!-- Any notes or instructions -->
-  <label for="notes">Notes / Instructions:</label><br>
-  <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
-
-
-  <button type="submit">Place Order</button>
-</form>
-
+      <div id="connection-warning" style="display: none; background: #ffcccc; color: #900; padding: 10px; text-align: center;">
+        ⚠️ Your connection seems slow or unstable.
       </div>
-    </div>
 
-    <div id="modalyout">
-  <div id="modal-contentyou">
-    <span id="close-modalyou">&times;</span>
+      <img id="preview" style="display: none; max-width: 200px;" alt="preview"/>
+
+      <div id="page-loaderr" style="display: none;">
+        <div class="css-spinner"></div>
+      </div>
+
+
+      <div id="modal">
+        <div id="modal-content">
+          <span id="close-modal">&times;</span>
+          <p>Choose a design</p>
+          <div class="design-gallery">
+            <!-- kept all your original design-wrapper blocks -->
+            <div class="design-wrapper">
+              <img src="1.png" loading="lazy" alt="error" class="change design-img" data-src="1.png" />
+            </div>
+            <div class="design-wrapper">
+              <img src="4.png" loading="lazy" alt="error" class="change design-img" data-src="4.png" />
+            </div>
+            <div class="design-wrapper">
+              <img src="3.png" loading="lazy" alt="error" class="change design-img" data-src="3.png" />
+            </div>
+            <div class="design-wrapper">
+              <img src="4.png" loading="lazy" alt="error" class="change design-img" data-src="4.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="5.png" loading="lazy" alt="error" class="change design-img" data-src="5.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="6.png" loading="lazy" alt="error" class="change design-img" data-src="6.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="7.png" loading="lazy" alt="error" class="change design-img" data-src="7.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="8.png" loading="lazy" alt="error" class="change design-img" data-src="8.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="9.png" loading="lazy" alt="error" class="change design-img" data-src="9.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="10.png" loading="lazy" alt="error" class="change design-img" data-src="10.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="11.png" loading="lazy" alt="error" class="change design-img" data-src="11.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="12.png" loading="lazy" alt="error" class="change design-img" data-src="12.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="13.png" loading="lazy" alt="error" class="change design-img" data-src="13.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="14.png" loading="lazy" alt="error" class="change design-img" data-src="14.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="15.png" loading="lazy" alt="error" class="change design-img" data-src="15.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="16.png" loading="lazy" alt="error" class="change design-img" data-src="16.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="17.png" loading="lazy" alt="error" class="change design-img" data-src="17.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="18.png" loading="lazy" alt="error" class="change design-img" data-src="18.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="19.png" loading="lazy" alt="error" class="change design-img" data-src="19.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="35.png" loading="lazy" alt="error" class="change design-img" data-src="35.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="31.png" loading="lazy" alt="error" class="change design-img" data-src="31.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="18.png" loading="lazy" alt="error" class="change design-img" data-src="18.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="20.png" loading="lazy" alt="error" class="change design-img" data-src="20.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="21.png" loading="lazy" alt="error" class="change design-img" data-src="21.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="22.png" loading="lazy" alt="error" class="change design-img" data-src="22.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="23.png" loading="lazy" alt="error" class="change design-img" data-src="23.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="24.png" loading="lazy" alt="error" class="change design-img" data-src="24.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="25.png" loading="lazy" alt="error" class="change design-img" data-src="25.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="27.png" loading="lazy" alt="error" class="change design-img" data-src="27.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="28.png" loading="lazy" alt="error" class="change design-img" data-src="28.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: yellow;">
+              <img src="29.png" loading="lazy" alt="error" class="change design-img" data-src="29.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="30.png" loading="lazy" alt="error" class="change design-img" data-src="30.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="32.png" loading="lazy" alt="error" class="change design-img" data-src="32.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="34.png" loading="lazy" alt="error" class="change design-img" data-src="34.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="36.png" loading="lazy" alt="error" class="change design-img" data-src="36.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="37.png" loading="lazy" alt="error" class="change design-img" data-src="37.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="38.png" loading="lazy" alt="error" class="change design-img" data-src="38.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="39.png" loading="lazy" alt="error" class="change design-img" data-src="39.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: yellow;">
+              <img src="33.png" loading="lazy" alt="error" class="change design-img" data-src="33.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="41.png" loading="lazy" alt="error" class="change design-img" data-src="41.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="43.png" loading="lazy" alt="error" class="change design-img" data-src="43.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="44.png" loading="lazy" alt="error" class="change design-img" data-src="44.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="45.png" loading="lazy" alt="error" class="change design-img" data-src="45.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="47.png" loading="lazy" alt="error" class="change design-img" data-src="47.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="48.png" loading="lazy" alt="error" class="change design-img" data-src="48.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="50.png" loading="lazy" alt="error" class="change design-img" data-src="50.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="51.png" loading="lazy" alt="error" class="change design-img" data-src="51.png" onerror="handleerror(this)" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="design-div">
+        <button id="show-designs">Designs</button>
+        <button id="show-order">Order</button><br>
+      </div>
+      <br>
+
+      <div id="controls">
+        <label style="font-weight:bold;font-size: large;">🎨 Resize & Position Design</label><br><br>
+        <span>Height</span><br>
+        <input type="range" class="range" min="50" max="200" value="150" id="resize-height"><br>
+        <span>Width</span><br>
+        <input type="range" class="range" min="50" max="190" value="150" id="resize-width"><br>
+        <span>Up</span><br>
+        <input type="range" class="range" min="20" max="50" value="35" id="upward"><br>
+        <span>Left</span><br>
+        <input type="range" class="range" min="15" max="42" value="35" id="move-left"><br>
+        <button id="undo">undo</button>&nbsp;&nbsp;<button id="lock-range">Lock</button>
+      </div>
+
+      <section id="my-colours">
+        <h2>Choose Colour</h2>
+        <div class="color-options">
+          <button id="black" data-colour="black.jpg" class="choose"></button>
+          <button id="ash" data-colour="gray.jpg" class="choose"></button>
+          <button id="white" data-colour="white.png" class="choose"></button>
+          <button id="red" data-colour="red.png" class="choose"></button>
+          <button id="yellow" data-colour="yellow.png" class="choose"></button>
+          <button id="green" data-colour="green.png" class="choose"></button>
+          <button id="brown" data-colour="brown.png" class="choose"></button>
+          <button id="pink" data-colour="pink.png" class="choose"></button>
+          <button id="seablue" data-colour="seablue.png" class="choose"></button>
+        </div>
+      </section>
+
+      <div id="modaltwo">
+        <div id="modal-contenttwo">
+          <span id="close-modaltwo">&times;</span>
+          <h1>ORDER</h1>
+          <form action="https://tshirt-backend-lr0i.onrender.com/orders/submit_order/" method="POST" enctype="multipart/form-data">
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" id="name" required><br><br>
+            <label for="number">Number of T-shirts:</label>
+            <input type="number" name="number" id="number" required><br><br>
+            <label for="email">Your Email:</label>
+            <input type="email" name="email" id="email" required><br><br>
+            <input type="hidden" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly><br><br>
+            <label for="phone">Your Contact:</label>
+            <input type="tel" name="phone" id="phone" placeholder="+233" required><br><br>
+            <label for="size">Your Size:</label>
+            <select name="size" id="size" required>
+              <option value="">Select Size</option>
+              <option value="Large">Large</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Very Small">Very Small</option>
+              <option value="X Large">X Large</option>
+              <option value="XX Large">XX Large</option>
+            </select><br><br>
+            <label for="notes">Notes / Instructions:</label><br>
+            <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
+            <button type="submit">Place Order</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="modalyout">
+        <div id="modal-contentyou">
+          <span id="close-modalyou">&times;</span>
+          <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" />
+        </div>
+      </div>
+      <br>
+
+      <div id="gallery-container" style="text-align: center;"><br>
+        <label style="font-weight:bold;font-size: large;">Our Collections</label><br><br>
+        <img id="gallery-image" src="showcase1.jpg" alt="Loading..." onerror="handleerror(this)" ><br>
+      </div>
+    </main>
+
     
-
-    <img  src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" />
- 
   </div>
-  </div><br>
-
-  <div id="gallery-container" style="text-align: center;"><br>
-  <label style="font-weight:bold;font-size: large; align-self: center;" >Our Collections</label><br><br>
-    
-  <img id="gallery-image" src="showcase1.jpg" alt="Loading..." onerror="handleerror(this)" ><br>
-  
-</div>
-
-
-
-  </main>
-
- 
+  <footer>
+      <p>&copy; 2025 RoundNeck Custom. All rights reserved.</p>
+      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
 
   <script src="index.js"></script>
 </body>
 </html>
-
-  <!-- Add your real content here -->
-</div>
- <footer>
-    <p>&copy; 2025 RoundNeck Custom. All rights reserved.</p>
-    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-  </footer>
-  
