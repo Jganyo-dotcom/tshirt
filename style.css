@@ -462,7 +462,7 @@ img {
 }
 
 /* === Responsive Mobile Styles === */
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 600px) {
   body {
     padding: 20px 10px 80px;
   }
@@ -506,6 +506,9 @@ img {
   margin-right: 10px; /* space between each item horizontally */
   /* or */
   padding: 5px; /* space inside each item */
+  object-fit: contain;
+  height: auto;
+  display: inline-block;
 }
 
   /* Hide scrollbar for WebKit browsers */

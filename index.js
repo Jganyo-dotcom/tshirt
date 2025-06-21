@@ -263,6 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
     'showcase6.jpg',
     'showcase7.jpg',
     'showcase8.jpg',
+    '61.png',
     'showcase1.jpg',
     'showcase2.jpg'
   ];

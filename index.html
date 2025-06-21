@@ -18,7 +18,7 @@
         type="image/png"
         fetchpriority="high" />
   <link rel="preload"
-        href="/images/hero.jpg"
+        href="black.png"
         as="image"
         type="image/png"
         fetchpriority="high" />
@@ -101,9 +101,7 @@
             <div class="design-wrapper">
               <img src="3.png" loading="lazy" alt="error" class="change design-img" data-src="3.png" />
             </div>
-            <div class="design-wrapper">
-              <img src="4.png" loading="lazy" alt="error" class="change design-img" data-src="4.png" onerror="handleerror(this)" />
-            </div>
+            
             <div class="design-wrapper">
               <img src="5.png" loading="lazy" alt="error" class="change design-img" data-src="5.png" onerror="handleerror(this)" />
             </div>
@@ -194,7 +192,7 @@
             <div class="design-wrapper">
               <img src="34.png" loading="lazy" alt="error" class="change design-img" data-src="34.png" onerror="handleerror(this)" />
             </div>
-            <div class="design-wrapper">
+            <div class="design-wrapper" style="background-color: red;">
               <img src="36.png" loading="lazy" alt="error" class="change design-img" data-src="36.png" onerror="handleerror(this)" />
             </div>
             <div class="design-wrapper" style="background-color: black;">
@@ -231,8 +229,43 @@
               <img src="50.png" loading="lazy" alt="error" class="change design-img" data-src="50.png" onerror="handleerror(this)" />
             </div>
             <div class="design-wrapper">
-              <img src="51.png" loading="lazy" alt="error" class="change design-img" data-src="51.png" onerror="handleerror(this)" />
+              <img src="52.png" loading="lazy" alt="error" class="change design-img" data-src="52.png" onerror="handleerror(this)" />
             </div>
+                        <div class="design-wrapper">
+              <img src="53.png" loading="lazy" alt="error" class="change design-img" data-src="53.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="54.png" loading="lazy" alt="error" class="change design-img" data-src="54.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="55.png" loading="lazy" alt="error" class="change design-img" data-src="55.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="56.png" loading="lazy" alt="error" class="change design-img" data-src="56.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="57.png" loading="lazy" alt="error" class="change design-img" data-src="57.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="58.png" loading="lazy" alt="error" class="change design-img" data-src="58.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="59.png" loading="lazy" alt="error" class="change design-img" data-src="59.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="60.png" loading="lazy" alt="error" class="change design-img" data-src="60.png" onerror="handleerror(this)" />
+            </div>
+            
+            <div class="design-wrapper" style="background-color: red;">
+              <img src="62.png" loading="lazy" alt="error" class="change design-img" data-src="62.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper" style="background-color: black;">
+              <img src="63.png" loading="lazy" alt="error" class="change design-img" data-src="63.png" onerror="handleerror(this)" />
+            </div>
+            <div class="design-wrapper">
+              <img src="64.png" loading="lazy" alt="error" class="change design-img" data-src="64.png" onerror="handleerror(this)" />
+            </div>
+
           </div>
         </div>
       </div>
@@ -246,20 +279,20 @@
       <div id="controls">
         <label style="font-weight:bold;font-size: large;">🎨 Resize & Position Design</label><br><br>
         <span>Height</span><br>
-        <input type="range" class="range" min="50" max="200" value="150" id="resize-height"><br>
+        <input type="range" class="range" min="0" max="550" value="150" id="resize-height"><br>
         <span>Width</span><br>
-        <input type="range" class="range" min="50" max="190" value="150" id="resize-width"><br>
+        <input type="range" class="range" min="50" max="300" value="150" id="resize-width"><br>
         <span>Up</span><br>
-        <input type="range" class="range" min="20" max="50" value="35" id="upward"><br>
+        <input type="range" class="range" min="-500" max="50" value="35" id="upward"><br>
         <span>Left</span><br>
-        <input type="range" class="range" min="15" max="42" value="35" id="move-left"><br>
+        <input type="range" class="range" min="-500" max="42" value="35" id="move-left"><br>
         <button id="undo">undo</button>&nbsp;&nbsp;<button id="lock-range">Lock</button>
       </div>
 
       <section id="my-colours">
         <h2>Choose Colour</h2>
         <div class="color-options">
-          <button id="black" data-colour="black.jpg" class="choose"></button>
+          <button id="black" data-colour="black.png" class="choose"></button>
           <button id="ash" data-colour="gray.jpg" class="choose"></button>
           <button id="white" data-colour="white.png" class="choose"></button>
           <button id="red" data-colour="red.png" class="choose"></button>
