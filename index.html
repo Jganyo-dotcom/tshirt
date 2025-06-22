@@ -18,7 +18,7 @@
         type="image/png"
         fetchpriority="high" />
   <link rel="preload"
-        href="black.png"
+        href="black.jpg"
         as="image"
         type="image/png"
         fetchpriority="high" />
@@ -33,12 +33,12 @@
         type="image/png"
         fetchpriority="high" />
 <link rel="preload"
-        href="/pink.png"
+        href="pink.png"
         as="image"
         type="image/png"
         fetchpriority="high" />
 <link rel="preload"
-        href="brown.png"
+        href="gray.jpg"
         as="image"
         type="image/png"
         fetchpriority="high" />
@@ -270,6 +270,8 @@
         </div>
       </div>
 
+      
+
       <div id="design-div">
         <button id="show-designs">Designs</button>
         <button id="show-order">Order</button><br>
@@ -279,20 +281,20 @@
       <div id="controls">
         <label style="font-weight:bold;font-size: large;">🎨 Resize & Position Design</label><br><br>
         <span>Height</span><br>
-        <input type="range" class="range" min="0" max="550" value="150" id="resize-height"><br>
+        <input type="range" class="range" min="50" max="200" value="150" id="resize-height"><br>
         <span>Width</span><br>
-        <input type="range" class="range" min="50" max="300" value="150" id="resize-width"><br>
+        <input type="range" class="range" min="50" max="190" value="150" id="resize-width"><br>
         <span>Up</span><br>
-        <input type="range" class="range" min="-500" max="50" value="35" id="upward"><br>
+        <input type="range" class="range" min="20" max="50" value="35" id="upward"><br>
         <span>Left</span><br>
-        <input type="range" class="range" min="-500" max="42" value="35" id="move-left"><br>
+        <input type="range" class="range" min="15" max="42" value="35" id="move-left"><br>
         <button id="undo">undo</button>&nbsp;&nbsp;<button id="lock-range">Lock</button>
       </div>
 
       <section id="my-colours">
         <h2>Choose Colour</h2>
         <div class="color-options">
-          <button id="black" data-colour="black.png" class="choose"></button>
+          <button id="black" data-colour="black.jpg" class="choose"></button>
           <button id="ash" data-colour="gray.jpg" class="choose"></button>
           <button id="white" data-colour="white.png" class="choose"></button>
           <button id="red" data-colour="red.png" class="choose"></button>
@@ -315,7 +317,7 @@
             <input type="number" name="number" id="number" required><br><br>
             <label for="email">Your Email:</label>
             <input type="email" name="email" id="email" required><br><br>
-            <input type="hidden" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly><br><br>
+            <input type="hidden" name="to_email" id="to_email" value="elikemejay@gmail.com" readonly>
             <label for="phone">Your Contact:</label>
             <input type="tel" name="phone" id="phone" placeholder="+233" required><br><br>
             <label for="size">Your Size:</label>
@@ -335,6 +337,8 @@
         </div>
       </div>
 
+      
+      
       <div id="modalyout">
         <div id="modal-contentyou">
           <span id="close-modalyou">&times;</span>
@@ -342,15 +346,54 @@
         </div>
       </div>
       <br>
-
-      <div id="gallery-container" style="text-align: center;"><br>
+      <div class="react">
+        <div class="arrow left">&#9664</div>
+        <div class="arrow right">&#9654 </div>
+      <div id="gallery-container" style="text-align: center;">
+        
+        <div>
         <label style="font-weight:bold;font-size: large;">Our Collections</label><br><br>
-        <img id="gallery-image" src="showcase1.jpg" alt="Loading..." onerror="handleerror(this)" ><br>
+        <img id="gallery-image" src="showcase1.jpg" alt="Loading..." onerror="handleerror(this)" >
+        </div>
+        
       </div>
+    </div>
     </main>
+ <div id="modalthree">
+        <div id="modal-contentthree">
+          <span id="close-modalthree">&times;</span>
+          <h1>ORDER</h1>
+          <form action="https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/" method="POST" enctype="multipart/form-data">
+           
+            <label for="name">Full Name:</label>
+            <input type="text" name="name" id="name" required><br><br>
+            <label for="number">Number of T-shirts:</label>
+            <input type="number" name="number" id="number" required><br><br>
+            <label for="email">Your Email:</label>
+            <input type="email" name="email" id="email" required><br><br>
+            <input type="hidden" name="pic_id" id="id_name" >
+            <label for="phone">Your Contact:</label>
+            <input type="tel" name="phone" id="phone" placeholder="+233" required><br><br>
+            <label for="size">Your Size:</label>
+            <select name="size" id="size" required>
+              <option value="">Select Size</option>
+              <option value="Large">Large</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Very Small">Very Small</option>
+              <option value="X Large">X Large</option>
+              <option value="XX Large">XX Large</option>
+            </select><br><br>
+            <label for="notes">Notes / Instructions:</label><br>
+            <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
+            <button type="submit">Place Order</button>
+          </form>
+        </div>
+      </div>
 
     
   </div>
+
   <footer>
       <p>&copy; 2025 RoundNeck Custom. All rights reserved.</p>
       <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>

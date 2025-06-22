@@ -194,10 +194,10 @@ document.addEventListener('DOMContentLoaded', function () {
     })
       .then(response => {
         if (!response.ok) throw new Error('Server error');
-        return response.text();
+        return response.json();
       })
-      .then(() => {
-        alert('✅ Order submitted successfully!');
+      .then((data) => {
+        alert(data.message);
         form.reset();
         document.getElementById('preview').style.display = 'none';
         document.getElementById('modaltwo').style.display = 'none';
@@ -255,17 +255,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Gallery image slideshow
   const images = [
-    'showcase1.jpg',
-    'showcase2.jpg',
-    'showcase3.jpg',
-    'showcase4.jpg',
-    'showcase5.jpg',
-    'showcase6.jpg',
-    'showcase7.jpg',
-    'showcase8.jpg',
-    '61.png',
-    'showcase1.jpg',
-    'showcase2.jpg'
+    {src:'showcase1.jpg',id:'1111'},
+    {src:'showcase2.jpg', id:'2222'},
+    {src:'showcase3.jpg', id:'3333'},
+    {src:'showcase4.jpg', id:'4444'},
+    {src:'showcase5.jpg', id:'5555'},
+    {src:'showcase6.jpg',id:'6666'},
+    {src:'showcase7.jpg', id:'7777'},
+    {src:'showcase8.jpg', id:'8888'},
+    {src:'61.png',id:'9999'},
+    {src:'showcase1.jpg', id:'1234'},
+    {src:'showcase2.jpg',id:'2345'},
   ];
 
   let index = 0;
@@ -275,10 +275,39 @@ document.addEventListener('DOMContentLoaded', function () {
     index = (index + 1) % images.length;
     imageElement.style.opacity = 0;
     setTimeout(() => {
-      imageElement.src = images[index];
+      imageElement.src = images[index].src;
       imageElement.style.opacity = 1;
     }, 500);
   }, 3000);
+
+  document.querySelector('.arrow.left').addEventListener('click', 
+    showPreviousImage,
+   
+  )
+  document.querySelector('.arrow.right').addEventListener('click',
+    showNextImage,
+    
+  )
+
+  function showPreviousImage(){
+    imageElement.style.opacity = 0;
+    index = (index  - 1 + images.length)% images.length;
+    setTimeout(() => {
+      imageElement.src = images[index].src;
+      imageElement.style.opacity = 1;
+    }, 500);
+  }
+
+  function showNextImage(){
+    imageElement.style.opacity = 0
+    index = (index  + 1)% images.length
+    setTimeout(() => {
+      imageElement.src = images[index].src;
+      imageElement.style.opacity = 1;
+    }, 500);
+  }
+
+  
 
   // Page loader fade out
   setTimeout(() => {
@@ -288,6 +317,88 @@ document.addEventListener('DOMContentLoaded', function () {
     if (loader) loader.style.display = 'none';
     if (content) content.style.display = 'block';
   }, 5000);
+
+imageElement.addEventListener('dblclick',function(){
+  document.querySelector('#modalthree').style.display = 'block';
+  currentImageSrc =imageElement.src;
+  document.getElementById('id_name').value = currentImageSrc;
+  document.querySelector('#send_request').addEventListener('submit', function(e){
+    e.preventDefault();
+    const loader = document.getElementById('page-loader');
+    loader.style.display = 'block';
+    let form = e.target;
+    
+
+    let formData = new FormData(form);
+    fetch('https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/',{
+    method: 'POST',
+    body: formData,
+  })
+  .then(response =>response.json())
+  .then(data=>{
+    alert(data.message)
+    document.getElementById('modalthree').style.display = 'none';
+        loader.style.display = 'none';
+  })
+  .catch(error=>{
+    alert("couldnt place order")
+    console.error('error', error)
+  })
+  })
+})
+
+let lastTap = 0;
+
+function handleSend() {
+  const currentImageSrc = imageElement.src;
+  document.getElementById('id_name').value = currentImageSrc;
+
+  document.querySelector('#send_request').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const loader = document.getElementById('page-loader');
+    loader.style.display = 'block';
+    const formData = new FormData(e.target);
+    
+
+
+    fetch('https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+        document.getElementById('modalthree').style.display = 'none';
+        loader.style.display = 'none';
+      })
+      .catch(error=>{
+    alert("couldnt place order")
+    console.error('error', error)
+    document.getElementById('modalthree').style.display = 'none';
+        loader.style.display = 'none';
+  })
+  });
+}
+
+// For laptops (dblclick)
+
+
+// For phones (detect double tap)
+imageElement.addEventListener('touchstart', function (e) {
+  document.querySelector('#modalthree').style.display = 'block'
+  const currentTime = new Date().getTime();
+  const tapLength = currentTime - lastTap;
+
+  if (tapLength < 500 && tapLength > 0) {
+    handleSend();
+  }
+
+  lastTap = currentTime;
+});
+
+ document.querySelector('#close-modalthree').addEventListener('click', function () {
+    document.querySelector('#modalthree').style.display = 'none';
+  });
 
 
 

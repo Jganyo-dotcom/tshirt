@@ -201,7 +201,7 @@ footer {
 }
 
 /* === Modals === */
-#modal, #modaltwo, #modalyou, #modaltwog {
+#modal, #modaltwo, #modalyou, #modaltwog ,#modalthree{
   display: none;
   position: fixed;
   z-index: 999;
@@ -213,7 +213,7 @@ footer {
   align-items: center;
 }
 
-#modaltwo {
+#modaltwo , #modalthree{
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(3px);
   overflow-y: auto;
@@ -234,7 +234,7 @@ footer {
   animation: fadeIn 0.4s ease-in-out;
 }
 
-#modal-contenttwo {
+#modal-contenttwo,#modal-contentthree {
   background: white;
   padding: 30px;
   border-radius: 15px;
@@ -253,8 +253,21 @@ footer {
   margin-bottom: 20px;
   text-align: center;
 }
+#modal-contentthree h1 {
+  font-size: 24px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
 
 #modal-contenttwo label {
+  font-weight: 600;
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  color: #333;
+}
+#modal-contentthree label {
   font-weight: 600;
   display: block;
   margin-top: 12px;
@@ -274,8 +287,13 @@ footer {
   transition: border 0.3s;
 }
 
-#modal-contenttwo input:focus,
+#modal-contenttwo , input:focus,
 #modal-contenttwo textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+#modal-contentthree , input:focus,
+#modal-contentthree textarea:focus {
   border-color: var(--primary-color);
   outline: none;
 }
@@ -293,12 +311,27 @@ footer {
   transition: background 0.3s;
 }
 
+#modal-contentthree button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
 #modal-contenttwo button[type="submit"]:hover {
+  background-color: #005fa3;
+}
+#modal-contentthree button[type="submit"]:hover {
   background-color: #005fa3;
 }
 
 /* Close Buttons */
-#close-modal, #close-modaltwo, #close-modalyou {
+#close-modal, #close-modaltwo, #close-modalyou ,#close-modalthree{
   position: absolute;
   top: 10px;
   right: 20px;
@@ -309,6 +342,9 @@ footer {
 }
 
 #close-modaltwo:hover {
+  color: red;
+}
+#close-modalthree:hover {
   color: red;
 }
 
@@ -388,6 +424,7 @@ img {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+
 }
 
 #gallery-image {
@@ -522,6 +559,32 @@ img {
 }
 
 #modalyout{
+  display: none;
+}
+
+.arrow{
+  top:50%;
+  position: absolute;
+  cursor: pointer;
+  transform: translateY(-50%);
+  font-size: 30px;
+  
+}
+.arrow.left{
+  left:-30px ;
+}
+
+.arrow.right{
+  right: -30px;
+  
+}
+
+.react{
+  position:relative;
+
+}
+
+#modalthree{
   display: none;
 }
 
