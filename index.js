@@ -347,7 +347,6 @@ imageElement.addEventListener('dblclick',function(){
   })
 })
 
-let lastTap = 0;
 
 function handleSend() {
   const currentImageSrc = imageElement.src;
@@ -382,15 +381,19 @@ function handleSend() {
 
 // For laptops (dblclick)
 
+let lastTap = 0;
 
 // For phones (detect double tap)
-imageElement.addEventListener('touchstart', function (e) {
-  document.querySelector('#modalthree').style.display = 'block'
+imageElement.addEventListener('touchend', function (e) {
   const currentTime = new Date().getTime();
   const tapLength = currentTime - lastTap;
 
   if (tapLength < 500 && tapLength > 0) {
+    // Handle double tap
     handleSend();
+  } else {
+    // Optional: Show modal on single tap
+    document.querySelector('#modalthree').style.display = 'none';
   }
 
   lastTap = currentTime;
