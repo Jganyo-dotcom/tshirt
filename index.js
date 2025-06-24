@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  console.log('loaded');
-
   // Lock/unlock range inputs toggle
   let lock_range = true;
   const lockRangeBtn = document.querySelector('#lock-range');
@@ -321,7 +319,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelector('#order_collection').addEventListener('click',function(){
   document.querySelector('#modalthree').style.display = 'block';
   currentImageSrc =imageElement.src;
-  console.log(currentImageSrc)
   document.getElementById('id_name').value = currentImageSrc;
   document.querySelector('#send_request').addEventListener('submit', function(e){
     e.preventDefault();
