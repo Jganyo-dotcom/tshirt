@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function () {
       imageElement.src = images[index].src;
       imageElement.style.opacity = 1;
     }, 500);
-  }, 3000);
+  }, 5000);
 
   document.querySelector('.arrow.left').addEventListener('click', 
     showPreviousImage,
@@ -318,14 +318,15 @@ document.addEventListener('DOMContentLoaded', function () {
     if (content) content.style.display = 'block';
   }, 5000);
 
-imageElement.addEventListener('dblclick',function(){
+document.querySelector('#order_collection').addEventListener('click',function(){
   document.querySelector('#modalthree').style.display = 'block';
   currentImageSrc =imageElement.src;
+  console.log(currentImageSrc)
   document.getElementById('id_name').value = currentImageSrc;
   document.querySelector('#send_request').addEventListener('submit', function(e){
     e.preventDefault();
     const loader = document.getElementById('page-loader');
-    loader.style.display = 'block';
+    
     let form = e.target;
     
 
@@ -338,7 +339,7 @@ imageElement.addEventListener('dblclick',function(){
   .then(data=>{
     alert(data.message)
     document.getElementById('modalthree').style.display = 'none';
-        loader.style.display = 'none';
+        
   })
   .catch(error=>{
     alert("couldnt place order")
@@ -379,25 +380,7 @@ function handleSend() {
   });
 }
 
-// For laptops (dblclick)
 
-let lastTap = 0;
-
-// For phones (detect double tap)
-imageElement.addEventListener('touchend', function (e) {
-  const currentTime = new Date().getTime();
-  const tapLength = currentTime - lastTap;
-
-  if (tapLength < 500 && tapLength > 0) {
-    // Handle double tap
-    handleSend();
-  } else {
-    // Optional: Show modal on single tap
-    document.querySelector('#modalthree').style.display = 'none';
-  }
-
-  lastTap = currentTime;
-});
 
  document.querySelector('#close-modalthree').addEventListener('click', function () {
     document.querySelector('#modalthree').style.display = 'none';

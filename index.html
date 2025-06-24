@@ -354,7 +354,7 @@
         <div>
         <label style="font-weight:bold;font-size: large;">Our Collections</label><br><br>
         <img id="gallery-image" src="showcase1.jpg" alt="Loading..." onerror="handleerror(this)" >
-        <label>Double tap to order now!!!</label>
+        <button id="order_collection">I want this</button>
         </div>
         
       </div>
@@ -364,7 +364,7 @@
         <div id="modal-contentthree">
           <span id="close-modalthree">&times;</span>
           <h1>ORDER</h1>
-          <form action="https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/" method="POST" enctype="multipart/form-data">
+          <form id="send_request" action="https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/" method="POST" enctype="multipart/form-data">
            
             <label for="name">Full Name:</label>
             <input type="text" name="name" id="name" required><br><br>
