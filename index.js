@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.choose').forEach(button => {
     button.addEventListener('click', function () {
       const colour = button.dataset.colour;
-      console.log(colour);
+      let mine = colour.split('.')[0].toUpperCase()
+      alert(mine);
       target.src = colour;
     });
   });
@@ -314,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (loader) loader.style.display = 'none';
     if (content) content.style.display = 'block';
-  }, 5000);
+  }, 2000);
 
 document.querySelector('#order_collection').addEventListener('click',function(){
   document.querySelector('#modalthree').style.display = 'block';
