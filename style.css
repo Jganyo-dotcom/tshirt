@@ -153,14 +153,22 @@ button:hover {
 
 /* === Footer === */
 footer {
-  position: fixed;
+  position:fixed;
   bottom: 0;
   width: 100%;
   background-color: var(--primary-color);
   color: white;
   text-align: center;
-  padding: 12px 0;
+  padding: 20px 0;
   font-size: 14px;
+  height: auto;
+  
+  margin: top 20px; ;
+  
+}
+
+.ooter{
+  font-size: small;
 }
 
 /* === Controls === */
@@ -232,6 +240,11 @@ footer {
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   animation: fadeIn 0.4s ease-in-out;
+}
+
+#cent{
+  text-align: center;
+  color: #0077cc;
 }
 
 #modal-contenttwo,#modal-contentthree {
@@ -586,6 +599,13 @@ img {
 
 #modalthree{
   display: none;
+}
+
+.contact{
+  height: 40px; ;
+  width: 40px;
+  border-radius: 25px;
+  vertical-align: middle;
 }
 
 

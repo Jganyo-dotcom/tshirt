@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.ico" />
-  <title>Customize Your Round Neck</title>
+  <title >Customize Your Round Neck</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="preload"
@@ -56,6 +56,7 @@
     align-items: center;
     z-index: 9999;
     flex-direction: column;
+  
   ">
     <img src="https://i.gifer.com/ZZ5H.gif" alt="Loading..." width="50" height="50" onerror="this.style.display='none'">
     <p style="font-weight: bold; margin-top: 10px;">Loading... Please wait</p>
@@ -63,13 +64,13 @@
 
   <div id="main-content" style="display: none;">
     <header>
-      <h1 style="font-weight:bold; font-size: x-large;">Customize Your T-shirt</h1>
+      <h1 style="font-weight:bold; font-size: x-large;text-align: center;">Customize Your T-shirt</h1>
     </header>
     <br>
 
     <main>
       <div id="dressing">
-        <img id="t-shirt" src="gray.jpg" alt="error" />
+        <img id="t-shirt" src="black.jpg" alt="error" />
         <img class="design" src="1.png" onerror="handleerror(this)" alt="design" />
       </div>
 
@@ -292,7 +293,7 @@
       </div>
 
       <section id="my-colours">
-        <h2>Choose Colour</h2>
+        <label style="font-weight:bold;font-size: large;">Choose Colour</label>
         <div class="color-options">
           <button id="black" data-colour="black.jpg" class="choose"></button>
           <button id="ash" data-colour="gray.jpg" class="choose"></button>
@@ -392,12 +393,14 @@
         </div>
       </div>
 
-    
-  </div>
+      
+  </div><br><br><br><br>
 
   <footer>
-      <p>&copy; 2025 RoundNeck Custom. All rights reserved.</p>
-      <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      <p class="ooter">&copy; 2025 KAGO edition. All rights reserved.</p>
+      <p class="ooter"><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p><br>
+      <p class="ooter">Contact us on <a href="mailto:kagoventures@gmail.com"> &nbsp; <img class="contact" src="CONTACTS/mail.png"></a>  <a href="https://wa.me/message/VKISZMOVQRRHJ1"><img class="contact" src="CONTACTS/whatsapp.jpeg"></a> <a href="https://t.me/kagoventures"><img class="contact" src="CONTACTS/telegram.jpeg"></a>
+      
     </footer>
 
   <script src="index.js"></script>

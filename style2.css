@@ -1,0 +1,12 @@
+/* === Import Google Font === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+
+body {
+  
+  background: linear-gradient(-45deg, hwb(207 80% 4%), hwb(183 73% 4%), hwb(140 78% 4%), hsl(180, 11%, 96%));
+ 
+  
+ 
+}
+
