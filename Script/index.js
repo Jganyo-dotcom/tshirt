@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.choose').forEach(button => {
     button.addEventListener('click', function () {
       const colour = button.dataset.colour;
-      let mine = colour.split('.')[0].toUpperCase()
-      alert(mine);
+      let mine = colour.split('.')[0]
+      let minee = mine.split('/')[1]
+      alert(minee);
       target.src = colour;
     });
   });
@@ -271,17 +272,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Gallery image slideshow
   const images = [
-  { src: 'showcase1.jpg', id: '1111' },
-  { src: 'showcase2.jpg', id: '2222' },
-  { src: 'showcase3.jpg', id: '3333' },
-  { src: 'showcase4.jpg', id: '4444' },
-  { src: 'showcase5.jpg', id: '5555' },
-  { src: 'showcase6.jpg', id: '6666' },
-  { src: 'showcase7.jpg', id: '7777' },
-  { src: 'showcase8.jpg', id: '8888' },
-  { src: '61.png', id: '9999' },
-  { src: 'showcase1.jpg', id: '1234' },
-  { src: 'showcase2.jpg', id: '2345' },
+  { src: 'Slideshow/showcase29.jpg', id: '1111' },
+  { src: 'Slideshow/showcase26.jpg', id: '2222' },
+  { src: 'Slideshow/showcase27.jpg', id: '3333' },
+  { src: 'Slideshow/showcase28.jpg', id: '4444' },
+  { src: 'Slideshow/showcase30.jpg', id: '5555' },
+  { src: 'Slideshow/showcase31.jpg', id: '6666' },
+  { src: 'Slideshow/showcase32.jpg', id: '7777' },
+  { src: 'Slideshow/showcase33.jpg', id: '8888' },
+  { src: 'Slideshow/showcase34.jpg', id: '1234' },
+  { src: 'Slideshow/showcase35.jpg', id: '2345' },
+  { src: 'Slideshow/showcase9.jpg', id: '2345' },
+  { src: 'Slideshow/showcase10.jpg', id: '1111' },
+  { src: 'Slideshow/showcase12.jpg', id: '2222' },
+  { src: 'Slideshow/showcase13.jpg', id: '3333' },
+  { src: 'Slideshow/showcase14.jpg', id: '4444' },
+  { src: 'Slideshow/showcase15.jpg', id: '5555' },
+  { src: 'Slideshow/showcase16.jpg', id: '6666' },
+  { src: 'Slideshow/showcase17.jpg', id: '7777' },
+  { src: 'Slideshow/showcase18.jpg', id: '8888' },
+  { src: 'Slideshow/showcase19.jpg', id: '1234' },
+  { src: 'Slideshow/showcase20.jpg', id: '2345' },
+  { src: 'Slideshow/showcase21.jpg', id: '2345' },
+  { src: 'Slideshow/showcase22.jpg', id: '2345' },
+  { src: 'Slideshow/showcase23.jpg', id: '2345' },
+  { src: 'Slideshow/showcase24.jpg', id: '2345' },
+  { src: 'Slideshow/showcase25.jpg', id: '2345' },
+
+
 ];
 
 let index = 0;
@@ -346,7 +364,7 @@ nextImg.addEventListener('click', () => updateGallery(index + 1));
 document.querySelector('#order_collection').addEventListener('click',function(){
   document.querySelector('#modalthree').style.display = 'block';
   currentImageSrc =imageElement.src;
-  
+  console.log(currentImageSrc)
   document.getElementById('id_name').value = currentImageSrc;
   document.querySelector('#send_request').addEventListener('submit', function(e){
     e.preventDefault();

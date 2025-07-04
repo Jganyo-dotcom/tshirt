@@ -25,7 +25,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px 100px;
   min-height: 100vh;
   cursor: url('https://cur.cursors-4u.net/nature/nat-11/nat1074.cur'), auto;
   user-select: none;
@@ -153,7 +152,7 @@ button:hover {
 
 /* === Footer === */
 footer {
-  position:fixed;
+  
   bottom: 0;
   width: 100%;
   background-color: var(--primary-color);
@@ -514,7 +513,7 @@ img {
 /* === Responsive Mobile Styles === */
 @media screen and (max-width: 600px) {
   body {
-    padding: 20px 10px 80px;
+    padding-top: 20px;
   }
 
   #dressing {
@@ -669,6 +668,19 @@ a {
     font-size: 13.5px;
     padding: 4px 6px;
   }
+}
+
+#no_use{
+  height: 12px;
+  width: 100vw;
+  display: none;
+  overflow: hidden;
+}
+
+.non{
+  height: 2px; ;
+  width: 2px;
+  display: none;
 }
 
 
