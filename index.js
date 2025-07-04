@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelector('#close-modal').addEventListener('click', function () {
     modal.style.display = 'none';
+   
+  
+    
+
   });
 
   window.addEventListener('click', function (event) {
@@ -126,6 +130,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // Close second modal
   document.querySelector('#close-modaltwo').addEventListener('click', function () {
     document.querySelector('#modaltwo').style.display = 'none';
+    let form = document.querySelector('#my_first')
+    
+    if (form){
+      form.reset()
+    }
+    
   });
 
   // Order modal and screenshot logic
@@ -155,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
           document.getElementById('modaltwo').style.display = 'block';
           loader.style.display = 'none';
-        }, 'image/webp', 0.75);
+        }, 'image/webp', 0.5);
       })
       .catch(error => {
         alert('❌ Screenshot failed.');
@@ -167,6 +177,9 @@ document.addEventListener('DOMContentLoaded', function () {
   // Form submit
   document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
+    let submit_two = document.getElementById('submit_two')
+    submit_two.disabled = true;
+    submit_two.innerText = 'sending'
     const form = e.target;
     const loader = document.getElementById('page-loaderr');
     loader.style.display = 'block';
@@ -198,6 +211,8 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((data) => {
         alert(data.message);
         form.reset();
+        submit_two.disabled = false;
+        submit_two.innerText = 'Sent order'
         document.getElementById('preview').style.display = 'none';
         document.getElementById('modaltwo').style.display = 'none';
         loader.style.display = 'none';
@@ -206,6 +221,8 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('❌ Submission failed:', error);
         alert('❌ Submission failed.');
         loader.style.display = 'none';
+        submit_two.disabled = false;
+        submit_two.innerText = 'Place order'
       });
   });
 
@@ -254,39 +271,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Gallery image slideshow
   const images = [
-    {src:'showcase1.jpg',id:'1111'},
-    {src:'showcase2.jpg', id:'2222'},
-    {src:'showcase3.jpg', id:'3333'},
-    {src:'showcase4.jpg', id:'4444'},
-    {src:'showcase5.jpg', id:'5555'},
-    {src:'showcase6.jpg',id:'6666'},
-    {src:'showcase7.jpg', id:'7777'},
-    {src:'showcase8.jpg', id:'8888'},
-    {src:'61.png',id:'9999'},
-    {src:'showcase1.jpg', id:'1234'},
-    {src:'showcase2.jpg',id:'2345'},
-  ];
+  { src: 'showcase1.jpg', id: '1111' },
+  { src: 'showcase2.jpg', id: '2222' },
+  { src: 'showcase3.jpg', id: '3333' },
+  { src: 'showcase4.jpg', id: '4444' },
+  { src: 'showcase5.jpg', id: '5555' },
+  { src: 'showcase6.jpg', id: '6666' },
+  { src: 'showcase7.jpg', id: '7777' },
+  { src: 'showcase8.jpg', id: '8888' },
+  { src: '61.png', id: '9999' },
+  { src: 'showcase1.jpg', id: '1234' },
+  { src: 'showcase2.jpg', id: '2345' },
+];
 
-  let index = 0;
-  const imageElement = document.getElementById('gallery-image');
+let index = 0;
 
-  setInterval(() => {
-    index = (index + 1) % images.length;
-    imageElement.style.opacity = 0;
-    setTimeout(() => {
-      imageElement.src = images[index].src;
-      imageElement.style.opacity = 1;
-    }, 500);
-  }, 5000);
+const mainImg = document.getElementById('gallery-image');
+const prevImg = document.getElementById('prev-preview');
+const nextImg = document.getElementById('next-preview');
+const imageElement = document.getElementById('gallery-image');
 
-  document.querySelector('.arrow.left').addEventListener('click', 
-    showPreviousImage,
-   
-  )
-  document.querySelector('.arrow.right').addEventListener('click',
-    showNextImage,
-    
-  )
+function updateGallery(newIndex) {
+  index = (newIndex + images.length) % images.length;
+
+  // Add animation
+  mainImg.classList.add('animate');
+  setTimeout(() => {
+    mainImg.src = images[index].src;
+    prevImg.src = images[(index - 1 + images.length) % images.length].src;
+    nextImg.src = images[(index + 1) % images.length].src;
+    mainImg.classList.remove('animate');
+  }, 400);
+}
+
+// Auto slide every 5 seconds
+setInterval(() => {
+  updateGallery(index + 1);
+}, 5000);
+
+// Manual click
+prevImg.addEventListener('click', () => updateGallery(index - 1));
+nextImg.addEventListener('click', () => updateGallery(index + 1));
+
 
   function showPreviousImage(){
     imageElement.style.opacity = 0;
@@ -320,9 +346,13 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelector('#order_collection').addEventListener('click',function(){
   document.querySelector('#modalthree').style.display = 'block';
   currentImageSrc =imageElement.src;
+  
   document.getElementById('id_name').value = currentImageSrc;
   document.querySelector('#send_request').addEventListener('submit', function(e){
     e.preventDefault();
+    let submit = document.getElementById('submit');
+    submit.disabled= true;
+    submit.innerText = 'sending';
     const loader = document.getElementById('page-loader');
     
     let form = e.target;
@@ -336,52 +366,32 @@ document.querySelector('#order_collection').addEventListener('click',function(){
   .then(response =>response.json())
   .then(data=>{
     alert(data.message)
+    submit.innerText= 'sent'
     document.getElementById('modalthree').style.display = 'none';
         
   })
   .catch(error=>{
     alert("couldnt place order")
     console.error('error', error)
+    submit.innerText = 'Place order'
+    submit.disabled = false
   })
   })
 })
 
 
-function handleSend() {
-  const currentImageSrc = imageElement.src;
-  document.getElementById('id_name').value = currentImageSrc;
 
-  document.querySelector('#send_request').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const loader = document.getElementById('page-loader');
-    loader.style.display = 'block';
-    const formData = new FormData(e.target);
-    
-
-
-    fetch('https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        alert(data.message);
-        document.getElementById('modalthree').style.display = 'none';
-        loader.style.display = 'none';
-      })
-      .catch(error=>{
-    alert("couldnt place order")
-    console.error('error', error)
-    document.getElementById('modalthree').style.display = 'none';
-        loader.style.display = 'none';
-  })
-  });
-}
 
 
 
  document.querySelector('#close-modalthree').addEventListener('click', function () {
     document.querySelector('#modalthree').style.display = 'none';
+     let form = document.querySelector('#send_request')
+    
+    if (form){
+      form.reset()
+    }
+    
   });
 
 

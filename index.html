@@ -311,18 +311,18 @@
         <div id="modal-contenttwo">
           <span id="close-modaltwo">&times;</span>
           <h1>ORDER</h1>
-          <form action="https://tshirt-backend-lr0i.onrender.com/orders/submit_order/" method="POST" enctype="multipart/form-data">
+          <form id="my_first" action="https://tshirt-backend-lr0i.onrender.com/orders/submit_order/" method="POST" enctype="multipart/form-data">
             <label for="name">Full Name:</label>
-            <input type="text" name="name" id="name" required><br><br>
+            <input type="text" name="name" id="name_name" required><br><br>
             <label for="number">Number of T-shirts:</label>
-            <input type="number" name="number" id="number" required><br><br>
+            <input type="number" name="number" id="number_number" required><br><br>
             <label for="email">Your Email:</label>
-            <input type="email" name="email" id="email" required><br><br>
-            <input type="hidden" name="to_email" id="to_email" value="Kagoventures@gmail.com" readonly>
+            <input type="email" name="email" id="email_email" required><br><br>
+            <input type="hidden" name="to_email" id="to_email_to_email" value="Kagoventures@gmail.com" readonly>
             <label for="phone">Your WhatsAPP Contact:</label>
-            <input type="tel" name="phone" id="phone" placeholder="+233" required><br><br>
+            <input type="tel" name="phone" id="phone_phone" placeholder="+233" required><br><br>
             <label for="size">Your Size:</label>
-            <select name="size" id="size" required>
+            <select name="size" id="size_size" required>
               <option value="">Select Size</option>
               <option value="Large">Large</option>
               <option value="Small">Small</option>
@@ -332,8 +332,8 @@
               <option value="XX Large">XX Large</option>
             </select><br><br>
             <label for="notes">Notes / Instructions:</label><br>
-            <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
-            <button type="submit">Place Order</button>
+            <textarea name="notes" id="notes_notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
+            <button id="submit_two" type="submit">Place Order</button>
           </form>
         </div>
       </div>
@@ -348,18 +348,26 @@
       </div>
       <br>
       <div class="react">
-        <div class="arrow left">&#9664</div>
-        <div class="arrow right">&#9654 </div>
-      <div id="gallery-container" style="text-align: center;">
         
-        <div>
-        <label style="font-weight:bold;font-size: large;">Our Collections</label><br><br>
-        <img id="gallery-image" src="showcase1.jpg" alt="Loading..." onerror="handleerror(this)" >
-        <button id="order_collection">I want this</button>
-        </div>
-        
-      </div>
+      <div id="gallery-container" style="text-align: center;"><br>
+     <label style="font-weight:bold;font-size: large;">Our Collections</label><br><br>
+
+  <div class="slideshow-wrapper">
+    <!-- Previous Image Preview -->
+    <img class="side-preview" id="prev-preview" src="showcase8.jpg" alt="Previous">
+
+    <!-- Main Image -->
+    <div class="image-frame">
+      <img id="gallery-image" src="showcase1.jpg" alt="Main Image" onerror="handleerror(this)">
     </div>
+    
+    <!-- Next Image Preview -->
+    <img class="side-preview" id="next-preview" src="showcase2.jpg" alt="Next">
+  </div>
+
+  <button id="order_collection" >I want this</button><br>
+  </div>
+
     </main>
  <div id="modalthree">
         <div id="modal-contentthree">
@@ -388,7 +396,7 @@
             </select><br><br>
             <label for="notes">Notes / Instructions:</label><br>
             <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
-            <button type="submit">Place Order</button>
+            <button id="submit" type="submit">Place Order</button>
           </form>
         </div>
       </div>
