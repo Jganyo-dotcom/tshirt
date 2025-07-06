@@ -257,7 +257,11 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 150000);
 
   // Disable right-click context menu
-  
+  document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+    alert('🚫 Right-click is disabled on this page.');
+  });
+
 
   // Color button active class toggle (within #my-colours)
   document.querySelectorAll('#my-colours .choose').forEach(button => {
