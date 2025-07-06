@@ -63,7 +63,7 @@ body {
   left: 35%;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
+ 
   pointer-events: none;
   animation: bounceIn 0.5s ease-out;
   transition: transform 0.3s;
@@ -83,6 +83,24 @@ button {
 }
 
 button:hover {
+  background-color: #005fa3;
+  transform: scale(1.05);
+}
+
+#show-order{
+  font-size: 20px;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  margin: 6px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  width: 100%;
+}
+
+#show-order:hover{
   background-color: #005fa3;
   transform: scale(1.05);
 }
@@ -130,7 +148,7 @@ button:hover {
 #seablue { background: #ADD8E6; }
 
 /* === Sidebar === */
-#design-div {
+#design-div,#design-div-on-order {
   background: var(--white);
   border-radius: 10px;
   padding: 20px;
@@ -368,6 +386,10 @@ footer {
   border-radius: 8px;
   object-fit: contain;
   cursor: pointer;
+}
+
+#uploaded{
+  border-radius: 0%;
 }
 
 img {

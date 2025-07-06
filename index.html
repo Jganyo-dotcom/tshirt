@@ -95,7 +95,18 @@
       <div id="page-loaderr" style="display: none;">
         <div class="css-spinner"></div>
       </div>
-
+      <div id="controls">
+        <label style="font-weight:bold;font-size: large;">🎨 Resize & Position Design</label><br><br>
+        <span>Height</span><br>
+        <input type="range" class="range" min="50" max="200" value="150" id="resize-height"><br>
+        <span>Width</span><br>
+        <input type="range" class="range" min="50" max="190" value="150" id="resize-width"><br>
+        <span>Up</span><br>
+        <input type="range" class="range" min="20" max="50" value="35" id="upward"><br>
+        <span>Left</span><br>
+        <input type="range" class="range" min="15" max="42" value="35" id="move-left"><br>
+        <button id="undo">undo</button>&nbsp;&nbsp;<button id="lock-range">Lock</button>
+      </div>
 
       <div id="modal">
         <div id="modal-content">
@@ -103,6 +114,10 @@
           <p>Choose a design</p>
           <div class="design-gallery">
             <!-- kept all your original design-wrapper blocks -->
+             <div class="design-wrapper" id="show_design_here" style="display:none" >
+              <img id="uploaded" loading="lazy" alt="error" class="change design-img" style="display:none"  />
+              <input id="img_place" type="file" accept="image/*" style="display:none"  >
+            </div>
             <div class="design-wrapper">
               <img src="Designs/1.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/1.png" />
             </div>
@@ -285,22 +300,11 @@
 
       <div id="design-div">
         <button id="show-designs">Designs</button>
-        <button id="show-order">Order</button><br>
+        <button id="upload_designs">Upload design</button><br>
       </div>
       <br>
 
-      <div id="controls">
-        <label style="font-weight:bold;font-size: large;">🎨 Resize & Position Design</label><br><br>
-        <span>Height</span><br>
-        <input type="range" class="range" min="50" max="200" value="150" id="resize-height"><br>
-        <span>Width</span><br>
-        <input type="range" class="range" min="50" max="190" value="150" id="resize-width"><br>
-        <span>Up</span><br>
-        <input type="range" class="range" min="20" max="50" value="35" id="upward"><br>
-        <span>Left</span><br>
-        <input type="range" class="range" min="15" max="42" value="35" id="move-left"><br>
-        <button id="undo">undo</button>&nbsp;&nbsp;<button id="lock-range">Lock</button>
-      </div>
+      
 
       <section id="my-colours">
         <label style="font-weight:bold;font-size: large;">Choose Colour</label>
@@ -316,6 +320,13 @@
           <button id="seablue" data-colour="Tops/seablue.png" class="choose"></button>
         </div>
       </section>
+
+      <div id="design-div-on-order">
+       
+        <button id="show-order">Order</button><br>
+      </div>
+      <br>
+
 
       <div id="modaltwo">
         <div id="modal-contenttwo">
@@ -423,6 +434,7 @@
     <img class="non" src="Tops/yellow.png">
     <img class="non"src="Tops/pink.png">
     <img class="non" src="Tops/white.png">
+    <img class="non" src="Designs/1.png">
   </div><br>
 </body>
   <footer>

@@ -257,10 +257,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }, 150000);
 
   // Disable right-click context menu
-  document.addEventListener('contextmenu', function (event) {
-    event.preventDefault();
-    alert('🚫 Right-click is disabled on this page.');
-  });
+  
 
   // Color button active class toggle (within #my-colours)
   document.querySelectorAll('#my-colours .choose').forEach(button => {
@@ -402,12 +399,7 @@ document.querySelector('#order_collection').addEventListener('click',function(){
   })
 })
 
-
-
-
-
-
- document.querySelector('#close-modalthree').addEventListener('click', function () {
+document.querySelector('#close-modalthree').addEventListener('click', function () {
     document.querySelector('#modalthree').style.display = 'none';
      let form = document.querySelector('#send_request')
     
@@ -417,6 +409,24 @@ document.querySelector('#order_collection').addEventListener('click',function(){
     
   });
 
-
-
+document.getElementById('upload_designs').addEventListener('click',function(){
+  
+  document.querySelector('#img_place').click()
+})
+document.querySelector('#img_place').addEventListener('change', function(){
+  const file = this.files[0]
+  if (file){
+    const reader = new FileReader();
+    reader.onload = function(e){
+      document.querySelector('#uploaded').src = e.target.result;
+      document.querySelector('#uploaded').dataset.src = e.target.result;
+      
+      document.querySelector('#uploaded').className= 'change design-img'
+      document.getElementById('show_design_here').style.display= 'block'
+      document.querySelector('#uploaded').style.display= 'block'
+      alert('kindly tap Designs to access your design')
+    }
+    reader.readAsDataURL(file)
+  }
+})
 });
