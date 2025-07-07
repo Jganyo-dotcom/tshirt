@@ -143,37 +143,48 @@ document.addEventListener('DOMContentLoaded', function () {
   let compressedFile = null;
 
   document.getElementById('show-order').addEventListener('click', function () {
-    if (!confirm('Are you ready to upload your design and place your order?')) return;
+  if (!confirm('Are you ready to upload your design and place your order?')) return;
 
-    const dressingDiv = document.getElementById('dressing');
-    const loader = document.getElementById('page-loaderr');
-    loader.style.display = 'block';
+  const dressingDiv = document.getElementById('dressing');
+  const loader     = document.getElementById('page-loaderr');
 
-    html2canvas(dressingDiv, { useCORS: true })
+  loader.style.display = 'flex';
+ // Start timer for html2canvas render
+  console.time('render');
+  // 1️⃣ Disable your entry animations/transitions
+  dressingDiv.style.animation = 'none';
+  dressingDiv.querySelector('.design').style.animation = 'none';
+  dressingDiv.querySelector('.design').style.transition = 'none';
+
+  // 2️⃣ Give the browser time to finish loading assets & settle styles
+  setTimeout(() => {
+    html2canvas(dressingDiv, { useCORS: true, scale: 1 })
       .then(canvas => {
-        canvas.toBlob(function (blob) {
-          if (!blob) {
-            alert('❌ Failed to get design image.');
-            loader.style.display = 'none';
-            return;
-          }
+        canvas.toBlob(blob => {
+          loader.style.display = 'none';
+          if (!blob) return alert('❌ Failed to get design image.');
 
+          // Build your File, show preview & modal
           compressedFile = new File([blob], 'design.webp', { type: 'image/webp' });
-
           const preview = document.getElementById('preview');
           preview.src = URL.createObjectURL(blob);
           preview.style.display = 'block';
-
           document.getElementById('modaltwo').style.display = 'block';
-          loader.style.display = 'none';
+
+          // 3️⃣ Re‑enable animations/transitions
+          dressingDiv.style.animation = '';
+          dressingDiv.querySelector('.design').style.animation = '';
+          dressingDiv.querySelector('.design').style.transition = '';
         }, 'image/webp', 0.5);
       })
       .catch(error => {
-        alert('❌ Screenshot failed.');
-        console.error(error);
         loader.style.display = 'none';
+        console.error(error);
+        alert('❌ Screenshot failed.');
       });
-  });
+  }, 150);  // ← tweak this delay (100–200 ms) as needed
+});
+
 
   // Form submit
   document.querySelector('form').addEventListener('submit', function (e) {
@@ -183,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
     submit_two.innerText = 'sending'
     const form = e.target;
     const loader = document.getElementById('page-loaderr');
-    loader.style.display = 'block';
+    loader.style.display = 'flex';
 
     if (!compressedFile) {
       alert("Please click 'Order Now' first to prepare your design.");
@@ -213,14 +224,14 @@ document.addEventListener('DOMContentLoaded', function () {
         alert(data.message);
         form.reset();
         submit_two.disabled = false;
-        submit_two.innerText = 'Sent order'
+        submit_two.innerText = 'Place Order'
         document.getElementById('preview').style.display = 'none';
         document.getElementById('modaltwo').style.display = 'none';
         loader.style.display = 'none';
       })
       .catch(error => {
         console.error('❌ Submission failed:', error);
-        alert('❌ Submission failed.');
+        alert('❌ couldnt place order');
         loader.style.display = 'none';
         submit_two.disabled = false;
         submit_two.innerText = 'Place order'
@@ -377,7 +388,7 @@ document.querySelector('#order_collection').addEventListener('click',function(){
     let submit = document.getElementById('submit');
     submit.disabled= true;
     submit.innerText = 'sending';
-    const loader = document.getElementById('page-loader');
+    document.getElementById('page-loaderr').style.display = 'flex';
     
     let form = e.target;
     
@@ -390,15 +401,19 @@ document.querySelector('#order_collection').addEventListener('click',function(){
   .then(response =>response.json())
   .then(data=>{
     alert(data.message)
-    submit.innerText= 'sent'
+    form.reset();
+    document.getElementById('page-loaderr').style.display = 'none';
+    submit.innerText= 'Place Order';
+    submit.disabled = false;
     document.getElementById('modalthree').style.display = 'none';
         
   })
   .catch(error=>{
     alert("couldnt place order")
     console.error('error', error)
+    document.getElementById('page-loaderr').style.display = 'none'
     submit.innerText = 'Place order'
-    submit.disabled = false
+    submit.disabled = false;
   })
   })
 })
@@ -414,7 +429,9 @@ document.querySelector('#close-modalthree').addEventListener('click', function (
   });
 
 document.getElementById('upload_designs').addEventListener('click',function(){
-  
+  if(!confirm('Do you agree not to upload any inappropriate design?')){
+    return;
+  }
   document.querySelector('#img_place').click()
 })
 document.querySelector('#img_place').addEventListener('change', function(){
