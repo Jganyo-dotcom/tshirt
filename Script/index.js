@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const designImg = document.querySelector('.design');
       designImg.src = design_type;
       designImg.style.width = '150px';
-      designImg.style.height = '150px';
+      designImg.style.height = '250px';
     });
   });
 
@@ -151,12 +151,12 @@ document.addEventListener('DOMContentLoaded', function () {
   loader.style.display = 'flex';
  // Start timer for html2canvas render
   console.time('render');
-  // 1️⃣ Disable your entry animations/transitions
+  // 1 Disable your entry animations/transitions
   dressingDiv.style.animation = 'none';
   dressingDiv.querySelector('.design').style.animation = 'none';
   dressingDiv.querySelector('.design').style.transition = 'none';
 
-  // 2️⃣ Give the browser time to finish loading assets & settle styles
+  // 2️ Give the browser time to finish loading assets & settle styles
   setTimeout(() => {
     html2canvas(dressingDiv, { useCORS: true, scale: 1 })
       .then(canvas => {
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
           preview.style.display = 'block';
           document.getElementById('modaltwo').style.display = 'block';
 
-          // 3️⃣ Re‑enable animations/transitions
+          // 3️ Re‑enable animations/transitions
           dressingDiv.style.animation = '';
           dressingDiv.querySelector('.design').style.animation = '';
           dressingDiv.querySelector('.design').style.transition = '';
@@ -223,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then((data) => {
         alert(data.message);
         form.reset();
+        loader.style.display = 'none';
         submit_two.disabled = false;
         submit_two.innerText = 'Place Order'
         document.getElementById('preview').style.display = 'none';
@@ -429,7 +430,7 @@ document.querySelector('#close-modalthree').addEventListener('click', function (
   });
 
 document.getElementById('upload_designs').addEventListener('click',function(){
-  if(!confirm('Do you agree not to upload any inappropriate design?')){
+  if(!confirm('I agree not to upload any inappropriate design?')){
     return;
   }
   document.querySelector('#img_place').click()
