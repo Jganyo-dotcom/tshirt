@@ -8,24 +8,24 @@
   <link rel="stylesheet" href="Styles/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="preload"
-        href="Tops/white.png"
+        href="Tops/white.jpg"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
   <link rel="preload"
-        href="Tops/red.png"
+        href="Tops/red.jpg"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
   <link rel="preload"
         href="Tops/black.jpg"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
   <link rel="preload"
-        href="Tops/yellow.png"
+        href="Tops/yellow.jpg"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
   <link rel="preload"
         href="Tops/green.png"
@@ -33,24 +33,24 @@
         type="image/png"
         fetchpriority="high" />
 <link rel="preload"
-        href="Tops/pink.png"
+        href="Tops/pink.jpg"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
 <link rel="preload"
-        href="Tops/gray.jpg"
+        href="Tops/Ash.jpg"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
 <link rel="preload"
         href="Slideshow/showcase9.jpg"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
 <link rel="preload"
         href="Designs/1.png"
         as="image"
-        type="image/png"
+        type="image/jpg"
         fetchpriority="high" />
 </head>
 
@@ -308,20 +308,19 @@
         <label style="font-weight:bold;font-size: large;">Pick a Colour</label>
         <div class="color-options">
           <button id="black" data-colour="Tops/black.jpg" class="choose"></button>
-          <button id="ash" data-colour="Tops/gray.jpg" class="choose"></button>
-          <button id="white" data-colour="Tops/white.png" class="choose"></button>
-          <button id="red" data-colour="Tops/red.png" class="choose"></button>
-          <button id="yellow" data-colour="Tops/yellow.png" class="choose"></button>
-          <button id="green" data-colour="Tops/green.png" class="choose"></button>
-          
-          <button id="pink" data-colour="Tops/pink.png" class="choose"></button>
-          <button id="seablue" data-colour="Tops/seablue.png" class="choose"></button>
+          <button id="ash" data-colour="Tops/Ash.jpg" class="choose"></button>
+          <button id="white" data-colour="Tops/white.jpg" class="choose"></button>
+          <button id="red" data-colour="Tops/red.jpg" class="choose"></button>
+          <button id="yellow" data-colour="Tops/yellow.jpg" class="choose"></button>
+          <button id="green" data-colour="Tops/brown.jpg" class="choose"></button>
+          <button id="pink" data-colour="Tops/pink.jpg" class="choose"></button>
+          <button id="seablue" data-colour="Tops/blue.jpg" class="choose"></button>
         </div>
       </section>
 
       <div id="design-div-on-order">
        
-        <button id="show-order">Order</button><br>
+        <button id="show-order" style="font-size: large; font-weight:bold;">Place Order</button><br>
       </div>
       <br>
 
@@ -388,13 +387,15 @@
   </div>
 
     </main>
- <div id="modalthree">
+ <div id="modalthree"">
         <div id="modal-contentthree">
           <span id="close-modalthree">&times;</span>
-          <h1>ORDER</h1>
+          <div style="display:flex;justify-content: flex-start;gap:8px ;  ">
+          <div style="flex:1">
+          <h1>ORDER</h1><br>
           <form id="send_request" action="https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/" method="POST" enctype="multipart/form-data">
-           
-            <label for="name">Full Name:</label>
+            
+            <label for="name">Full Name: </label> 
             <input type="text" name="name" id="name" required><br><br>
             <label for="number">Number of T-shirts:</label>
             <input type="number" name="number" id="number" required><br><br>
@@ -417,6 +418,12 @@
             <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
             <button id="submit" type="submit">Place Order</button>
           </form>
+          </div>
+          <div style="margin-top: 40px; margin-left: -50px;">
+          <label>Ordering:</label>
+            <img id="preview_collection" src="Slideshow/showcase1.jpg">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -425,21 +432,21 @@
   <div id="no_use">
     <img class="non" src="Slideshow/showcase9.jpg">
     <img class="non" src="Tops/black.jpg">
-    <img class="non" src="Tops/white.png">
-    <img class="non" src="Tops/gray.jpg">
+    <img class="non" src="Tops/white.jpg">
+    <img class="non" src="Tops/Ash.jpg">
     <img class="non" src="Tops/green.png">
-    <img class="non" src="Tops/red.png">
-    <img class="non" src="Tops/seablue.png">
-    <img class="non" src="Tops/yellow.png">
-    <img class="non"src="Tops/pink.png">
-    <img class="non" src="Tops/white.png">
+    <img class="non" src="Tops/red.jpg">
+    <img class="non" src="Tops/blue.jpg">
+    <img class="non" src="Tops/yellow.jpg">
+    <img class="non"src="Tops/pink.jpg">
+    <img class="non" src="Tops/white.jpg">
     <img class="non" src="Designs/1.png">
   </div><br>
 </body>
   <footer>
       <p class="ooter">&copy; 2025 KAGO edition. All rights reserved.</p><br>
       <p class="ooter"><a href="Pages/privacy.html">Privacy Policy</a> | <a href="Pages/terms.html">Terms of Service</a> | <a href="Pages/About .html">About Us</a></p><br>
-      <p class="ooter">Contact us on <a href="mailto:kagoventures@gmail.com"> &nbsp; <img class="contact" src="CONTACTS/mail.png"></a>  <a href="https://wa.me/message/VKISZMOVQRRHJ1"><img class="contact" src="CONTACTS/whatsapp.jpeg"></a> <a href="https://t.me/kagoventures"><img class="contact" src="CONTACTS/telegram.jpeg"></a>
+      <p class="ooter">Contact us on <a href="mailto:kagoventures@gmail.com"> &nbsp; <img class="contact" src="CONTACTS/mail.png"></a>  <a href="https://wa.me/message/HRQLSYQIKM63O1"><img class="contact" src="CONTACTS/whatsapp.jpeg"></a> <a href="https://t.me/kagoventures"><img class="contact" src="CONTACTS/telegram.jpeg"></a>
       
     </footer>
 

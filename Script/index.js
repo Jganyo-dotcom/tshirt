@@ -298,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function () {
    { src: 'Slideshow/showcase26.jpg', id: '2222' },
   { src: 'Slideshow/showcase35.jpg', id: '2345' },
   { src: 'Slideshow/showcase9.jpg', id: '2345' },
- 
+ { src: 'Slideshow/showcase95.jpg', id: '2345' },
   { src: 'Slideshow/showcase12.jpg', id: '2222' },
   { src: 'Slideshow/showcase29.jpg', id: '1111' },
   { src: 'Slideshow/showcase31.jpg', id: '6666' },
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
   { src: 'Slideshow/showcase16.jpg', id: '6666' },
    { src: 'Slideshow/showcase21.jpg', id: '2345' },
   { src: 'Slideshow/showcase17.jpg', id: '7777' },
-  
+   { src: 'Slideshow/showcase36.jpg', id: '7777' },
   { src: 'Slideshow/showcase19.jpg', id: '1234' },
    { src: 'Slideshow/showcase34.jpg', id: '1234' },
   { src: 'Slideshow/showcase20.jpg', id: '2345' },
@@ -316,6 +316,10 @@ document.addEventListener('DOMContentLoaded', function () {
   { src: 'Slideshow/showcase22.jpg', id: '2345' },
    { src: 'Slideshow/showcase15.jpg', id: '5555' },
   { src: 'Slideshow/showcase24.jpg', id: '2345' },
+  { src: 'Slideshow/showcase5.jpg', id: '2345' },
+  
+  { src: 'Slideshow/showcase38.jpg', id: '2345' },
+  
  
 
 
@@ -383,6 +387,12 @@ nextImg.addEventListener('click', () => updateGallery(index + 1));
 document.querySelector('#order_collection').addEventListener('click',function(){
   document.querySelector('#modalthree').style.display = 'block';
   currentImageSrc =imageElement.src;
+  let location_pic = currentImageSrc
+  location_pic = location_pic.split('//')[1]
+  location_pic= location_pic.split('/')
+  location_pic=location_pic.slice(1)
+  location_pic=location_pic.join('/')
+  document.getElementById('preview_collection').src = location_pic
   document.getElementById('id_name').value = currentImageSrc;
   document.querySelector('#send_request').addEventListener('submit', function(e){
     e.preventDefault();
