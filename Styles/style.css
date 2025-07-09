@@ -236,6 +236,7 @@ footer {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  width: auto;
 }
 
 #modaltwo , #modalthree{
@@ -244,7 +245,7 @@ footer {
   overflow-y: auto;
   overflow-x: auto;
   padding: 40px 20px;
-  width: auto;
+  
 }
 
 #modal-content, #modal-contenttwoh, #modal-contentyou {
@@ -275,10 +276,10 @@ footer {
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   animation: slideIn 0.4s ease;
   position: relative;
-  overflow-y: auto;
+  
   margin: auto;
   overflow-x: auto;
-  width: fit-content;
+width: fit-content;
 }
 
 #modal-contenttwo h1 {
@@ -703,15 +704,11 @@ a {
   overflow: hidden;
 }
 
-.non{
-  height: 2px; ;
-  width: 2px;
-  display: none;
-}
+
 
 #preview_collection{
   height:100px;
-  width: 70px;
+  width: 50px;
 }
 
 
