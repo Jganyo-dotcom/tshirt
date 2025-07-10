@@ -214,46 +214,27 @@ document.addEventListener('DOMContentLoaded', function () {
   formData.append('size', form.size?.value || '');
   formData.append('notes', form.notes?.value || '');
 
-  const controller = new AbortController();
-  const timeoutId = setTimeout(() => {
-    controller.abort(); // ❌ cancel the request
-    alert('⏳ Taking too long. Please check your connection.');
-    loader.style.display = 'none';
-    submit_two.disabled = false;
-    submit_two.innerText = 'Place Order';
-    document.getElementById('modaltwo').style.display = 'block';
-  }, 10000); // 10 seconds
-
-  fetch('https://tshirt-backend-lr0i.onrender.com/orders/submit_order/', {
-    method: 'POST',
-    body: formData,
-    signal: controller.signal
+  fetch("https://tshirt-backend-lr0i.onrender.com/orders/submit_order/", {
+    method: "POST",
+    body: formData
   })
-    .then(response => response.json())
-    .then((data) => {
-      clearTimeout(timeoutId); // cancel timer
-      alert(data.message);
-      form.reset();
-      loader.style.display = 'none';
-      submit_two.disabled = false;
-      submit_two.innerText = 'Place Order';
-      document.getElementById('preview').style.display = 'none';
-      document.getElementById('modaltwo').style.display = 'none';
-    })
-    .catch(error => {
-      clearTimeout(timeoutId); // cancel timer
-      if (error.name === 'AbortError') {
-        console.warn('Request was aborted due to timeout.');
-        console.error(error.name)
-      } else {
-        console.error('❌ Submission failed:', error);
-        alert('❌ Could not place order.');
-      }
-      loader.style.display = 'none';
-      submit_two.disabled = false;
-      submit_two.innerText = 'Place Order';
-    });
-});
+  .then(response => {
+    if (!response.ok) throw new Error("Server error");
+    return response.json();
+  })
+  .then(data => {
+    alert(data.message);
+    form.reset();
+    document.getElementById("preview").style.display = "none";
+    document.getElementById("modaltwo").style.display = "none";
+    loader.style.display = "none";
+  })
+  .catch(error => {
+    console.error("❌ Submission failed:", error);
+    alert("❌ Submission failed.");
+    loader.style.display = "none";
+  });
+});;
 
 
   // Image error handler
