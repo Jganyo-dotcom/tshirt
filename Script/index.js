@@ -70,7 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
       width: design.style.width,
       height: design.style.height,
       up: design.style.top,
-      left: design.style.left
+      left: design.style.left,
+      bigger : document.getElementById('bigger').value,
+      
     });
   }
 
@@ -94,6 +96,12 @@ document.addEventListener('DOMContentLoaded', function () {
     design.style.left = document.querySelector('#move-left').value + '%';
   });
 
+  document.getElementById('bigger').addEventListener('input', ()=>{
+    let value = document.getElementById('bigger').value
+    design.style.width = `${value}`+ '%';
+    design.style.height = 'auto';
+  })
+
   document.querySelector('#undo').addEventListener('click', () => {
     if (resizeHistory.length === 0) {
       alert('Nothing to undo');
@@ -105,6 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
     design.style.height = lastsize.height;
     design.style.left = lastsize.left;
     design.style.top = lastsize.up;
+    document.getElementById('bigger').value = lastsize.bigger
 
     document.querySelector('#resize-width').value = parseInt(lastsize.width) || 0;
     document.querySelector('#resize-height').value = parseInt(lastsize.height) || 0;

@@ -196,6 +196,7 @@ footer {
   text-align: center;
   animation: fadeSlideIn 1s ease-out 0.4s;
   animation-fill-mode: both;
+  height: auto;
 }
 
 #controls input[type="range"] {
