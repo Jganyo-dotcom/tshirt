@@ -216,10 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
       method: 'POST',
       body: formData
     })
-      .then(response => {
-        if (!response.ok) throw new Error('Server error');
-        return response.json();
-      })
+      .then(response =>response.json())
       .then((data) => {
         alert(data.message);
         form.reset();
