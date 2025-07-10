@@ -355,7 +355,7 @@ function updateGallery(newIndex) {
 // Auto slide every 5 seconds
 setInterval(() => {
   updateGallery(index + 1);
-}, 5000);
+}, 10000);
 
 // Manual click
 prevImg.addEventListener('click', () => updateGallery(index - 1));
