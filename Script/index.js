@@ -188,53 +188,73 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Form submit
   document.querySelector('form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    let submit_two = document.getElementById('submit_two')
-    submit_two.disabled = true;
-    submit_two.innerText = 'sending'
-    const form = e.target;
-    const loader = document.getElementById('page-loaderr');
-    loader.style.display = 'flex';
+  e.preventDefault();
 
-    if (!compressedFile) {
-      alert("Please click 'Order Now' first to prepare your design.");
+  let submit_two = document.getElementById('submit_two');
+  submit_two.disabled = true;
+  submit_two.innerText = 'Sending...';
+
+  const form = e.target;
+  const loader = document.getElementById('page-loaderr');
+  loader.style.display = 'flex';
+
+  if (!compressedFile) {
+    alert("Please click 'Order Now' first to prepare your design.");
+    loader.style.display = 'none';
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('screenshot_data', compressedFile);
+  formData.append('name', form.name?.value || '');
+  formData.append('number', form.number?.value || '');
+  formData.append('phone', form.phone?.value || '');
+  formData.append('email', form.email?.value || '');
+  formData.append('to_email', form.to_email?.value || '');
+  formData.append('size', form.size?.value || '');
+  formData.append('notes', form.notes?.value || '');
+
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => {
+    controller.abort(); // ❌ cancel the request
+    alert('⏳ Taking too long. Please check your connection.');
+    loader.style.display = 'none';
+    submit_two.disabled = false;
+    submit_two.innerText = 'Place Order';
+    document.getElementById('modaltwo').style.display = 'block';
+  }, 10000); // 10 seconds
+
+  fetch('https://tshirt-backend-lr0i.onrender.com/orders/submit_order/', {
+    method: 'POST',
+    body: formData,
+    signal: controller.signal
+  })
+    .then(response => response.json())
+    .then((data) => {
+      clearTimeout(timeoutId); // cancel timer
+      alert(data.message);
+      form.reset();
       loader.style.display = 'none';
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('screenshot_data', compressedFile);
-    formData.append('name', form.name ? form.name.value : '');
-    formData.append('number', form.number ? form.number.value : '');
-    formData.append('phone', form.phone ? form.phone.value : '');
-    formData.append('email', form.email ? form.email.value : '');
-    formData.append('to_email', form.to_email ? form.to_email.value : '');
-    formData.append('size', form.size ? form.size.value : '');
-    formData.append('notes', form.notes ? form.notes.value : '');
-
-    fetch('https://tshirt-backend-lr0i.onrender.com/orders/submit_order/', {
-      method: 'POST',
-      body: formData
+      submit_two.disabled = false;
+      submit_two.innerText = 'Place Order';
+      document.getElementById('preview').style.display = 'none';
+      document.getElementById('modaltwo').style.display = 'none';
     })
-      .then(response =>response.json())
-      .then((data) => {
-        alert(data.message);
-        form.reset();
-        loader.style.display = 'none';
-        submit_two.disabled = false;
-        submit_two.innerText = 'Place Order'
-        document.getElementById('preview').style.display = 'none';
-        document.getElementById('modaltwo').style.display = 'none';
-        loader.style.display = 'none';
-      })
-      .catch(error => {
+    .catch(error => {
+      clearTimeout(timeoutId); // cancel timer
+      if (error.name === 'AbortError') {
+        console.warn('Request was aborted due to timeout.');
+        console.error(error.name)
+      } else {
         console.error('❌ Submission failed:', error);
-        alert('❌ couldnt place order');
-        loader.style.display = 'none';
-        submit_two.disabled = false;
-        submit_two.innerText = 'Place order'
-      });
-  });
+        alert('❌ Could not place order.');
+      }
+      loader.style.display = 'none';
+      submit_two.disabled = false;
+      submit_two.innerText = 'Place Order';
+    });
+});
+
 
   // Image error handler
   function handleerror(img) {
@@ -458,4 +478,13 @@ document.querySelector('#img_place').addEventListener('change', function(){
     reader.readAsDataURL(file)
   }
 })
+
+function isMobileDevice() {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+if (isMobileDevice()) {
+  alert('⚠️ Tip: For best performance, close other apps before submitting your design!');
+}
+
 });
