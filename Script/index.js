@@ -389,7 +389,11 @@ nextImg.addEventListener('click', () => updateGallery(index + 1));
 
     if (loader) loader.style.display = 'none';
     if (content) content.style.display = 'block';
-  }, 2000);
+    if ( content.style.display = 'block' && isMobileDevice()) {
+  console.log('⚠️ Tip: For best performance, close other apps before submitting your design!');
+}
+  }, 11000
+);
 
 document.querySelector('#order_collection').addEventListener('click',function(){
   document.querySelector('#modalthree').style.display = 'block';
@@ -473,8 +477,6 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-if (isMobileDevice()) {
-  alert('⚠️ Tip: For best performance, close other apps before submitting your design!');
-}
+
 
 });
