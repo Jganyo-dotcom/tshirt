@@ -158,12 +158,12 @@ button:hover {
 /* === Hamburger button === */
 #modal-button {
   position: fixed;
-  top: 15px;
+  top: 5px;
   left: 15px;
   z-index: 1001;
   font-size: 20px;
   padding: 8px 12px;
-  background-color: var(--primary-color);
+ background-color: white;
   color: white;
 }
 
@@ -238,6 +238,24 @@ footer {
   align-items: center;
   width: auto;
 }
+#modalfour{
+  display: none;
+  left: 13%;
+  top: 9%;
+  height: 100%; ;
+  width: 100%;
+  animation: slideIn 0.4s ease;
+  z-index: 9999;
+  position: fixed;
+}
+#modal-contentfour{
+  background: rgb(11, 210, 40);
+  height: 50px;
+  width: 300px;
+  text-align: center;
+  border-radius: 20px;
+}
+
 
 #modaltwo , #modalthree{
   background-color: rgba(0,0,0,0.6);
@@ -282,7 +300,7 @@ footer {
 width: fit-content;
 }
 
-#modal-contenttwo h1 {
+#modal-contenttwo h1, #modal-contentfour h1 {
   font-size: 24px;
   color: var(--primary-color);
   margin-bottom: 20px;
@@ -366,7 +384,7 @@ width: fit-content;
 }
 
 /* Close Buttons */
-#close-modal, #close-modaltwo, #close-modalyou ,#close-modalthree{
+#close-modal, #close-modaltwo, #close-modalyou ,#close-modalthree ,#close-modalfour{
   position: absolute;
   top: 10px;
   right: 20px;
@@ -678,7 +696,7 @@ a {
     font-size: 10px;
     padding: 6px 10px;
     top: calc(10px + env(safe-area-inset-top, 0px));
-    left: calc(10px + env(safe-area-inset-left, 0px));
+    left: 0%
   }
 }
 
@@ -709,6 +727,10 @@ a {
 #preview_collection{
   height:100px;
   width: 50px;
+}
+
+#say_hi{
+  display : none
 }
 
 

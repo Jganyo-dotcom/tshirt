@@ -477,6 +477,17 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+function showinfo(){
+  document.querySelector('#modalfour').style.display = 'block';
+}
 
+setInterval(()=>{
+  showinfo()
+}, 20000)
+
+document.querySelector('#modal-button').onclick = showinfo;
+document.querySelector('#modalfour').onclick = function(){
+  document.querySelector('#modalfour').style.display = 'none'
+}
 
 });
