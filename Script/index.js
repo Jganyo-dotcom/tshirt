@@ -483,7 +483,7 @@ function showinfo(){
 
 setInterval(()=>{
   showinfo()
-}, 20000)
+}, 1500000)
 
 document.querySelector('#modal-button').onclick = showinfo;
 document.querySelector('#modalfour').onclick = function(){
