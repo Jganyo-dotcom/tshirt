@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const colour = button.dataset.colour;
       let mine = colour.split('.')[0]
       let minee = mine.split('/')[1]
-      
       target.src = colour;
     });
   });

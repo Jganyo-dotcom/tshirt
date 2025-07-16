@@ -720,7 +720,13 @@ img {
 
   #my-colours {
     max-width: 280px;
-    justify-content: space-around;
+    justify-content: space-evenly;
+  }
+  .color-options{
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 10px;
   }
 
   .choose {
