@@ -477,17 +477,49 @@ function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
-function showinfo(){
-  document.querySelector('#modalfour').style.display = 'block';
-}
 
-setInterval(()=>{
-  showinfo()
-}, 1500000)
 
-document.querySelector('#modal-button').onclick = showinfo;
-document.querySelector('#modalfour').onclick = function(){
-  document.querySelector('#modalfour').style.display = 'none'
-}
+document.querySelector('#modal-button').addEventListener('click', ()=>{
+  document.querySelector('#modal_big').classList.add('show');
+  document.querySelector('#modal-button').style.display = 'none'
+})
 
+document.querySelector('#close_me').addEventListener('click', ()=>{
+  document.querySelector('#modal_big').classList.remove('show');
+  document.querySelector('#modal-button').style.display = 'block'
+})
+ document.querySelector('#modal_big').onclick = (e)=>{
+   if (!document.querySelector('#Slide_in_modal').contains(e.target)){
+     document.querySelector('#modal_big').classList.remove('show');
+   }
+ }
+ let section = document.querySelector('#my-colours')
+let divone = document.querySelector('.color-options')
+let divs = document.querySelectorAll('.together')
+let font = document.querySelectorAll('.white')
+let toggle = document.querySelector('#my-toggle')
+toggle.addEventListener('change', ()=>{
+  if(toggle.checked){
+    document.body.style.background = 'black';
+    font.forEach((e)=>{
+      e.style.color = 'blue';
+    })
+     divs.forEach((div)=>{
+      div.style.backgroundColor = 'gray';
+    })
+    divone.style.backgroundColor = 'gray';
+    section.style.backgroundColor = 'gray';
+    console.log('got')
+  }else{
+    document.body.style.background = 'linear-gradient(-45deg, hwb(207 80% 4%), hwb(183 73% 4%), hwb(140 78% 4%), hsl(180, 11%, 96%))';
+    font.forEach((e)=>{
+      e.style.color = 'black';
+    });
+    divs.forEach((div)=>{
+      div.style.backgroundColor = 'rgb(240, 250, 250, 1)';
+    })
+    divone.style.backgroundColor = 'rgb(240, 250, 250, 1)';
+    section.style.backgroundColor = 'rgb(240, 250, 250, 1)';
+  }
+})
 });

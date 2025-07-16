@@ -79,6 +79,15 @@ button {
   color: var(--white);
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  font-family: 'Delius Unicase'
+}
+
+@media (max-width: 600px) {
+  button {
+  font-size: 10px;
+  font-family: 'Delius Unicase'
+  
+}
 }
 
 button:hover {
@@ -107,7 +116,7 @@ button:hover {
 /* === Color Picker === */
 #my-colours {
   margin: 20px 0;
-  background-color: var(--white);
+  background-color: rgb(240, 250, 250, 1);;
   padding: 15px;
   border-radius: 10px;
   display: flex;
@@ -117,14 +126,7 @@ button:hover {
   max-width: 320px;
 }
 
-.choose {
-  width: 25px;
-  height: 30px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #ccc;
-  transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.2s;
-}
+
 
 .choose.active {
   border: 3px solid dodgerblue;
@@ -148,7 +150,7 @@ button:hover {
 
 /* === Sidebar === */
 #design-div,#design-div-on-order {
-  background: var(--white);
+  background:rgb(240, 250, 250, 1);
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
@@ -163,25 +165,11 @@ button:hover {
   z-index: 1001;
   font-size: 20px;
   padding: 8px 12px;
- background-color: white;
+  
   color: white;
 }
 
-/* === Footer === */
-footer {
-  
-  bottom: 0;
-  width: 100%;
-  background-color: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 14px;
-  height: auto;
-  
-  margin: top 20px; ;
-  
-}
+
 
 .ooter{
   font-size: small;
@@ -189,7 +177,7 @@ footer {
 
 /* === Controls === */
 #controls {
-  background: var(--white);
+  background:rgb(240, 250, 250, 1);;
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
@@ -237,6 +225,7 @@ footer {
   justify-content: center;
   align-items: center;
   width: auto;
+  animation: slideIn 0.7s ease;
 }
 #modalfour{
   display: none;
@@ -244,12 +233,128 @@ footer {
   top: 9%;
   height: 100%; ;
   width: 100%;
-  animation: slideIn 0.4s ease;
+  animation: slideIn 0.7s ease;
   z-index: 9999;
   position: fixed;
 }
+#modal_big{
+  top: 15px;;
+  height: 100%; ;
+  width: 50vw;
+  animation: slideIn 0.7s ease;
+  z-index: 9999;
+  position: fixed;
+  background-color:white;
+  display: flex;
+  transition: left 0.5s ease;
+  position: fixed;
+  left:-100%;
+  display:flex;
+  z-index: 1000;
+}
+#slide_in_modal{
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  
+}
+@media(min-width :584px){
+  #modal_big{
+  top: 15px;;
+  height: 100%; ;
+  width: 20vw;
+  animation: slideIn 0.7s ease;
+  z-index: 9999;
+  position: fixed;
+  background-color:white;
+  display: flex;
+  transition: left 0.5s ease;
+  position: fixed;
+  left:-100%;
+  display:flex;
+  z-index: 1000;
+}
+}
+@media(min-width :1024px){
+  #modal_big{
+  top: 15px;;
+  height: 100%; ;
+  width: 20vw;
+  animation: slideIn 0.7s ease;
+  z-index: 9999;
+  position: fixed;
+  background-color:white;
+  display: flex;
+  transition: left 0.5s ease;
+  position: fixed;
+  left:-100%;
+  display:flex;
+  z-index: 1000;
+}
+}
+#modal_big.show{
+  left: 0;
+}
+/* Container for the switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide the actual checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Track of the switch */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* The circle (thumb) */
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+
+/* Move track and circle when checked */
+input:checked + .slider {
+  background-color: #4CAF50;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+#move_me{
+position:absolute;
+  top: 80%;
+  right: 10%;
+  display: flex;
+}
+
+
 #modal-contentfour{
-  background: rgb(11, 210, 40);
+  background: rgb(188, 147, 255);
   height: 50px;
   width: 300px;
   text-align: center;
@@ -400,6 +505,20 @@ width: fit-content;
 #close-modalthree:hover {
   color: red;
 }
+#close_me:hover{
+  color: red;
+}
+#close_me{
+  font-size: 24px;
+  font-weight: bold;
+  
+  border-radius: 10%;
+  transition:background-color 0.3s ease;
+  top: 0px;
+  right: 1px;
+  position: absolute;
+}
+
 
 /* Modal Images */
 #modal-content img {
@@ -732,6 +851,82 @@ a {
 #say_hi{
   display : none
 }
+/* Smartphones (portrait) */
+@media (max-width: 480px) {
+  #video_player{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    top: 25%;
+    position: fixed;
+  }
+}
 
+#video_player{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 35vh;
+}
+
+@media (min-width:1024px){
+  #video_player{
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: -5%;
+}
+}
+
+/* === Footer === */
+footer {
+  font-family: 'Poppins', sans-serif;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  height: auto;
+  
+  margin: top 20px; ;
+  
+}
+
+.footer a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 0.4rem;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #00ffcc;
+}
+
+.footer .social {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer .contact-icon {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.footer .contact-icon:hover {
+  transform: scale(1.2);
+}
+
+.footer .links {
+  margin: 0.8rem 0;
+}
 
 
