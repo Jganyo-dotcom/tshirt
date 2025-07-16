@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const colour = button.dataset.colour;
       let mine = colour.split('.')[0]
       let minee = mine.split('/')[1]
-      alert(minee);
+      
       target.src = colour;
     });
   });
@@ -481,7 +481,8 @@ function isMobileDevice() {
 
 document.querySelector('#modal-button').addEventListener('click', ()=>{
   document.querySelector('#modal_big').classList.add('show');
-  document.querySelector('#modal-button').style.display = 'none'
+  document.querySelector('#modal-button').style.display = 'none';
+ 
 })
 
 document.querySelector('#close_me').addEventListener('click', ()=>{
@@ -491,6 +492,7 @@ document.querySelector('#close_me').addEventListener('click', ()=>{
  document.querySelector('#modal_big').onclick = (e)=>{
    if (!document.querySelector('#Slide_in_modal').contains(e.target)){
      document.querySelector('#modal_big').classList.remove('show');
+     document.querySelector('#modal-button').style.display = 'block'
    }
  }
  let section = document.querySelector('#my-colours')
@@ -522,4 +524,38 @@ toggle.addEventListener('change', ()=>{
     section.style.backgroundColor = 'rgb(240, 250, 250, 1)';
   }
 })
+
+document.querySelector('#dressing').addEventListener('click',()=>{
+  if(document.querySelector('#modal_big')){
+    document.querySelector('#modal_big').classList.remove('show');
+     document.querySelector('#modal-button').style.display = 'block'
+  }
+});
+
+document.querySelector('#controls').addEventListener('click',()=>{
+  if(document.querySelector('#modal_big')){
+    document.querySelector('#modal_big').classList.remove('show');
+     document.querySelector('#modal-button').style.display = 'block'
+  }
+})
+
+document.querySelector('#my-colours').addEventListener('click',()=>{
+  if(document.querySelector('#modal_big')){
+    document.querySelector('#modal_big').classList.remove('show');
+     document.querySelector('#modal-button').style.display = 'block'
+  }
+})
+document.querySelector('#design-div-on-order').addEventListener('click',()=>{
+  if(document.querySelector('#modal_big')){
+    document.querySelector('#modal_big').classList.remove('show');
+     document.querySelector('#modal-button').style.display = 'block'
+  }
+})
+document.querySelector('#gallery-container').addEventListener('click',()=>{
+  if(document.querySelector('#modal_big')){
+    document.querySelector('#modal_big').classList.remove('show');
+     document.querySelector('#modal-button').style.display = 'block'
+  }
+})
+
 });

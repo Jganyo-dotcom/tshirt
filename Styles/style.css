@@ -149,8 +149,15 @@ button:hover {
 #seablue { background: #ADD8E6; }
 
 /* === Sidebar === */
-#design-div,#design-div-on-order {
+#design-div {
   background:rgb(240, 250, 250, 1);
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+#design-div-on-order{
+ 
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
@@ -169,7 +176,21 @@ button:hover {
   color: white;
 }
 
-
+/* === Footer === */
+footer {
+  
+  bottom: 0;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  height: auto;
+  
+  margin: top 20px; ;
+  
+}
 
 .ooter{
   font-size: small;
@@ -250,12 +271,15 @@ button:hover {
   position: fixed;
   left:-100%;
   display:flex;
-  z-index: 1000;
+  
 }
+
 #slide_in_modal{
-  background: white;
+  background-color:yellow;
   padding: 20px;
   border-radius: 5px;
+  left: 0%;
+  background-color: yellow
   
 }
 @media(min-width :584px){
@@ -272,7 +296,7 @@ button:hover {
   position: fixed;
   left:-100%;
   display:flex;
-  z-index: 1000;
+  
 }
 }
 @media(min-width :1024px){
@@ -289,7 +313,7 @@ button:hover {
   position: fixed;
   left:-100%;
   display:flex;
-  z-index: 1000;
+ 
 }
 }
 #modal_big.show{
@@ -345,12 +369,17 @@ input:checked + .slider {
 input:checked + .slider::before {
   transform: translateX(26px);
 }
-#move_me{
-position:absolute;
-  top: 80%;
-  right: 10%;
+#move_me {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
+
 
 
 #modal-contentfour{
@@ -852,12 +881,12 @@ a {
   display : none
 }
 /* Smartphones (portrait) */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   #video_player{
     width: 100%;
     height: auto;
     object-fit: cover;
-    top: 25%;
+    top: 37%;
     position: fixed;
   }
 }
@@ -878,21 +907,7 @@ a {
 }
 }
 
-/* === Footer === */
-footer {
-  font-family: 'Poppins', sans-serif;
-  bottom: 0;
-  width: 100%;
-  background-color: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  font-size: 14px;
-  height: auto;
-  
-  margin: top 20px; ;
-  
-}
+
 
 .footer a {
   color: #ffffff;
@@ -928,5 +943,6 @@ footer {
 .footer .links {
   margin: 0.8rem 0;
 }
+
 
 
