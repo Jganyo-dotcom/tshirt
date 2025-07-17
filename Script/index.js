@@ -154,9 +154,12 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!confirm('Are you ready to upload your design and place your order?')) return;
 
   const dressingDiv = document.getElementById('dressing');
-  const loader     = document.getElementById('page-loaderr');
+  const loader     = document.querySelector('.css-spinner');
 
-  loader.style.display = 'flex';
+  const btntxt = document.querySelector('#temp');
+
+  btntxt.style.display = 'none'
+  loader.style.display = 'inline-block';
  // Start timer for html2canvas render
   console.time('render');
   // 1 Disable your entry animations/transitions
@@ -170,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(canvas => {
         canvas.toBlob(blob => {
           loader.style.display = 'none';
+          btntxt.style.display = 'block';
           if (!blob) return alert('❌ Failed to get design image.');
 
           // Build your File, show preview & modal
@@ -201,14 +205,14 @@ document.addEventListener('DOMContentLoaded', function () {
   let submit_two = document.getElementById('submit_two');
   submit_two.disabled = true;
   submit_two.innerText = 'Sending...';
-
+  
   const form = e.target;
-  const loader = document.getElementById('page-loaderr');
-  loader.style.display = 'flex';
+  const loadertwo = document.getElementById('page-loaderr');
+   loadertwo.style.display = 'flex';
 
   if (!compressedFile) {
     alert("Please click 'Order Now' first to prepare your design.");
-    loader.style.display = 'none';
+    loadertwo.style.display = 'none';
     return;
   }
 
@@ -240,7 +244,10 @@ document.addEventListener('DOMContentLoaded', function () {
   .catch(error => {
     console.error("❌ Submission failed:", error);
     alert("❌ Submission failed.");
-    loader.style.display = "none";
+    loadertwo.style.display = "none";
+    submit_two.disabled = false;
+  submit_two.innerText = 'Place order';
+
   });
 });;
 

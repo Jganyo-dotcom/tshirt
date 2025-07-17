@@ -145,10 +145,10 @@
 
 
       <img id="preview" style="display: none; max-width: 200px;" alt="preview"/>
-
-      <div id="page-loaderr" style="display: none;">
-        <div class="css-spinner"></div>
+      <div id="page-loaderr">
+        <span class="spinnerr"></span>
       </div>
+      
       <div id="controls" class="together">
         <label style="font-weight:bold;font-size: large;font-family: 'Delius'">🎨 Resize & Position Design</label><br><br>
         <span style="font-family: 'Poiret One';font-weight: bold; ">Height</span><br>
@@ -356,7 +356,7 @@
         <button id="show-designs">Designs</button>
         <button id="upload_designs">
           <span>Upload design</span>
-          <span  id="page-loaderrr"></span>
+          
         </button><br>
       </div>
       <br>
@@ -379,8 +379,15 @@
 
       <div  id="design-div-on-order">
        
-        <button id="show-order" style="font-size: large; font-weight:bold;background-color: green;">Place Order</button><br>
+        <button id="show-order" style="font-size: large; font-weight:bold;background-color: green;">
+          <span id="temp">Place Order</span>
+          <span  class="css-spinner"></span>
+        </button><br>
       </div>
+      
+
+      
+
       
 
 
@@ -526,8 +533,11 @@
     <a href="https://tiktok.com/@kagoventures">
       <img src="CONTACTS/tictoc.png" alt="TikTok" class="contact-icon">
     </a>
-    <a href="#">
+    <a href="https://www.youtube.com/@KagoVentures">
       <img src="CONTACTS/youtube.png" alt="YouTube" class="contact-icon">
+    </a>
+    <a href="https://facebook.com/profile/kagoventures">
+      <img src="CONTACTS/facebook.png" alt="YouTube" class="contact-icon">
     </a>
   </div>
 </footer>
