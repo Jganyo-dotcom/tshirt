@@ -109,7 +109,7 @@
     <main>
       <div id="dressing" style="overflow: hidden;">
         <img id="t-shirt" src="Tops/black.jpg" alt="error" />
-        <img class="design" src="Designs/1.png" onerror="handleerror(this)" alt="design" />
+        <img class="design" id="sizes_design" src="Designs/1.png" onerror="handleerror(this)" alt="design" />
       </div>
 
       <button id="modal-button">&#9776;</button>
@@ -152,15 +152,15 @@
       <div id="controls" class="together">
         <label style="font-weight:bold;font-size: large;font-family: 'Delius'">🎨 Resize & Position Design</label><br><br>
         <span style="font-family: 'Poiret One';font-weight: bold; ">Height</span><br>
-        <input type="range" class="range" min="50" max="200" value="150" id="resize-height"><br>
+        <input type="range" class="range" min="50" max="150" value="90" id="resize-height" ><br>
         <span style="font-family: 'Poiret One';font-weight: bold; ">Width</span><br>
-        <input type="range" class="range" min="50" max="190" value="150" id="resize-width"><br>
+        <input type="range" class="range" min="50" max="120" value="90" id="resize-width"><br>
         <span style="font-family: 'Poiret One';font-weight: bold; ">Up</span><br>
         <input type="range" class="range" min="-15" max="50" value="35" id="upward"><br>
         <span style="font-family: 'Poiret One';font-weight: bold; ">Left</span><br>
         <input type="range" class="range" min="-15" max="42" value="35" id="move-left"><br>
-        <span style="font-family: 'Poiret One';font-weight: bold; ">Fill</span><br>
-        <input type="range" class="range" min="15" max="100" id="bigger"><br>
+        <span style="font-family: 'Poiret One';font-weight: bold; ">Zoom</span><br>
+        <input type="range" class="range" min="1" max="3" step="0.1" id="bigger"><br>
         <button id="undo">undo</button>&nbsp;&nbsp;<button id="lock-range">Lock</button>
       </div>
 
@@ -415,6 +415,7 @@
               <option value="X Large">X Large</option>
               <option value="XX Large">XX Large</option>
             </select><br><br>
+            <input type="text" name="area" id="amount" readonly>
             <label for="notes">Notes / Instructions:</label><br>
             <textarea name="notes" id="notes_notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
             <button id="submit_two" type="submit">Place Order</button>

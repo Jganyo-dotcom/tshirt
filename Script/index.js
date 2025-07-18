@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
       height: design.style.height,
       up: design.style.top,
       left: design.style.left,
-      bigger : document.getElementById('bigger').value,
+      
       
     });
   }
@@ -78,11 +78,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#resize-height').addEventListener('input', () => {
     save_current();
     design.style.height = document.querySelector('#resize-height').value + 'px';
+    
   });
 
   document.querySelector('#resize-width').addEventListener('input', () => {
     save_current();
     design.style.width = document.querySelector('#resize-width').value + 'px';
+    
   });
 
   document.querySelector('#upward').addEventListener('input', () => {
@@ -96,11 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.getElementById('bigger').addEventListener('input', ()=>{
+    
     let value = document.getElementById('bigger').value
-    design.style.width = `${value}`+ '%';
-    design.style.height = 'auto';
+    design.style.transform = `scale(${value})`
+    
   })
-
   document.querySelector('#undo').addEventListener('click', () => {
     if (resizeHistory.length === 0) {
       alert('Nothing to undo');
@@ -112,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
     design.style.height = lastsize.height;
     design.style.left = lastsize.left;
     design.style.top = lastsize.up;
-    document.getElementById('bigger').value = lastsize.bigger
+    
 
     document.querySelector('#resize-width').value = parseInt(lastsize.width) || 0;
     document.querySelector('#resize-height').value = parseInt(lastsize.height) || 0;
@@ -156,6 +158,26 @@ document.addEventListener('DOMContentLoaded', function () {
   const dressingDiv = document.getElementById('dressing');
   const loader     = document.querySelector('.css-spinner');
 
+
+    //calculating the amount using the area of the design 
+const length = document.querySelector('#sizes_design').offsetHeight;
+const width = document.querySelector('#sizes_design').offsetWidth;
+
+const area = length * width;
+
+  if (area <= 8100){
+    estimated_amount = 80
+  }
+  if (area > 9000 && area < 18000 ){
+    estimated_amount =  100
+  }
+  if (area >18000 ){
+    estimated_amount =  130
+  }
+  
+  console.log('hi')
+
+  document.querySelector('#amount').value = `GHC${estimated_amount}`
   const btntxt = document.querySelector('#temp');
 
   btntxt.style.display = 'none'
@@ -216,6 +238,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
+
+
   const formData = new FormData();
   formData.append('screenshot_data', compressedFile);
   formData.append('name', form.name?.value || '');
@@ -225,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
   formData.append('to_email', form.to_email?.value || '');
   formData.append('size', form.size?.value || '');
   formData.append('notes', form.notes?.value || '');
+  formData.append('area', estimated_amount )
 
   fetch("https://tshirt-backend-lr0i.onrender.com/orders/submit_order/", {
     method: "POST",
