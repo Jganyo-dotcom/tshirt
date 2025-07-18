@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const designImg = document.querySelector('.design');
       designImg.src = design_type;
       designImg.style.width = '150px';
-      designImg.style.height = '250px';
+      designImg.style.height = '150px';
     });
   });
 
@@ -142,7 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#close-modaltwo').addEventListener('click', function () {
     document.querySelector('#modaltwo').style.display = 'none';
     let form = document.querySelector('#my_first')
-    
+    if (document.querySelector("amount")){
+      document.querySelector('#amount').value = ''
+    }
     if (form){
       form.reset()
     }
@@ -162,25 +164,27 @@ document.addEventListener('DOMContentLoaded', function () {
     //calculating the amount using the area of the design 
 const length = document.querySelector('#sizes_design').offsetHeight;
 const width = document.querySelector('#sizes_design').offsetWidth;
-
+console.log(length)
+console.log(width)
 const area = length * width;
-
+console.log(area)
+let estimated_amount
   if (area <= 8100){
     estimated_amount = 80
   }
-  if (area > 9000 && area < 18000 ){
-    estimated_amount =  100
-  }
-  if (area >18000 ){
+  if (area > 8100 && area < 16000 ){
     estimated_amount =  130
+  }
+  if (area >16000 ){
+    estimated_amount =  150
   }
   
   console.log('hi')
 
   document.querySelector('#amount').value = `GHC${estimated_amount}`
   const btntxt = document.querySelector('#temp');
-
-  btntxt.style.display = 'none'
+  
+  btntxt.style.display = 'none';
   loader.style.display = 'inline-block';
  // Start timer for html2canvas render
   console.time('render');
