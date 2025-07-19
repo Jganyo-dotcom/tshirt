@@ -97,12 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
     design.style.left = document.querySelector('#move-left').value + '%';
   });
 
-  document.getElementById('bigger').addEventListener('input', ()=>{
-    
-    let value = document.getElementById('bigger').value
-    design.style.transform = `scale(${value})`
-    
-  })
+  
   document.querySelector('#undo').addEventListener('click', () => {
     if (resizeHistory.length === 0) {
       alert('Nothing to undo');
@@ -164,10 +159,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //calculating the amount using the area of the design 
 const length = document.querySelector('#sizes_design').offsetHeight;
 const width = document.querySelector('#sizes_design').offsetWidth;
-console.log(length)
-console.log(width)
+
 const area = length * width;
-console.log(area)
+
 let estimated_amount
   if (area <= 8100){
     estimated_amount = 80
@@ -179,7 +173,7 @@ let estimated_amount
     estimated_amount =  150
   }
   
-  console.log('hi')
+  
 
   document.querySelector('#amount').value = `GHC${estimated_amount}`
   const btntxt = document.querySelector('#temp');
