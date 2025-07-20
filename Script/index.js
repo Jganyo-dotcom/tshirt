@@ -268,7 +268,7 @@ const area = length * width;
   formData.append('size', form.size?.value || '');
   formData.append('notes', form.notes?.value || '');
   formData.append('price', estimated_amount );
-  formData.append('height', height);
+  formData.append('height', length);
   formData.append('width', width)
 
   fetch("https://tshirt-backend-lr0i.onrender.com/orders/submit_order/", {
