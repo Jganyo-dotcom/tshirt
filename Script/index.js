@@ -214,9 +214,10 @@ let estimated_amount
         }, 'image/webp', 0.5);
       })
       .catch(error => {
+        const loader     = document.querySelector('.css-spinner');
         loader.style.display = 'none';
         console.error(error);
-        alert('❌ Screenshot failed.');
+        console.log('❌ Screenshot failed.');
       });
   }, 150);  // ← tweak this delay (100–200 ms) as needed
 });
