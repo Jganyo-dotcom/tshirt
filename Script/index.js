@@ -287,6 +287,7 @@ const area = length * width;
     document.getElementById("preview").style.display = "none";
     document.getElementById("modaltwo").style.display = "none";
     loader.style.display = "none";
+    loadertwo.style.display = "none";
   })
   .catch(error => {
     console.error("❌ Submission failed:", error);
