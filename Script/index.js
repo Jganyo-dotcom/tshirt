@@ -217,7 +217,7 @@ let estimated_amount
         const loader     = document.querySelector('.css-spinner');
         loader.style.display = 'none';
         console.error(error);
-        console.log('❌ Screenshot failed.');
+        alert('❌ Screenshot failed.');
       });
   }, 150);  // ← tweak this delay (100–200 ms) as needed
 });
@@ -283,13 +283,14 @@ const area = length * width;
   .then(data => {
     alert(data.message);
     form.reset();
+     const loader     = document.querySelector('.css-spinner');
     document.getElementById("preview").style.display = "none";
     document.getElementById("modaltwo").style.display = "none";
     loader.style.display = "none";
   })
   .catch(error => {
     console.error("❌ Submission failed:", error);
-    alert("❌ Submission failed.");
+    console.log("❌ Submission failed.");
     loadertwo.style.display = "none";
     submit_two.disabled = false;
   submit_two.innerText = 'Place order';
