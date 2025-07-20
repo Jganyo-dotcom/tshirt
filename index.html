@@ -595,7 +595,9 @@
               <option value="X Large">X Large</option>
               <option value="XX Large">XX Large</option>
             </select><br><br>
-            <input type="text" name="area" id="amount" readonly>
+            <input type="hidden" name="width">
+            <input type="hidden" name="height">
+            <input type="text" name="price" id="amount" readonly>
             <label for="notes">Notes / Instructions:</label><br>
             <textarea name="notes" id="notes_notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
             <button id="submit_two" type="submit">Place Order</button>

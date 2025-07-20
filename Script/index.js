@@ -163,15 +163,19 @@ const width = document.querySelector('#sizes_design').offsetWidth;
 const area = length * width;
 
 let estimated_amount
-  if (area <= 8100){
-    estimated_amount = 80
-  }
-  if (area > 8100 && area < 16000 ){
+  if (area < 22500){
+    estimated_amount = 90
+  };
+  if (area > 22500 && area <= 30000){
+    estimated_amount = 110
+  };
+
+  if (area > 30000 && area < 34000 ){
     estimated_amount =  130
-  }
-  if (area >16000 ){
+  };
+  if (area >=34000 ){
     estimated_amount =  150
-  }
+  };
   
   
 
@@ -181,7 +185,7 @@ let estimated_amount
   btntxt.style.display = 'none';
   loader.style.display = 'inline-block';
  // Start timer for html2canvas render
-  console.time('render');
+ 
   // 1 Disable your entry animations/transitions
   dressingDiv.style.animation = 'none';
   dressingDiv.querySelector('.design').style.animation = 'none';
@@ -236,7 +240,23 @@ let estimated_amount
     return;
   }
 
+const length = document.querySelector('#sizes_design').offsetHeight;
+const width = document.querySelector('#sizes_design').offsetWidth;
 
+const area = length * width;
+  if (area <= 22500){
+    estimated_amount = 90
+  }
+  if (area > 22500 && area <= 30000){
+    estimated_amount = 110
+  }
+
+  if (area > 30000 && area < 34000 ){
+    estimated_amount =  130
+  }
+  if (area >=34000 ){
+    estimated_amount =  150
+  }
 
   const formData = new FormData();
   formData.append('screenshot_data', compressedFile);
@@ -247,7 +267,9 @@ let estimated_amount
   formData.append('to_email', form.to_email?.value || '');
   formData.append('size', form.size?.value || '');
   formData.append('notes', form.notes?.value || '');
-  formData.append('area', estimated_amount )
+  formData.append('price', estimated_amount );
+  formData.append('height', height);
+  formData.append('width', width)
 
   fetch("https://tshirt-backend-lr0i.onrender.com/orders/submit_order/", {
     method: "POST",
