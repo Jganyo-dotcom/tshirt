@@ -158,7 +158,7 @@ button:hover {
 }
 #design-div-on-order{
  
-  border-radius: 10px;
+  
   padding: 20px;
   margin-top: 20px;
   text-align: center;
@@ -734,7 +734,7 @@ img {
   }
 
   #dressing {
-    width: 280px;
+    
     padding: 15px;
   }
 
@@ -743,14 +743,14 @@ img {
   }
 
   #my-colours {
-    max-width: 280px;
-    justify-content: space-evenly;
+    
+    justify-content: center;
   }
   .color-options{
       display: flex;
-      justify-content: space-evenly;
+      justify-content : content ;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
   }
 
   .choose {
@@ -759,7 +759,7 @@ img {
   }
 
   #gallery-container {
-    width: 280px;
+   
     height: auto;
     overflow: visible;
   }
@@ -993,6 +993,71 @@ a {
 #gift img:hover {
   transform: scale(1.1);
 }
+
+/* Gift Button */
+#gift-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  z-index: 9999;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+#gift-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+#gift-button:hover {
+  transform: scale(1.1);
+}
+
+/* Modal Container */
+#gift-modal {
+  position: fixed;
+  bottom: -300px; /* Hidden initially */
+  right: 10px;
+  width: 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  z-index: 9998;
+  transition: bottom 0.5s ease;
+}
+
+/* Modal visible */
+#gift-modal.show {
+  bottom: 90px; /* Slides up */
+}
+
+/* Modal Content */
+#gift-modal .modal-content {
+  position: relative;
+  font-family: sans-serif;
+}
+
+#gift-modal h3 {
+  margin-top: 0;
+  color: #e91e63;
+}
+
+#gift-modal #close-modal5 {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  color: gray;
+}
+
 
 
 

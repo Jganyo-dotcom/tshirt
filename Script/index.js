@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  
   // Lock/unlock range inputs toggle
   let lock_range = true;
   const lockRangeBtn = document.querySelector('#lock-range');
@@ -459,6 +460,15 @@ nextImg.addEventListener('click', () => updateGallery(index + 1));
 
     if (loader) loader.style.display = 'none';
     if (content) content.style.display = 'block';
+    let your_width = document.querySelector('.react').offsetWidth + 'px';
+    console.log(your_width)
+ 
+  if (your_width){
+    
+    
+   
+    
+  }
     if ( content.style.display = 'block' && isMobileDevice()) {
   console.log('⚠️ Tip: For best performance, close other apps before submitting your design!');
 }
@@ -667,6 +677,7 @@ document.querySelector('#discount').addEventListener('click', function () {
     document.getElementById('status').value = 'Discount Applied'
     document.getElementById('discount_value').value = '';
     document.getElementById('discount').disabled= true;
+    alert(`you could pay GHC${new_price} if backend finds you eligible`)
     document.querySelector('#code').value = discount_value;
 
 
@@ -714,7 +725,24 @@ function calcuate(){
   
 }
 
+  const giftBtn = document.getElementById("gift");
+  const giftModal = document.getElementById("gift-modal");
+  const closeModal = document.getElementById("close-modal5");
 
+  giftBtn.addEventListener("click", () => {
+    giftModal.classList.toggle("show");
+  });
+
+  closeModal.addEventListener("click", () => {
+    giftModal.classList.remove("show");
+  });
+
+  // Optional: close modal when clicked outside
+  window.addEventListener("click", (e) => {
+    if (!giftModal.contains(e.target) && e.target !== giftBtn && e.target !== giftBtn.querySelector("img")) {
+      giftModal.classList.remove("show");
+    }
+  });
 
 
 });
