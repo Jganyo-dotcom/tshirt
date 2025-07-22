@@ -974,5 +974,26 @@ a {
   margin: 0.8rem 0;
 }
 
+#gift {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+#gift img {
+  width: 60px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+#gift img:hover {
+  transform: scale(1.1);
+}
+
+
 
 

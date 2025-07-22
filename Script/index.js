@@ -162,19 +162,22 @@ const width = document.querySelector('#sizes_design').offsetWidth;
 
 const area = length * width;
 
+ 
+ 
+
 let estimated_amount
   if (area < 22500){
-    estimated_amount = 90
+    estimated_amount = 100 
   };
   if (area > 22500 && area <= 30000){
-    estimated_amount = 110
+    estimated_amount = 120
   };
 
   if (area > 30000 && area < 34000 ){
-    estimated_amount =  130
+    estimated_amount =  140
   };
   if (area >=34000 ){
-    estimated_amount =  150
+    estimated_amount =  160
   };
   
   
@@ -206,6 +209,12 @@ let estimated_amount
           preview.src = URL.createObjectURL(blob);
           preview.style.display = 'block';
           document.getElementById('modaltwo').style.display = 'block';
+          document.querySelector('#number_number').disabled= false;
+          const intervalid = setInterval(calcuate, 500)
+          document.querySelector('#discount').onclick = function(){
+            clearInterval(intervalid)
+            document.querySelector('#number_number').disabled= true;
+          }
 
           // 3️ Re‑enable animations/transitions
           dressingDiv.style.animation = '';
@@ -241,24 +250,29 @@ let estimated_amount
     return;
   }
 
+  
 const length = document.querySelector('#sizes_design').offsetHeight;
 const width = document.querySelector('#sizes_design').offsetWidth;
 
 const area = length * width;
   if (area <= 22500){
-    estimated_amount = 90
+    estimated_amount = 100 
   }
   if (area > 22500 && area <= 30000){
-    estimated_amount = 110
+    estimated_amount = 120 * total_price
   }
 
   if (area > 30000 && area < 34000 ){
-    estimated_amount =  130
+    estimated_amount =  140 
   }
   if (area >=34000 ){
-    estimated_amount =  150
+    estimated_amount =  160 
   }
-
+  
+let many = document.querySelector('#status').value
+let code = document.querySelector('#code').value
+console.log(code)
+console.log(many)
   const formData = new FormData();
   formData.append('screenshot_data', compressedFile);
   formData.append('name', form.name?.value || '');
@@ -271,6 +285,8 @@ const area = length * width;
   formData.append('price', estimated_amount );
   formData.append('height', length);
   formData.append('width', width)
+  formData.append('discount_status', many)
+  formData.append('discount_code', code)
 
   fetch("https://tshirt-backend-lr0i.onrender.com/orders/submit_order/", {
     method: "POST",
@@ -579,6 +595,8 @@ toggle.addEventListener('change', ()=>{
   }
 })
 
+
+
 document.querySelector('#dressing').addEventListener('click',()=>{
   if(document.querySelector('#modal_big')){
     document.querySelector('#modal_big').classList.remove('show');
@@ -611,5 +629,92 @@ document.querySelector('#gallery-container').addEventListener('click',()=>{
      document.querySelector('#modal-button').style.display = 'block'
   }
 })
+document.querySelector('#discount').addEventListener('click', function () {
+  // 1. Get dimensions of the design
+  const length = document.querySelector('#sizes_design').offsetHeight;
+  const width = document.querySelector('#sizes_design').offsetWidth;
+  const area = length * width;
+   //get the number of shirts the person is buying 
+  let number = document.querySelector('#number_number').value;
+  let number_tops = parseInt(number)
+
+  // 2. Determine the estimated amount based on area
+  let estimated_amount;
+  if (area < 22500) {
+    estimated_amount = 100 * number_tops ;
+  } else if (area <= 30000) {
+    estimated_amount = 120 * number_tops;
+  } else if (area < 34000) {
+    estimated_amount = 140 * number_tops;
+  } else {
+    estimated_amount = 160  * number_tops;
+  }
+
+ 
+
+  // 3. Set amount field (ensure it's just a number string)
+  document.querySelector('#amount').value = `${estimated_amount}`;
+
+  // 4. Check for discount
+  const discount_value = document.getElementById('discount_value').value;
+  let priceField = document.querySelector('#amount');
+  let current_price = parseFloat(priceField.value); // <-- convert string to number
+
+  if (discount_value !== 'Elikem' && number_tops >= 2 ) {
+    const new_price = (current_price * 0.90).toFixed(2); // apply 15% discount
+    priceField.value =`GHC${new_price}` ; // update input
+    console.log('ei')
+    document.getElementById('status').value = 'Discount Applied'
+    document.getElementById('discount_value').value = '';
+    document.getElementById('discount').disabled= true;
+    document.querySelector('#code').value = discount_value;
+
+
+  } else {
+    let many = document.getElementById('status').value
+    alert('Not eligible');
+    document.getElementById('status').value = 'No discount'    
+    document.getElementById('discount_value').value = ''; 
+    document.querySelector('#code').value = discount_value;      
+  }
+});
+  
+  
+
+
+function calcuate(){
+  // 1. Get dimensions of the design
+  const length = document.querySelector('#sizes_design').offsetHeight;
+  const width = document.querySelector('#sizes_design').offsetWidth;
+  const area = length * width;
+   //get the number of shirts the person is buying 
+  let number = document.querySelector('#number_number').value;
+  let number_tops = parseInt(number)
+
+  // 2. Determine the estimated amount based on area
+  let estimated_amount;
+  if (area < 22500) {
+    estimated_amount = 100  ;
+  } else if (area <= 30000) {
+    estimated_amount = 120 
+  } else if (area < 34000) {
+    estimated_amount = 140 
+  } else {
+    estimated_amount = 160  
+  }
+  
+  let number_shirts = document.querySelector('#number_number').value
+
+  let pricee = document.querySelector('#amount').value.replace(/[^\d\.]/g, '');
+  
+  let price = parseFloat(pricee)
+  final_Amount = estimated_amount * number_shirts
+  
+  document.querySelector('#amount').value = `GHC${final_Amount}`;
+  
+}
+
+
+
 
 });

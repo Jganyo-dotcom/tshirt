@@ -104,7 +104,7 @@
 
   <div id="main-content" style="display: none;">
     <header>
-      <h1 class="white" style="font-size:medium;text-align: center; font-family: 'Rubik Glitch'; color: black;">Customize Your T-shirt</h1>
+      <h1 class="white" style="font-size:x-large;text-align: center; font-family: 'Rubik Glitch'; color: black;">Customize Your T-shirt</h1>
     </header>
     <br>
 
@@ -115,6 +115,7 @@
       </div>
 
       <button id="modal-button">&#9776;</button>
+      <div id="gift"><img src="\gif.gif" alt="gift"></div>
 <div class="leave" style="height: 100%; width: 100%; background-color: yellow;">
   <div id="modal_big">
     <div id="Slide_in_modal">
@@ -577,7 +578,7 @@
             <label for="name">Full Name:</label>
             <input type="text" name="name" id="name_name" required><br><br>
             <label for="number">Number of T-shirts:</label>
-            <input type="number" name="number" id="number_number" required><br><br>
+            <input type="number" name="number" id="number_number" value="1" min="1" required><br><br>
             <label for="Locatiion">Location:</label>
             <input type="text" name="location" id="email_email" required><br><br>
             <input type="hidden" name="to_email" id="to_email_to_email" value="Kagoventures@gmail.com" readonly>
@@ -593,14 +594,18 @@
               <option value="X Large">X Large</option>
               <option value="XX Large">XX Large</option>
             </select><br><br>
+            <input type="hidden" id="status" name="discount_status" value="No_discount">
             <input type="hidden" name="width">
             <input type="hidden" name="height">
+            <input type="hidden" name="discount_code" value="me" id="code">
             <input type="text" name="price" id="amount" readonly>
             <label for="notes">Notes / Instructions:</label><br>
             <textarea name="notes" id="notes_notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
             <button id="submit_two" type="submit">Place Order</button>
           </form>
+          <div  style="display: flex;"><input type="text" id="discount_value" placeholder="backend verifies eligible customers"> <button id="discount" >Apply Discount</button></div>
         </div>
+
       </div>
 
       
