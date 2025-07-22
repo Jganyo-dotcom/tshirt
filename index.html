@@ -589,14 +589,15 @@
           <h1>ORDER</h1>
           <form id="my_first" action="https://tshirt-backend-lr0i.onrender.com/orders/submit_order/" method="POST" enctype="multipart/form-data">
             <label for="name">Full Name:</label>
-            <input type="text" name="name" id="name_name" required><br><br>
+            <input type="text" name="name" id="name_name" required><br>
             <label for="number">Number of T-shirts:</label>
-            <input type="number" name="number" id="number_number" value="1" min="1" required><br><br>
+            <input type="number" name="number" id="number_number" value="1" min="1" required><br>
             <label for="Locatiion">Location:</label>
-            <input type="text" name="location" id="email_email" required><br><br>
+            <input type="text" name="location" id="email_email" required><br>
             <input type="hidden" name="to_email" id="to_email_to_email" value="Kagoventures@gmail.com" readonly>
             <label for="phone">Your WhatsAPP Contact:</label>
             <input type="tel" name="phone" id="phone_phone" placeholder="+233" required><br><br>
+            <div  style="display: flex;"><input type="text" id="discount_value" placeholder="backend verifies eligible customers"> <button id="discount" >Apply Discount</button></div>
             <label for="size">Your Size:</label>
             <select name="size" id="size_size" required>
               <option value="">Select Size</option>
@@ -613,10 +614,9 @@
             <input type="hidden" name="discount_code" value="me" id="code">
             <input type="text" name="price" id="amount" readonly>
             <label for="notes">Notes / Instructions:</label><br>
-            <textarea name="notes" id="notes_notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
+            <textarea name="notes" id="notes_notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br>
             <button id="submit_two" type="submit">Place Order</button>
           </form>
-          <div  style="display: flex;"><input type="text" id="discount_value" placeholder="backend verifies eligible customers"> <button id="discount" >Apply Discount</button></div>
         </div>
 
       </div>
