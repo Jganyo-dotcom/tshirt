@@ -167,7 +167,7 @@ const area = length * width;
  
 
 let estimated_amount
-  if (area < 22500){
+  if (area <= 22500){
     estimated_amount = 100 
   };
   if (area > 22500 && area <= 30000){
@@ -257,7 +257,8 @@ const width = document.querySelector('#sizes_design').offsetWidth;
 
 
   
-let many = document.querySelector('#status').value
+let many = document.getElementById('status').value;
+
 let code = document.querySelector('#code').value
 let number = document.querySelector('#number_number').value
 let estimated_amount = document.querySelector('#amount').value
@@ -641,7 +642,7 @@ document.querySelector('#discount').addEventListener('click', function () {
 
   // 2. Determine the estimated amount based on area
   let estimated_amount;
-  if (area < 22500) {
+  if (area <= 22500) {
     estimated_amount = 100 * number_tops ;
   } else if (area <= 30000) {
     estimated_amount = 120 * number_tops;
@@ -666,7 +667,7 @@ document.querySelector('#discount').addEventListener('click', function () {
     priceField.value =`GHC${new_price}` ; // update input
     console.log('ei')
     document.getElementById('status').value = 'Discount Applied'
-    document.querySelector('#number_number').value = new_price
+    document.querySelector('#amount').value = new_price
     document.getElementById('discount_value').value = '';
     document.getElementById('discount').disabled= true;
     alert(`you could pay GHC${new_price} if backend finds you eligible`)
@@ -696,7 +697,7 @@ function calcuate(){
 
   // 2. Determine the estimated amount based on area
   let estimated_amount;
-  if (area < 22500) {
+  if (area <= 22500) {
     estimated_amount = 100  ;
   } else if (area <= 30000) {
     estimated_amount = 120 
