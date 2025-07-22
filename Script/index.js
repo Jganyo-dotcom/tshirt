@@ -255,25 +255,16 @@ let estimated_amount
 const length = document.querySelector('#sizes_design').offsetHeight;
 const width = document.querySelector('#sizes_design').offsetWidth;
 
-const area = length * width;
-  if (area <= 22500){
-    estimated_amount = 100 
-  }
-  if (area > 22500 && area <= 30000){
-    estimated_amount = 120 * total_price
-  }
 
-  if (area > 30000 && area < 34000 ){
-    estimated_amount =  140 
-  }
-  if (area >=34000 ){
-    estimated_amount =  160 
-  }
   
 let many = document.querySelector('#status').value
 let code = document.querySelector('#code').value
+let number = document.querySelector('#number_number').value
+let estimated_amount = document.querySelector('#amount').value
 console.log(code)
 console.log(many)
+console.log(number)
+console.log(estimated_amount)
   const formData = new FormData();
   formData.append('screenshot_data', compressedFile);
   formData.append('name', form.name?.value || '');
@@ -675,6 +666,7 @@ document.querySelector('#discount').addEventListener('click', function () {
     priceField.value =`GHC${new_price}` ; // update input
     console.log('ei')
     document.getElementById('status').value = 'Discount Applied'
+    document.querySelector('#number_number').value = new_price
     document.getElementById('discount_value').value = '';
     document.getElementById('discount').disabled= true;
     alert(`you could pay GHC${new_price} if backend finds you eligible`)
