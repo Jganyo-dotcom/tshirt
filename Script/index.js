@@ -526,7 +526,7 @@ document.querySelector('#order_collection').addEventListener('click',function(){
             document.querySelector('#customized_price').value ='GHC'+ final
             document.querySelector('#customized_discount').value = '';
             discountapplied = true;
-            document.querySelector('#customized_discount').value = 'Applied discount'
+            document.querySelector('#listen').value = 'Applied discount'
             
            
             console.log(document.querySelector('#customized_price').value)
@@ -538,13 +538,17 @@ document.querySelector('#order_collection').addEventListener('click',function(){
               }
       }else if (discount_value_entered === 'MAKEITYOURS' && document.querySelector('#number').value < 2 && goahead){
         alert("You're not eligible for this discount")
+        document.querySelector('#listen').value = 'Not eligible'
       
       }else if (discount_value_entered !== 'MAKEITYOURS' && document.querySelector('#number').value < 2){
         alert("Invalid discount code")
+        document.querySelector('#listen').value = 'Not eligible'
       }else if (discount_value_entered !== 'MAKEITYOURS' && document.querySelector('#number').value > 2){
         alert("Invalid discount code")
+        document.querySelector('#listen').value = 'Not eligible'
       } else{
         alert('contact us')
+        document.querySelector('#listen').value = 'contact me to attend to this'
       }
       
   })
@@ -734,7 +738,7 @@ document.querySelector('#discount').addEventListener('click', function () {
   
   let current_price = parseFloat(priceField.value.replace(/[^\d\.]/g, '')); // <-- convert string to number
 //console.log(current_price)
-  if (discount_value !== 'Elikem'&& discount_value.trim().length>1 && number_tops >= 2 ) {
+  if (discount_value === 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops >= 2 ) {
     const new_price = parseFloat((current_price * 0.90).toFixed(2)); // apply 15% discount
    // console.log(current_price)
     pina = parseFloat(new_price)
@@ -746,16 +750,30 @@ document.querySelector('#discount').addEventListener('click', function () {
     document.querySelector('#amount').value = `GHC${new_price}`
     document.getElementById('discount_value').value = '';
     document.getElementById('discount').disabled= true;
-    alert(`you could pay GHC${new_price} if backend finds you eligible`)
+    alert('discount applied')
     document.querySelector('#code').value = discount_value;
 
 
-  } else {
+  } else if (discount_value === 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops < 2 ){
     let many = document.getElementById('status').value
     alert('Not eligible');
     document.getElementById('status').value = 'No discount'    
     document.getElementById('discount_value').value = ''; 
-    document.querySelector('#code').value = discount_value;      
+    document.querySelector('#code').value = discount_value; 
+  }else if (discount_value !== 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops < 2 ){
+    let many = document.getElementById('status').value
+    alert('Invalid discount code');
+    document.getElementById('status').value = 'No discount'    
+    document.getElementById('discount_value').value = ''; 
+    document.querySelector('#code').value = discount_value; 
+  }else if (discount_value !== 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops > 2 ){
+    let many = document.getElementById('status').value
+    alert('Invalid discount code');
+    document.getElementById('status').value = 'No discount'    
+    document.getElementById('discount_value').value = ''; 
+    document.querySelector('#code').value = discount_value; 
+  }else{
+    alert('contact us for help')
   }
 });
   
