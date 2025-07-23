@@ -466,7 +466,7 @@ nextImg.addEventListener('click', () => updateGallery(index + 1));
     if ( content.style.display = 'block' && isMobileDevice()) {
   console.log('⚠️ Tip: For best performance, close other apps before submitting your design!');
 }
-  }, 1000
+  }, 11000
 );
 
 document.querySelector('#order_collection').addEventListener('click',function(){
