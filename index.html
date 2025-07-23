@@ -560,19 +560,31 @@
 
       
 
-      <section id="my-colours" class="together" style="background-color: rgb(250, 250, 250, 1);">
-        <label style="font-weight:bold;font-size: large;font-family: 'Delius'">Pick a Colour</label>
-        <div class="color-options" style="background-color: rgb(240, 250, 250, 1);">
-          <button id="black" data-colour="Tops/black.jpg" class="choose"></button>
-          <button id="ash" data-colour="Tops/Ash.jpg" class="choose"></button>
-          <button id="white" data-colour="Tops/white.jpg" class="choose"></button>
-          <button id="red" data-colour="Tops/red.jpg" class="choose"></button>
-          <button id="yellow" data-colour="Tops/yellow.jpg" class="choose"></button> &nbsp;&nbsp;
-          <button id="brown" data-colour="Tops/brown.jpg" class="choose"></button>
-          <button id="pink" data-colour="Tops/pink.jpg" class="choose"></button>
-          <button id="seablue" data-colour="Tops/blue.jpg" class="choose"></button>
-        </div>
-      </section>
+     <section id="my-colours" class="together" style="background-color: rgb(250, 250, 250); padding: 20px;">
+  <label style="font-weight:bold;font-size: large;font-family: 'Delius'; display: block; margin-bottom: 10px;">Pick a Colour</label>
+
+  <div class="color-options" style="
+    background-color: rgb(240, 250, 250);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    
+  ">
+
+    <button id="black" data-colour="Tops/black.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: black;"></button>
+    <button id="ash" data-colour="Tops/Ash.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: grey;"></button>
+    <button id="white" data-colour="Tops/white.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #ccc; background-color: white;"></button>
+    <button id="red" data-colour="Tops/red.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: red;"></button>
+
+    <button id="yellow" data-colour="Tops/yellow.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: yellow;"></button>
+    <button id="brown" data-colour="Tops/brown.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: brown;"></button>
+    <button id="pink" data-colour="Tops/pink.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: pink;"></button>
+    <button id="seablue" data-colour="Tops/blue.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: #1e90ff;"></button>
+
+  </div>
+</section>
+
 
       <!-- Hidden Sliding Modal -->
 <div id="gift-modal">
