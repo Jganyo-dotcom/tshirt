@@ -272,7 +272,7 @@ console.log(estimated_amount)
   formData.append('name', form.name?.value || '');
   formData.append('number', form.number?.value || '');
   formData.append('phone', form.phone?.value || '');
-  formData.append('location', form.email?.value || '');
+  formData.append('location', form.location?.value || '');
   formData.append('to_email', form.to_email?.value || '');
   formData.append('size', form.size?.value || '');
   formData.append('notes', form.notes?.value || '');
