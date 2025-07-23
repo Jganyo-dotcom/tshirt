@@ -211,6 +211,7 @@ let estimated_amount
           preview.style.display = 'block';
           document.getElementById('modaltwo').style.display = 'block';
           document.querySelector('#number_number').disabled= false;
+          document.getElementById('discount').disabled= false;
           const intervalid = setInterval(calcuate, 500)
           document.querySelector('#discount').onclick = function(){
             clearInterval(intervalid)
@@ -655,19 +656,24 @@ document.querySelector('#discount').addEventListener('click', function () {
  
 
   // 3. Set amount field (ensure it's just a number string)
-  document.querySelector('#amount').value = `${estimated_amount}`;
-
+  document.querySelector('#amount').value = `GHC${estimated_amount}`;
+ //passed console.log(estimated_amount);
   // 4. Check for discount
   const discount_value = document.getElementById('discount_value').value;
   let priceField = document.querySelector('#amount');
-  let current_price = parseFloat(priceField.value); // <-- convert string to number
-
-  if (discount_value !== 'Elikem' && number_tops >= 2 ) {
-    const new_price = (current_price * 0.90).toFixed(2); // apply 15% discount
+  
+  let current_price = parseFloat(priceField.value.replace(/[^\d\.]/g, '')); // <-- convert string to number
+//console.log(current_price)
+  if (discount_value !== 'Elikem'&& discount_value.trim().length>1 && number_tops >= 2 ) {
+    const new_price = parseFloat((current_price * 0.90).toFixed(2)); // apply 15% discount
+   // console.log(current_price)
+    pina = parseFloat(new_price)
+    //console.log(pina)
     priceField.value =`GHC${new_price}` ; // update input
-    console.log('ei')
+    //console.log(priceField.value)
+   // console.log(new_price)
     document.getElementById('status').value = 'Discount Applied'
-    document.querySelector('#amount').value = new_price
+    document.querySelector('#amount').value = `GHC${new_price}`
     document.getElementById('discount_value').value = '';
     document.getElementById('discount').disabled= true;
     alert(`you could pay GHC${new_price} if backend finds you eligible`)
