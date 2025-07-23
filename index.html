@@ -562,12 +562,12 @@
 
       <section id="my-colours" class="together" style="background-color: rgb(250, 250, 250, 1);">
         <label style="font-weight:bold;font-size: large;font-family: 'Delius'">Pick a Colour</label>
-        <div class="color-options" style="background-color: rgb(240, 250, 250, 1); align-items: center;">
+        <div class="color-options" style="background-color: rgb(240, 250, 250, 1);">
           <button id="black" data-colour="Tops/black.jpg" class="choose"></button>
           <button id="ash" data-colour="Tops/Ash.jpg" class="choose"></button>
           <button id="white" data-colour="Tops/white.jpg" class="choose"></button>
           <button id="red" data-colour="Tops/red.jpg" class="choose"></button>
-          <button id="yellow" data-colour="Tops/yellow.jpg" class="choose"></button><br>
+          <button id="yellow" data-colour="Tops/yellow.jpg" class="choose"></button> &nbsp;&nbsp;
           <button id="brown" data-colour="Tops/brown.jpg" class="choose"></button>
           <button id="pink" data-colour="Tops/pink.jpg" class="choose"></button>
           <button id="seablue" data-colour="Tops/blue.jpg" class="choose"></button>
@@ -579,7 +579,7 @@
   <div class="modal-content">
     <span id="close-modal5">&times;</span>
     <h3>🎉 Surprise!</h3><br>
-    <p>We'll be dropping hot discount codes on our social media pages.</p>
+    <p>We'll be dropping hot discount codes on our WhatsApp Channel.</p>
     <p>Follow, and stay tuned so you don't miss it 😉</p>
     
   </div>
@@ -603,7 +603,7 @@
         <div id="modal-contenttwo">
           <span id="close-modaltwo">&times;</span>
           <h1>ORDER</h1>
-           <div  style="display: flex;"><input type="text" id="discount_value" placeholder="backend verifies eligible customers"> <button id="discount" >Apply Discount</button></div><br>
+           <div  style="display: flex;"><input type="text" id="discount_value" placeholder="Enter code here"> <button id="discount" >Apply Discount</button></div><br>
           <form id="my_first" action="https://tshirt-backend-lr0i.onrender.com/orders/submit_order/" method="POST" enctype="multipart/form-data">
             <label for="name">Full Name:</label>
             <input type="text" name="name" id="name_name" required><br>
@@ -674,14 +674,16 @@
           <div style="display:flex;justify-content: flex-start;gap:8px ;  ">
           <div id="order_specific_form" style="flex:1">
           <h1>ORDER</h1><br>
+          <input id="customized_discount" type="text" placeholder="Enter code here" value="Not eligible" name="phrase"> <button id="apply_discount">Apply discount</button>
           <form id="send_request" action="https://tshirt-backend-lr0i.onrender.com/orders/submit_specific_order/" method="POST" enctype="multipart/form-data">
             
             <label for="name">Full Name: </label> 
             <input type="text" name="name" id="name" required><br><br>
             <label for="number">Number of T-shirts:</label>
-            <input type="number" name="number" id="number" required><br><br>
+            <input type="number" name="number" id="number" value="1" min="1" required><br><br>
             <label for="Location">Location:</label>
             <input type="text" name="location" id="email" required><br><br>
+            <input id="customized_price" type="text" name="price" readonly>
             <input type="hidden" name="id_name" id="id_name" >
             <label for="phone">Your  WhatsAPP  Contact:</label>
             <input type="tel" name="phone" id="phone" placeholder="+233" required><br><br>
@@ -699,9 +701,9 @@
             <textarea name="notes" id="notes" rows="4" cols="40" placeholder="Tell us anything special...(optional)"></textarea><br><br>
             <button id="submit" type="submit">Place Order</button>
           </form>
-          </div>
-          <div style="margin-top: 40px; margin-left: -100px;">
-          <label>Ordering:</label>
+          </div></label><br><br><br><br>
+          <div style="margin-top: 100px; margin-left: -100px;">
+          <label>Ordering:
             <img id="preview_collection" src="Slideshow/showcase1.jpg">
             </div>
           </div>

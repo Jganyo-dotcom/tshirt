@@ -267,6 +267,7 @@ console.log(code)
 console.log(many)
 console.log(number)
 console.log(estimated_amount)
+
   const formData = new FormData();
   formData.append('screenshot_data', compressedFile);
   formData.append('name', form.name?.value || '');
@@ -465,11 +466,15 @@ nextImg.addEventListener('click', () => updateGallery(index + 1));
     if ( content.style.display = 'block' && isMobileDevice()) {
   console.log('⚠️ Tip: For best performance, close other apps before submitting your design!');
 }
-  }, 11000
+  }, 1000
 );
 
 document.querySelector('#order_collection').addEventListener('click',function(){
+  let discountapplied = false;
+  let goahead = false
   document.querySelector('#modalthree').style.display = 'block';
+  let price = 120 
+  document.querySelector('#customized_price').value =  `GHC${price}`
   currentImageSrc =imageElement.src;
   let location_pic = currentImageSrc
   location_pic = location_pic.split('//')[1]
@@ -478,6 +483,71 @@ document.querySelector('#order_collection').addEventListener('click',function(){
   location_pic=location_pic.join('/')
   document.getElementById('preview_collection').src = location_pic
   document.getElementById('id_name').value = currentImageSrc;
+  window.addEventListener('click', (e)=>{
+    let number_tops_customized = parseInt(document.querySelector('#number').value)
+    if (!document.querySelector('#number').contains(e.target) && !discountapplied ){
+      if (number_tops_customized ==='' || isNaN(number_tops_customized)){
+        document.querySelector('#customized_price').value = 'GHC'+ 0
+        return;
+      }else{
+          document.querySelector('#customized_price').value = 'GHC'+ parseInt(number_tops_customized) * 120
+      }
+      
+    }else if(document.querySelector('#number').contains(e.target) && discountapplied){
+      document.querySelector('#customized_price').value = 'GHC'+ number_tops_customized * 120
+      alert('discount removed')
+      discountapplied= false
+    }
+    
+    
+  })
+
+  document.querySelector('#number').addEventListener('input', (e)=>{
+    if(e.target.value===''){
+      document.querySelector('#customized_price').value = 'GHC'+ 0
+      return
+    }else{
+      document.querySelector('#customized_price').value = 'GHC'+ parseInt(e.target.value) * 120
+    goahead = true
+    }
+    
+  })
+  let discount_btn = document.querySelector('#apply_discount')
+  
+  
+  discount_btn.addEventListener('click', ()=>{
+    
+    let price_customized = parseFloat(document.querySelector('#customized_price').value.replace(/[^\d\.]/g, ''))
+    let discount_value_entered = document.querySelector('#customized_discount').value
+      if(discount_value_entered === 'MAKEITYOURS' && document.querySelector('#number').value >= 2 && goahead){
+          if (!discountapplied){
+            console.log(price_customized)
+            let final = price_customized * 0.9
+            document.querySelector('#customized_price').value ='GHC'+ final
+            document.querySelector('#customized_discount').value = '';
+            discountapplied = true;
+            document.querySelector('#customized_discount').value = 'Applied discount'
+            
+           
+            console.log(document.querySelector('#customized_price').value)
+            alert('Discount applied to your order')
+              }else if(discount_value_entered === 'MAKEITYOURS' && document.querySelector('#number').value >= 2 && !goahead){
+                  alert('wait')
+              }else{
+                alert('discount already applied')
+              }
+      }else if (discount_value_entered === 'MAKEITYOURS' && document.querySelector('#number').value < 2 && goahead){
+        alert("You're not eligible for this discount")
+      
+      }else if (discount_value_entered !== 'MAKEITYOURS' && document.querySelector('#number').value < 2){
+        alert("Invalid discount code")
+      }else if (discount_value_entered !== 'MAKEITYOURS' && document.querySelector('#number').value > 2){
+        alert("Invalid discount code")
+      } else{
+        alert('contact us')
+      }
+      
+  })
   document.querySelector('#send_request').addEventListener('submit', function(e){
     e.preventDefault();
     let submit = document.getElementById('submit');
@@ -727,13 +797,28 @@ function calcuate(){
   const giftBtn = document.getElementById("gift");
   const giftModal = document.getElementById("gift-modal");
   const closeModal = document.getElementById("close-modal5");
+ 
+  function disapper(){
+    let mine =  document.querySelector('#gift')
+    mine.style.display = 'none'
+  }
+
+  function appear(){
+    let mine =  document.querySelector('#gift')
+    mine.style.display = 'block'
+  }
+  setInterval(appear,18000)
+
+  setInterval(disapper, 48000)
 
   giftBtn.addEventListener("click", () => {
     giftModal.classList.toggle("show");
+    giftBtn.style.display = 'none'
   });
 
   closeModal.addEventListener("click", () => {
     giftModal.classList.remove("show");
+    document.querySelector('#gift').style.display = 'block'
   });
 
   // Optional: close modal when clicked outside

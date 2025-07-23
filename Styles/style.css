@@ -976,10 +976,11 @@ a {
 
 #gift {
   position: fixed;
-  bottom: 20px;
+  bottom: 120px;
   right: 20px;
   z-index: 9999;
   cursor: pointer;
+  display: none;
 }
 
 #gift img {
