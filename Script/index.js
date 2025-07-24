@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  
+  let discount_is_applied = false
   // Lock/unlock range inputs toggle
   let lock_range = true;
   const lockRangeBtn = document.querySelector('#lock-range');
@@ -168,17 +168,17 @@ const area = length * width;
 
 let estimated_amount
   if (area <= 22500){
-    estimated_amount = 100 
+    estimated_amount = 150 
   };
   if (area > 22500 && area <= 30000){
-    estimated_amount = 120
+    estimated_amount = 150 
   };
 
   if (area > 30000 && area < 34000 ){
-    estimated_amount =  140
+    estimated_amount =  150 
   };
   if (area >=34000 ){
-    estimated_amount =  160
+    estimated_amount =  150 
   };
   
   
@@ -461,7 +461,7 @@ nextImg.addEventListener('click', () => updateGallery(index + 1));
 }
   }, 11000 
 );
-
+let discountapplied = false;
 document.querySelector('#order_collection').addEventListener('click',function(){
   let discountapplied = false;
   let goahead = false
@@ -483,13 +483,13 @@ document.querySelector('#order_collection').addEventListener('click',function(){
         document.querySelector('#customized_price').value = 'GHC'+ 0
         return;
       }else{
-          document.querySelector('#customized_price').value = 'GHC'+ parseInt(number_tops_customized) * 120
+          document.querySelector('#customized_price').value = 'GHC'+ parseInt(number_tops_customized) * 150
       }
       
     }else if(document.querySelector('#number').contains(e.target) && discountapplied){
-      document.querySelector('#customized_price').value = 'GHC'+ number_tops_customized * 120
+      document.querySelector('#customized_price').value = 'GHC'+ number_tops_customized * 150
       alert('discount removed')
-      discountapplied= false
+       discountapplied = false;
     }
     
     
@@ -500,7 +500,7 @@ document.querySelector('#order_collection').addEventListener('click',function(){
       document.querySelector('#customized_price').value = 'GHC'+ 0
       return
     }else{
-      document.querySelector('#customized_price').value = 'GHC'+ parseInt(e.target.value) * 120
+      document.querySelector('#customized_price').value = 'GHC'+ parseInt(e.target.value) * 150
     goahead = true
     }
     
@@ -512,36 +512,31 @@ document.querySelector('#order_collection').addEventListener('click',function(){
     
     let price_customized = parseFloat(document.querySelector('#customized_price').value.replace(/[^\d\.]/g, ''))
     let discount_value_entered = document.querySelector('#customized_discount').value
-      if(discount_value_entered === 'MAKEITYOURS' && document.querySelector('#number').value >= 2 && goahead){
-          if (!discountapplied){
+      if(discountapplied){
+        alert('discount already applied to your order')
+        return;
+      }
+      if(discount_value_entered === 'MAKEITYOURS' && !discountapplied){
+          
             console.log(price_customized)
-            let final = price_customized * 0.9
+            let final = price_customized * 0.8
             document.querySelector('#customized_price').value ='GHC'+ final
             document.querySelector('#customized_discount').value = '';
             discountapplied = true;
             document.querySelector('#listen').value = 'Applied discount'
             
            
-            console.log(document.querySelector('#customized_price').value)
+           
             alert('Discount applied to your order')
-              }else if(discount_value_entered === 'MAKEITYOURS' && document.querySelector('#number').value >= 2 && !goahead){
-                  alert('wait')
-              }else{
-                alert('discount already applied')
-              }
-      }else if (discount_value_entered === 'MAKEITYOURS' && document.querySelector('#number').value < 2 && goahead){
-        alert("You're not eligible for this discount")
-        document.querySelector('#listen').value = 'Not eligible'
-      
-      }else if (discount_value_entered !== 'MAKEITYOURS' && document.querySelector('#number').value < 2){
+              
+      }else if (discount_value_entered !== 'MAKEITYOURS'){
         alert("Invalid discount code")
         document.querySelector('#listen').value = 'Not eligible'
-      }else if (discount_value_entered !== 'MAKEITYOURS' && document.querySelector('#number').value > 2){
-        alert("Invalid discount code")
-        document.querySelector('#listen').value = 'Not eligible'
+         discountapplied = false;
       } else{
-        alert('contact us')
+        alert('An error occurred')
         document.querySelector('#listen').value = 'contact me to attend to this'
+         discountapplied = false;
       }
       
   })
@@ -615,6 +610,7 @@ document.querySelector('#img_place').addEventListener('change', function(){
 
 function isMobileDevice() {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+ 
 }
 
 
@@ -665,7 +661,7 @@ toggle.addEventListener('change', ()=>{
   }
 })
 
-let discount_is_applied = false
+
 
 document.querySelector('#dressing').addEventListener('click',()=>{
   if(document.querySelector('#modal_big')){
@@ -700,6 +696,7 @@ document.querySelector('#gallery-container').addEventListener('click',()=>{
   }
 })
 document.querySelector('#discount').addEventListener('click', function () {
+  console.log(discount_is_applied)
   if(discount_is_applied){
     alert('already applied discount to your order')
     return;
@@ -717,13 +714,13 @@ document.querySelector('#discount').addEventListener('click', function () {
   // 2. Determine the estimated amount based on area
   let estimated_amount;
   if (area <= 22500) {
-    estimated_amount = 100 * number_tops ;
+    estimated_amount = 150 * number_tops ;
   } else if (area <= 30000) {
-    estimated_amount = 120 * number_tops;
+    estimated_amount = 150 * number_tops;
   } else if (area < 34000) {
-    estimated_amount = 140 * number_tops;
+    estimated_amount = 150 * number_tops;
   } else {
-    estimated_amount = 160  * number_tops;
+    estimated_amount = 150  * number_tops;
   }
 
  
@@ -737,8 +734,8 @@ document.querySelector('#discount').addEventListener('click', function () {
   
   let current_price = parseFloat(priceField.value.replace(/[^\d\.]/g, '')); // <-- convert string to number
 //console.log(current_price)
-  if (discount_value === 'MAKEITYOURS' && number_tops >= 2 ) {
-    const new_price = parseFloat((current_price * 0.90).toFixed(2)); // apply 15% discount
+  if (discount_value === 'MAKEITYOURS' ) {
+    const new_price = parseFloat((current_price * 0.80).toFixed(2)); // apply 15% discount
    // console.log(current_price)
     pina = parseFloat(new_price)
     //console.log(pina)
@@ -754,26 +751,18 @@ document.querySelector('#discount').addEventListener('click', function () {
     discount_is_applied= true
 
 
-  } else if (discount_value === 'MAKEITYOURS' && number_tops < 2 ){
-    let many = document.getElementById('status').value
-    alert('Not eligible');
-    document.getElementById('status').value = 'No discount'    
-    document.getElementById('discount_value').value = ''; 
-    document.querySelector('#code').value = discount_value; 
-  }else if (discount_value !== 'MAKEITYOURS' && number_tops < 2 ){
+  
+  }else if (discount_value !== 'MAKEITYOURS'){
     let many = document.getElementById('status').value
     alert('Invalid discount code');
     document.getElementById('status').value = 'No discount'    
     document.getElementById('discount_value').value = ''; 
-    document.querySelector('#code').value = discount_value; 
-  }else if (discount_value !== 'MAKEITYOURS' && number_tops > 1 ){
-    let many = document.getElementById('status').value
-    alert('Invalid discount code');
-    document.getElementById('status').value = 'No discount'    
-    document.getElementById('discount_value').value = ''; 
-    document.querySelector('#code').value = discount_value; 
+    document.querySelector('#code').value = discount_value;
+    discount_is_applied=  false
   }else{
     alert('An error occured')
+     discount_is_applied=  false
+     document.getElementById('status').value = 'Discount Applied'
   }
 });
   
@@ -792,13 +781,13 @@ function calcuate(){
   // 2. Determine the estimated amount based on area
   let estimated_amount;
   if (area <= 22500) {
-    estimated_amount = 100  ;
+    estimated_amount = 150  ;
   } else if (area <= 30000) {
-    estimated_amount = 120 
+    estimated_amount = 150  
   } else if (area < 34000) {
-    estimated_amount = 140 
+    estimated_amount = 150  
   } else {
-    estimated_amount = 160  
+    estimated_amount = 150   
   }
   
   let number_shirts = document.querySelector('#number_number').value
@@ -809,6 +798,40 @@ function calcuate(){
   final_Amount = estimated_amount * number_shirts
   
   document.querySelector('#amount').value = `GHC${final_Amount}`;
+ 
+  
+}
+
+function calculate(){
+  // 1. Get dimensions of the design
+  const length = document.querySelector('#sizes_design').offsetHeight;
+  const width = document.querySelector('#sizes_design').offsetWidth;
+  const area = length * width;
+   //get the number of shirts the person is buying 
+  let number = document.querySelector('#number_number').value;
+  let number_tops = parseInt(number)
+
+  // 2. Determine the estimated amount based on area
+  let estimated_amount;
+  if (area <= 22500) {
+    estimated_amount = 150  ;
+  } else if (area <= 30000) {
+    estimated_amount = 150  
+  } else if (area < 34000) {
+    estimated_amount = 150  
+  } else {
+    estimated_amount = 150   
+  }
+  
+  let number_shirts = document.querySelector('#number_number').value
+
+  let pricee = document.querySelector('#amount').value.replace(/[^\d\.]/g, '');
+  
+  let price = parseFloat(pricee)
+  final_Amount = estimated_amount * number_shirts
+  
+  document.querySelector('#amount').value = `GHC${final_Amount}`;
+  discount_is_applied =false
   
 }
 
@@ -824,13 +847,13 @@ function calc_discount(){
   // 2. Determine the estimated amount based on area
   let estimated_amount;
   if (area <= 22500) {
-    estimated_amount = 100 * number_tops ;
+    estimated_amount = 150  * number_tops ;
   } else if (area <= 30000) {
-    estimated_amount = 120 * number_tops;
+    estimated_amount = 150  * number_tops;
   } else if (area < 34000) {
-    estimated_amount = 140 * number_tops;
+    estimated_amount = 150  * number_tops;
   } else {
-    estimated_amount = 160  * number_tops;
+    estimated_amount = 150   * number_tops;
   }
 
  
@@ -847,13 +870,8 @@ function calc_discount(){
 };
 
 document.querySelector('#number_number').addEventListener('input', function(){
-  if(!discount_is_applied){
-       calcuate()
-  }else{
-    
-    calc_discount()
-   
-  }
+  discount_is_applied = false;
+  calcuate()
       
 })
 
@@ -890,6 +908,15 @@ document.querySelector('#number_number').addEventListener('input', function(){
       giftModal.classList.remove("show");
     }
   });
+let inter;
+function tellem(){
+   if(!confirm('if your custmized shirts is taking long to uplaod kindly clear recent apps on device')){
+    return;
+   }else{
+     clearInterval(inter)
+   }
+}
 
+inter = setInterval(tellem,30000)
 
 });
