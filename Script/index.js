@@ -766,14 +766,14 @@ document.querySelector('#discount').addEventListener('click', function () {
     document.getElementById('status').value = 'No discount'    
     document.getElementById('discount_value').value = ''; 
     document.querySelector('#code').value = discount_value; 
-  }else if (discount_value !== 'MAKEITYOURS' && number_tops > 2 ){
+  }else if (discount_value !== 'MAKEITYOURS' && number_tops > 1 ){
     let many = document.getElementById('status').value
     alert('Invalid discount code');
     document.getElementById('status').value = 'No discount'    
     document.getElementById('discount_value').value = ''; 
     document.querySelector('#code').value = discount_value; 
   }else{
-    alert('contact us for help')
+    alert('An error occured')
   }
 });
   
