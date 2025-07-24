@@ -210,14 +210,10 @@ let estimated_amount
           preview.src = URL.createObjectURL(blob);
           preview.style.display = 'block';
           document.getElementById('modaltwo').style.display = 'block';
-          document.querySelector('#number_number').disabled= false;
-          document.getElementById('discount').disabled= false;
-          const intervalid = setInterval(calcuate, 500)
-          document.querySelector('#discount').onclick = function(){
-            clearInterval(intervalid)
-            document.querySelector('#number_number').disabled= true;
-          }
-
+          
+          
+          
+          
           // 3️ Re‑enable animations/transitions
           dressingDiv.style.animation = '';
           dressingDiv.querySelector('.design').style.animation = '';
@@ -263,10 +259,7 @@ let many = document.getElementById('status').value;
 let code = document.querySelector('#code').value
 let number = document.querySelector('#number_number').value
 let estimated_amount = document.querySelector('#amount').value
-console.log(code)
-console.log(many)
-console.log(number)
-console.log(estimated_amount)
+
 
   const formData = new FormData();
   formData.append('screenshot_data', compressedFile);
@@ -672,7 +665,7 @@ toggle.addEventListener('change', ()=>{
   }
 })
 
-
+let discount_is_applied = false
 
 document.querySelector('#dressing').addEventListener('click',()=>{
   if(document.querySelector('#modal_big')){
@@ -707,6 +700,12 @@ document.querySelector('#gallery-container').addEventListener('click',()=>{
   }
 })
 document.querySelector('#discount').addEventListener('click', function () {
+  if(discount_is_applied){
+    alert('already applied discount to your order')
+    return;
+    
+  }
+  
   // 1. Get dimensions of the design
   const length = document.querySelector('#sizes_design').offsetHeight;
   const width = document.querySelector('#sizes_design').offsetWidth;
@@ -738,7 +737,7 @@ document.querySelector('#discount').addEventListener('click', function () {
   
   let current_price = parseFloat(priceField.value.replace(/[^\d\.]/g, '')); // <-- convert string to number
 //console.log(current_price)
-  if (discount_value === 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops >= 2 ) {
+  if (discount_value === 'MAKEITYOURS' && number_tops >= 2 ) {
     const new_price = parseFloat((current_price * 0.90).toFixed(2)); // apply 15% discount
    // console.log(current_price)
     pina = parseFloat(new_price)
@@ -749,24 +748,25 @@ document.querySelector('#discount').addEventListener('click', function () {
     document.getElementById('status').value = 'Discount Applied'
     document.querySelector('#amount').value = `GHC${new_price}`
     document.getElementById('discount_value').value = '';
-    document.getElementById('discount').disabled= true;
-    alert('discount applied')
+    
+    alert('discount applied to your order')
     document.querySelector('#code').value = discount_value;
+    discount_is_applied= true
 
 
-  } else if (discount_value === 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops < 2 ){
+  } else if (discount_value === 'MAKEITYOURS' && number_tops < 2 ){
     let many = document.getElementById('status').value
     alert('Not eligible');
     document.getElementById('status').value = 'No discount'    
     document.getElementById('discount_value').value = ''; 
     document.querySelector('#code').value = discount_value; 
-  }else if (discount_value !== 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops < 2 ){
+  }else if (discount_value !== 'MAKEITYOURS' && number_tops < 2 ){
     let many = document.getElementById('status').value
     alert('Invalid discount code');
     document.getElementById('status').value = 'No discount'    
     document.getElementById('discount_value').value = ''; 
     document.querySelector('#code').value = discount_value; 
-  }else if (discount_value !== 'MAKEITYOURS'&& discount_value.trim().length>1 && number_tops > 2 ){
+  }else if (discount_value !== 'MAKEITYOURS' && number_tops > 2 ){
     let many = document.getElementById('status').value
     alert('Invalid discount code');
     document.getElementById('status').value = 'No discount'    
@@ -811,6 +811,51 @@ function calcuate(){
   document.querySelector('#amount').value = `GHC${final_Amount}`;
   
 }
+
+function calc_discount(){
+  // 1. Get dimensions of the design
+  const length = document.querySelector('#sizes_design').offsetHeight;
+  const width = document.querySelector('#sizes_design').offsetWidth;
+  const area = length * width;
+   //get the number of shirts the person is buying 
+  let number = document.querySelector('#number_number').value;
+  let number_tops = parseInt(number)
+
+  // 2. Determine the estimated amount based on area
+  let estimated_amount;
+  if (area <= 22500) {
+    estimated_amount = 100 * number_tops ;
+  } else if (area <= 30000) {
+    estimated_amount = 120 * number_tops;
+  } else if (area < 34000) {
+    estimated_amount = 140 * number_tops;
+  } else {
+    estimated_amount = 160  * number_tops;
+  }
+
+ 
+
+  // 3. Set amount field (ensure it's just a number string)
+  if (!isNaN(estimated_amount) ){
+    document.querySelector('#amount').value = `GHC${estimated_amount}`;
+  console.log('got here')
+  }else{
+    document.querySelector('#amount').value = 'GHC'+ 0;
+  }
+  
+ 
+};
+
+document.querySelector('#number_number').addEventListener('input', function(){
+  if(!discount_is_applied){
+       calcuate()
+  }else{
+    
+    calc_discount()
+   
+  }
+      
+})
 
   const giftBtn = document.getElementById("gift");
   const giftModal = document.getElementById("gift-modal");
