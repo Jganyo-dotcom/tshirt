@@ -910,7 +910,7 @@ document.querySelector('#number_number').addEventListener('input', function(){
   });
 let inter;
 function tellem(){
-   if(!confirm('if your custmized shirts is taking long to uplaod kindly clear recent apps on device')){
+   if(!confirm('if your custmized shirts is taking long to upload kindly clear recent apps on device')){
     return;
    }else{
      clearInterval(inter)
