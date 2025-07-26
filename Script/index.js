@@ -317,13 +317,7 @@ let estimated_amount = document.querySelector('#amount').value
     img.style.objectFit = 'contain';
   }
 
-  // Connection warning on slow load
-  window.addEventListener('load', () => {
-    const [navEntry] = performance.getEntriesByType('navigation');
-    if (navEntry && navEntry.duration > 10000) {
-      document.getElementById('connection-warning').style.display = 'block';
-    }
-  });
+ 
 
   // Fallback if load doesn't fire
   setTimeout(() => {
