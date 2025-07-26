@@ -6,7 +6,7 @@
   "@type": "Product",
   "name": "Custom Round-Neck T-Shirt",
   "image": [
-    "https://edition.kagoventures.com/images/showcase34.jpg""
+    "https://edition.kagoventures.com/images/showcase34.jpg"
   ],
   "description": "Design and customize your own round-neck T-shirt. Upload images, choose designs, and personalize colors.",
   "brand": {
@@ -17,7 +17,7 @@
     "@type": "Offer",
     "url": "https://edition.kagoventures.com",
     "priceCurrency": "GHS",
-    "price": "90",
+    "price": "150",
     "availability": "https://schema.org/InStock"
   }
 }
@@ -37,6 +37,7 @@
 </script>
 
   <title>Customize Your Round Neck</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <!-- SEO Meta Tags -->
 <meta name="description" content="Customize your own round-neck T-shirt with unique colors, designs, and image uploads. Perfect for personal or business branding.">
@@ -46,7 +47,7 @@
 <!-- Open Graph (Facebook) -->
 <meta property="og:title" content="Customize Your Round Neck Shirt">
 <meta property="og:description" content="Design your own round-neck T-shirt with colors, uploaded images, and cool designs.">
-<meta property="og:image" content="https://edition.kagoventures.com/images/showcase9.jpg">
+<meta property="og:image" content="https://edition.kagoventures.com/images/showcase9.webp">
 <meta property="og:url" content="https://edition.kagoventures.com">
 <meta property="og:type" content="website">
 
@@ -54,7 +55,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Customize Your Round Neck Shirt">
 <meta name="twitter:description" content="Design your own T-shirt with images, color choices, and creative freedom.">
-<meta name="twitter:image" content="https://edition.kagoventures.com/images/showcase34.jpg">
+<meta name="twitter:image" content="https://edition.kagoventures.com/images/showcase34.webp">
 <meta property="og:url" content="https://edition.kagoventures.com">
 
 
@@ -96,49 +97,45 @@
 
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <link rel="preload"
-        href="Tops/white.jpg"
+        href="Tops/white.webp"
         as="image"
-        type="image/jpg"
+        type="image/webp"
         fetchpriority="high" />
   <link rel="preload"
-        href="Tops/red.jpg"
+        href="Tops/red.webp"
         as="image"
-        type="image/jpg"
+        type="image/webp"
         fetchpriority="high" />
   <link rel="preload"
-        href="Tops/black.jpg"
+        href="Tops/black.webp"
         as="image"
-        type="image/jpg"
+        type="image/webp"
         fetchpriority="high" />
   <link rel="preload"
-        href="Tops/yellow.jpg"
+        href="Tops/yellow.webp"
         as="image"
-        type="image/jpg"
+        type="image/webp"
         fetchpriority="high" />
-  <link rel="preload"
-        href="Tops/green.png"
+  
+<link rel="preload"
+        href="Tops/pink.webp"
         as="image"
-        type="image/png"
+        type="image/webp"
         fetchpriority="high" />
 <link rel="preload"
-        href="Tops/pink.jpg"
+        href="Tops/Ash.webp"
         as="image"
-        type="image/jpg"
+        type="image/webp"
         fetchpriority="high" />
 <link rel="preload"
-        href="Tops/Ash.jpg"
+        href="Slideshow/showcase9.webp"
         as="image"
-        type="image/jpg"
+        type="image/webp"
         fetchpriority="high" />
 <link rel="preload"
-        href="Slideshow/showcase9.jpg"
+        href="Designs/1.webp"
         as="image"
-        type="image/jpg"
-        fetchpriority="high" />
-<link rel="preload"
-        href="Designs/1.png"
-        as="image"
-        type="image/jpg"
+        type="image/webp"
         fetchpriority="high" />
 </head>
 
@@ -182,8 +179,8 @@
 
     <main>
       <div id="dressing" style="overflow: hidden;">
-        <img id="t-shirt" src="Tops/black.jpg" alt="error" />
-        <img class="design" id="sizes_design" src="Designs/1.png" onerror="handleerror(this)" alt="design" />
+        <img id="t-shirt" src="Tops/black.webp" alt="error" />
+        <img class="design" id="sizes_design" src="Designs/1.webp" onerror="handleerror(this)" alt="design" />
       </div>
 
       <button id="modal-button">&#9776;</button>
@@ -250,354 +247,348 @@
               <img id="uploaded" loading="lazy" alt="error" class="change design-img" style="display:none"  />
               <input id="img_place" type="file" accept="image/*" style="display:none"  >
             </div>
-            <div class="design-wrapper">
-              <img src="Designs/1.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/1.png" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/4.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/4.png" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/3.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/3.png" />
-            </div>
-            
-            <div class="design-wrapper">
-              <img src="Designs/5.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/5.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/6.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/6.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/7.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/7.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/8.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/8.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/9.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/9.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/10.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/10.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/11.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/11.png" onerror="handleerror(this)" />
-            </div>
-           
-            <div class="design-wrapper">
-              <img src="Designs/13.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/13.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/14.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/14.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/15.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/15.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/16.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/16.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/17.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/17.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/18.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/18.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/19.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/19.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/35.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/35.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/31.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/31.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/18.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/18.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/20.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/20.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/21.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/21.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/22.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/22.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/23.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/23.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/24.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/24.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/25.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/25.png" onerror="handleerror(this)" />
-            </div>
-            
-            <div class="design-wrapper">
-              <img src="Designs/28.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/28.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: yellow;">
-              <img src="Designs/29.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/29.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/30.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/30.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/32.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/32.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/34.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/34.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: red;">
-              <img src="Designs/36.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/36.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/37.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/37.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/38.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/38.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/39.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/39.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: yellow;">
-              <img src="Designs/33.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/33.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/41.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/41.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/43.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/43.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/26.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/26.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/45.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/45.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/47.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/47.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/51.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/51.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/50.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/50.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/52.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/52.png" onerror="handleerror(this)" />
-            </div>
                         <div class="design-wrapper">
-              <img src="Designs/53.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/53.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/54.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/54.png" onerror="handleerror(this)" />
-            </div>
-            
-            
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/57.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/57.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/58.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/58.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/59.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/59.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/60.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/60.png" onerror="handleerror(this)" />
-            </div>
-            
-            <div class="design-wrapper" style="background-color: red;">
-              <img src="Designs/62.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/62.png" onerror="handleerror(this)" />
-            </div>
-            
-          
-           <div class="design-wrapper">
-              <img src="Designs/65.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/65.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/66.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/66.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/67.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/67.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/68.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/68.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/69.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/69.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/72.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/72.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/71.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/71.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/73.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/73.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/74.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/74.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/75.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/75.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/76.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/76.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/77.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/77.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/78.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/78.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/79.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/79.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/81.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/811.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/82.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/82.png" onerror="handleerror(this)" />
-            </div>
-             <div class="design-wrapper">
-              <img src="Designs/83.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/83.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/84.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/84.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/85.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/85.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/86.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/86.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/87.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/87.png" onerror="handleerror(this)" />
-            </div>
-           <div class="design-wrapper">
-              <img src="Designs/88.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/88.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/89.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/89.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/90.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/90.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/91.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/91png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/92.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/92.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/93.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/93.png" onerror="handleerror(this)" />
-            </div>
-          <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/94.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/94.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/95.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/95.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/96.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/96.png" onerror="handleerror(this)" />
-            </div>
-             <div class="design-wrapper">
-              <img src="Designs/97.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/97.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/98.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/98.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/99.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/99.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/100.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/100.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/101.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/101.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/102.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/102.png" onerror="handleerror(this)" />
-            </div>
-             <div class="design-wrapper">
-              <img src="Designs/103.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/103.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/104.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/104.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/105.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/105.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/106.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/106.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/107.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/107.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/108.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/108.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/109.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/109.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/110.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/110.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/111.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/111.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/112.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/112.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/113.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/113.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/114.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/114.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/115.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/115.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/116.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/116.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/117.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/117.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/118.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/118.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/119.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/119.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/120.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/120.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/121.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/121.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/122.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/122.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: yellow">
-              <img src="Designs/123.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/123.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/124.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/124.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper">
-              <img src="Designs/125.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/125.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/126.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/126.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/127.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/127.png" onerror="handleerror(this)" />
-            </div>
-            <div class="design-wrapper" style="background-color: black;">
-              <img src="Designs/128.png" loading="lazy" alt="error" class="change design-img" data-src="Designs/128.png" onerror="handleerror(this)" />
-            </div>
-            
+    <img src="Designs/1.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/1.webp" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/4.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/4.webp" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/3.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/3.webp" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/5.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/5.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/6.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/6.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/7.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/7.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/8.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/8.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/9.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/9.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/10.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/10.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/11.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/11.webp" onerror="handleerror(this)" />
+  </div>
+
+           
+  <div class="design-wrapper">
+    <img src="Designs/13.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/13.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/14.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/14.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/15.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/15.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/16.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/16.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/17.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/17.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/18.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/18.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/19.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/19.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/35.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/35.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/31.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/31.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/18.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/18.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/20.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/20.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/21.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/21.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/22.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/22.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/23.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/23.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/24.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/24.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/25.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/25.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/28.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/28.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: yellow;">
+    <img src="Designs/29.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/29.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/30.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/30.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/32.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/32.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/34.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/34.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: red;">
+    <img src="Designs/36.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/36.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/37.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/37.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/38.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/38.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/39.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/39.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: yellow;">
+    <img src="Designs/33.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/33.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/41.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/41.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/43.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/43.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/26.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/26.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/45.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/45.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/47.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/47.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper" style="background-color: black;">
+    <img src="Designs/51.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/51.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/50.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/50.webp" onerror="handleerror(this)" />
+  </div>
+  <div class="design-wrapper">
+    <img src="Designs/52.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/52.webp" onerror="handleerror(this)" />
+  </div>
+
+<div class="design-wrapper">
+  <img src="Designs/53.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/53.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/54.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/54.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/57.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/57.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/58.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/58.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/59.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/59.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/60.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/60.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: red;">
+  <img src="Designs/62.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/62.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/65.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/65.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/66.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/66.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/67.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/67.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/68.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/68.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/69.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/69.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/72.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/72.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/71.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/71.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/73.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/73.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/74.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/74.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/75.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/75.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/76.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/76.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/77.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/77.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/78.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/78.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/79.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/79.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/81.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/811.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/82.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/82.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/83.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/83.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/84.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/84.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/85.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/85.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/86.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/86.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/87.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/87.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/88.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/88.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/89.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/89.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/90.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/90.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/91.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/91.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/92.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/92.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/93.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/93.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/94.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/94.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/95.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/95.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/96.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/96.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/97.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/97.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/98.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/98.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/99.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/99.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/100.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/100.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/101.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/101.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/102.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/102.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/103.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/103.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/104.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/104.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/105.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/105.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/106.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/106.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/107.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/107.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/108.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/108.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/109.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/109.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/110.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/110.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/111.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/111.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/112.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/112.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/113.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/113.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/114.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/114.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/115.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/115.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/116.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/116.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/117.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/117.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/118.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/118.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/119.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/119.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/120.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/120.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/121.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/121.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/122.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/122.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: yellow">
+  <img src="Designs/123.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/123.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/124.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/124.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper">
+  <img src="Designs/125.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/125.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/126.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/126.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/127.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/127.webp" onerror="handleerror(this)" />
+</div>
+<div class="design-wrapper" style="background-color: black;">
+  <img src="Designs/128.webp" loading="lazy" alt="error" class="change design-img" data-src="Designs/128.webp" onerror="handleerror(this)" />
+</div>           
 
           </div>
         </div>
@@ -627,15 +618,15 @@
     justify-content: space-between;
   ">
 
-    <button id="black" data-colour="Tops/black.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: black;"></button>
-    <button id="ash" data-colour="Tops/Ash.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: grey;"></button>
-    <button id="white" data-colour="Tops/white.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #ccc; background-color: white;"></button>
-    <button id="red" data-colour="Tops/red.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: red;"></button>
+    <button id="black" data-colour="Tops/black.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: black;"></button>
+    <button id="ash" data-colour="Tops/Ash.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: grey;"></button>
+    <button id="white" data-colour="Tops/white.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: 1px solid #ccc; background-color: white;"></button>
+    <button id="red" data-colour="Tops/red.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: red;"></button>
 
-    <button id="yellow" data-colour="Tops/yellow.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: yellow;"></button>
-    <button id="brown" data-colour="Tops/brown.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: brown;"></button>
-    <button id="pink" data-colour="Tops/pink.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: pink;"></button>
-    <button id="seablue" data-colour="Tops/blue.jpg" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: #1e90ff;"></button>
+    <button id="yellow" data-colour="Tops/yellow.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: yellow;"></button>
+    <button id="brown" data-colour="Tops/brown.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: brown;"></button>
+    <button id="pink" data-colour="Tops/pink.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: pink;"></button>
+    <button id="seablue" data-colour="Tops/blue.webp" class="choose" style="width: 50px; height: 50px; border-radius: 50%; border: none; background-color: #1e90ff;"></button>
 
   </div>
 </section>
@@ -720,15 +711,15 @@
 
   <div class="slideshow-wrapper">
     <!-- Previous Image Preview -->
-    <img class="side-preview" id="prev-preview" src="Slideshow/showcase9.jpg" alt="Previous">
+    <img class="side-preview" id="prev-preview" src="Slideshow/showcase9.webp" alt="Previous">
 
     <!-- Main Image -->
     <div class="image-frame">
-      <img id="gallery-image" src="Slideshow/showcase1.jpg" alt="Main Image" onerror="handleerror(this)">
+      <img id="gallery-image" src="Slideshow/showcase1.webp" alt="Main Image" onerror="handleerror(this)">
     </div>
     
     <!-- Next Image Preview -->
-    <img class="side-preview" id="next-preview" src="Slideshow/showcase20.jpg" alt="Next">
+    <img class="side-preview" id="next-preview" src="Slideshow/showcase20.webp" alt="Next">
   </div>
 
   <button id="order_collection" >I want this</button><br>
@@ -781,17 +772,17 @@
       
   </div>
   <div id="no_use">
-    <img class="non" src="Slideshow/showcase9.jpg">
-    <img class="non" src="Tops/black.jpg">
-    <img class="non" src="Tops/white.jpg">
-    <img class="non" src="Tops/Ash.jpg">
-    <img class="non" src="Tops/green.png">
-    <img class="non" src="Tops/red.jpg">
-    <img class="non" src="Tops/blue.jpg">
-    <img class="non" src="Tops/yellow.jpg">
-    <img class="non"src="Tops/pink.jpg">
-    <img class="non" src="Tops/white.jpg">
-    <img class="non" src="Designs/1.png">
+    <img class="non" src="Slideshow/showcase9.webp">
+    <img class="non" src="Tops/black.webp">
+    <img class="non" src="Tops/white.webp">
+    <img class="non" src="Tops/Ash.webp">
+  
+    <img class="non" src="Tops/red.webp">
+    <img class="non" src="Tops/blue.webp">
+    <img class="non" src="Tops/yellow.webp">
+    <img class="non"src="Tops/pink.webp">
+    <img class="non" src="Tops/white.webp">
+    <img class="non" src="Designs/1.webp">
   </div><br>
   </div>
 </body>
