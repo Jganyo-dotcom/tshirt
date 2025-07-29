@@ -150,84 +150,63 @@ document.addEventListener('DOMContentLoaded', function () {
   // Order modal and screenshot logic
   let compressedFile = null;
 
-  document.getElementById('show-order').addEventListener('click', function () {
+document.getElementById('show-order').addEventListener('click', function () {
   if (!confirm('Are you ready to upload your design and place your order?')) return;
 
   const dressingDiv = document.getElementById('dressing');
-  const loader     = document.querySelector('.css-spinner');
-
-
-    //calculating the amount using the area of the design 
-const length = document.querySelector('#sizes_design').offsetHeight;
-const width = document.querySelector('#sizes_design').offsetWidth;
-
-const area = length * width;
-
- 
- 
-
-let estimated_amount
-  if (area <= 22500){
-    estimated_amount = 150 
-  };
-  if (area > 22500 && area <= 30000){
-    estimated_amount = 150 
-  };
-
-  if (area > 30000 && area < 34000 ){
-    estimated_amount =  150 
-  };
-  if (area >=34000 ){
-    estimated_amount =  150 
-  };
-  
-  
-
-  document.querySelector('#amount').value = `GHC${estimated_amount}`
+  const loader = document.querySelector('.css-spinner');
   const btntxt = document.querySelector('#temp');
-  
+
+  // Area-based pricing
+  const length = document.querySelector('#sizes_design').offsetHeight;
+  const width = document.querySelector('#sizes_design').offsetWidth;
+  const area = length * width;
+
+  let estimated_amount;
+  if (area <= 22500) estimated_amount = 150;
+  if (area > 22500 && area <= 30000) estimated_amount = 150;
+  if (area > 30000 && area < 34000) estimated_amount = 150;
+  if (area >= 34000) estimated_amount = 150;
+
+  document.querySelector('#amount').value = `GHC${estimated_amount}`;
+
+  // UI feedback
   btntxt.style.display = 'none';
   loader.style.display = 'inline-block';
- // Start timer for html2canvas render
- 
-  // 1 Disable your entry animations/transitions
+
+  // Disable animations
   dressingDiv.style.animation = 'none';
   dressingDiv.querySelector('.design').style.animation = 'none';
   dressingDiv.querySelector('.design').style.transition = 'none';
 
-  // 2️ Give the browser time to finish loading assets & settle styles
   setTimeout(() => {
-    html2canvas(dressingDiv, { useCORS: true, scale: 1 })
-      .then(canvas => {
-        canvas.toBlob(blob => {
-          loader.style.display = 'none';
-          btntxt.style.display = 'block';
-          if (!blob) return alert('❌ Failed to get design image.');
-
-          // Build your File, show preview & modal
-          compressedFile = new File([blob], 'design.webp', { type: 'image/webp' });
-          const preview = document.getElementById('preview');
-          preview.src = URL.createObjectURL(blob);
-          preview.style.display = 'block';
-          document.getElementById('modaltwo').style.display = 'block';
-          
-          
-          
-          
-          // 3️ Re‑enable animations/transitions
-          dressingDiv.style.animation = '';
-          dressingDiv.querySelector('.design').style.animation = '';
-          dressingDiv.querySelector('.design').style.transition = '';
-        }, 'image/webp', 0.5);
-      })
-      .catch(error => {
-        const loader     = document.querySelector('.css-spinner');
+    domtoimage.toBlob(dressingDiv, { quality: 0.95, bgcolor: '#ffffff' })
+      .then(function (blob) {
         loader.style.display = 'none';
-        console.error(error);
+        btntxt.style.display = 'block';
+
+        if (!blob) return alert('❌ Failed to get design image.');
+
+        compressedFile = new File([blob], 'design.webp', { type: 'image/webp' });
+
+        const preview = document.getElementById('preview');
+        preview.src = URL.createObjectURL(blob);
+        preview.style.display = 'block';
+        document.getElementById('modaltwo').style.display = 'block';
+
+        // Re-enable animations
+        dressingDiv.style.animation = '';
+        dressingDiv.querySelector('.design').style.animation = '';
+        dressingDiv.querySelector('.design').style.transition = '';
+      })
+      .catch(function (error) {
+        loader.style.display = 'none';
+        console.error('dom-to-image failed:', error);
         alert('❌ Screenshot failed.');
       });
-  }, 150);  // ← tweak this delay (100–200 ms) as needed
+  }, 150);
 });
+
 
 
   // Form submit
